@@ -1,0 +1,1638 @@
+
+<!DOCTYPE html>
+<html lang="id" class="dark h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ESQ 165 - Modern Spiritual | Deka Sonjaya</title>
+    <meta name="description" content="Aplikasi Web Interaktif PWA ESQ 165 - Emotional Spiritual Quotient oleh Deka Sonjaya">
+    <meta name="theme-color" content="#050811">
+    
+    <!-- PWA Web App Capable Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ESQ 165">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            300: '#ffe57f',
+                            400: '#ffd54f',
+                            500: '#ffca28',
+                            600: '#ffb300',
+                            700: '#ff8f00',
+                            glow: '#ffd700'
+                        },
+                        obsidian: {
+                            800: '#0f172a',
+                            900: '#090d16',
+                            950: '#050811'
+                        },
+                        emerald: {
+                            800: '#064e3b',
+                            850: '#063019',
+                            950: '#021a0e'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        quran: ['Amiri', 'Scheherazade New', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & FontAwesome 6 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800;900&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Custom Modern Dark Luxury Styling Tokens */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050811;
+            color: #f8fafc;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .quran-text {
+            font-family: 'Amiri', 'Scheherazade New', serif;
+            color: #fbbf24;
+            text-shadow: 0 0 18px rgba(251, 191, 36, 0.5);
+            direction: rtl;
+            line-height: 2.3;
+        }
+
+        .gold-glow-text {
+            color: #ffd700;
+            text-shadow: 0 0 16px rgba(255, 215, 0, 0.65);
+        }
+
+        .gold-glow-box {
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.16);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .glass-panel {
+            background: rgba(9, 13, 22, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 215, 0, 0.22);
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 215, 0, 0.18);
+        }
+
+        /* Custom Gold & Emerald Scrollbars */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(5, 8, 17, 0.9);
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #f59e0b, #10b981);
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #ffd700;
+        }
+
+        .bg-radial-glow {
+            background: radial-gradient(circle at 50% 35%, rgba(16, 185, 129, 0.18) 0%, rgba(5, 8, 17, 0.98) 75%);
+        }
+
+        @keyframes pulse-slow {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.04); opacity: 1; }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 3.5s infinite ease-in-out;
+        }
+
+        .slide-viewport {
+            max-height: calc(100vh - 135px);
+        }
+
+        .clickable-node {
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+        .clickable-node:hover {
+            filter: drop-shadow(0 0 10px #ffd700);
+            transform: scale(1.15);
+        }
+    </style>
+</head>
+<body class="h-full antialiased text-slate-100 flex flex-col justify-between selection:bg-amber-500 selection:text-black">
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="app" class="relative h-screen w-full flex flex-col justify-between overflow-hidden">
+        
+        <!-- ========================================== -->
+        <!-- HALAMAN 1: LANDING / COVER VIEW            -->
+        <!-- ========================================== -->
+        <section id="landing-view" class="relative h-full w-full flex flex-col justify-between items-center bg-radial-glow p-4 md:p-8 transition-opacity duration-700 z-20 overflow-y-auto custom-scrollbar">
+            <!-- Background Image Overlay -->
+            <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <img src="background.jpg" alt="Background Pejuang Subuh" class="w-full h-full object-cover object-center opacity-30 scale-105" onerror="this.src='https://images.unsplash.com/photo-1519817650390-64a93db51149?q=80&w=1600&auto=format&fit=crop'">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#050811] via-[#050811]/80 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-[#050811]/90 via-transparent to-[#050811]"></div>
+            </div>
+
+            <!-- Header Bar Landing -->
+            <div class="relative z-10 w-full max-w-5xl flex justify-between items-center py-2 shrink-0">
+                <div class="flex items-center space-x-2">
+                    <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                    <span id="online-status-landing" class="text-xs font-semibold text-emerald-400 uppercase tracking-widest bg-emerald-950/90 px-3 py-1 rounded-full border border-emerald-500/40">Online Mode</span>
+                </div>
+                <button id="pwa-install-btn-landing" onclick="triggerPwaInstall()" class="hidden text-xs font-medium bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 px-3.5 py-1.5 rounded-full transition flex items-center gap-2 backdrop-blur-md">
+                    <i class="fa-solid fa-download text-amber-400"></i> Install Aplikasi
+                </button>
+            </div>
+
+            <!-- Center Content Landing -->
+            <div class="relative z-10 my-auto w-full max-w-2xl text-center flex flex-col items-center space-y-6 py-6 shrink-0">
+                <!-- Emblem Torch Logo -->
+                <div class="relative group">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-amber-500 to-emerald-500 rounded-full blur-2xl opacity-40 group-hover:opacity-75 transition duration-1000 animate-pulse-slow"></div>
+                    <div class="relative w-40 h-40 md:w-48 md:h-48 rounded-full p-1.5 bg-gradient-to-b from-amber-300 via-amber-500 to-emerald-900 gold-glow-box flex items-center justify-center bg-slate-950 shadow-2xl">
+                        <img src="logo.png" alt="Logo Para Pejuang Subuh" class="w-full h-full object-contain rounded-full p-1" onerror="this.onerror=null; this.src='https://placehold.co/300x300/050811/ffd700?text=Obor+Emas+165'">
+                    </div>
+                </div>
+
+                <!-- Nama Label TUNGGAL: Deka Sonjaya -->
+                <div class="space-y-1">
+                    <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-100 gold-glow-text">
+                        Deka Sonjaya
+                    </h1>
+                    <p class="text-emerald-400 font-bold tracking-widest text-sm md:text-base uppercase">
+                        Modern Spiritual
+                    </p>
+                </div>
+
+                <!-- Quote Motivasi -->
+                <div class="glass-card p-5 rounded-2xl max-w-xl shadow-2xl border border-amber-500/30">
+                    <p class="text-slate-200 text-sm md:text-base leading-relaxed italic font-light">
+                        "Menyatukan Kecerdasan Intelektual, Emosional, dan Spiritual Menuju Manusia Paripurna."
+                    </p>
+                </div>
+
+                <!-- Button Enter -->
+                <button onclick="switchView('main')" class="group relative inline-flex items-center justify-center px-10 py-4 text-base font-extrabold text-slate-950 transition-all duration-300 ease-out bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 rounded-full shadow-xl hover:shadow-amber-500/50 hover:scale-105 active:scale-95 cursor-pointer border border-amber-200">
+                    <span class="flex items-center gap-2.5">
+                        MASUK APLIKASI ESQ 165
+                        <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1.5"></i>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Footer Landing -->
+            <div class="relative z-10 w-full max-w-5xl text-center py-2 text-xs text-slate-400 shrink-0">
+                <p>&copy; 2026 ESQ 165 Interactive Experience | Created for Deka Sonjaya</p>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- HALAMAN 2: MATERI UTAMA ESQ 165 (52 SLIDES)-->
+        <!-- ========================================== -->
+        <section id="main-view" class="hidden relative h-full w-full flex-col justify-between bg-slate-950 z-10 overflow-hidden">
+            
+            <!-- HEADER ATAS (TOP BAR) -->
+            <header class="glass-panel sticky top-0 z-40 w-full px-3 md:px-6 py-2.5 shadow-2xl flex items-center justify-between border-b border-amber-500/20 shrink-0">
+                <!-- Brand Badge -->
+                <div class="flex items-center space-x-2.5 cursor-pointer" onclick="switchView('landing')">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500 to-emerald-600 p-0.5 shadow-md flex items-center justify-center">
+                        <img src="logo.png" alt="ESQ" class="w-full h-full object-cover rounded-full" onerror="this.src='https://placehold.co/100x100/050811/ffd700?text=ESQ'">
+                    </div>
+                    <div>
+                        <div class="font-bold text-amber-300 text-sm leading-none">ESQ 165</div>
+                        <div class="text-[10px] text-emerald-400 font-semibold">Modern Spiritual</div>
+                    </div>
+                </div>
+
+                <!-- Audio Player Bar -->
+                <div class="flex items-center glass-card px-3 py-1 rounded-full border border-amber-500/30 gap-2 max-w-xs md:max-w-md w-full mx-2">
+                    <button id="audio-play-btn" onclick="toggleAudio()" class="w-7 h-7 rounded-full bg-amber-500 hover:bg-amber-400 text-slate-950 flex items-center justify-center transition shadow-md shrink-0">
+                        <i id="audio-icon" class="fa-solid fa-play text-xs"></i>
+                    </button>
+
+                    <div class="flex-1 flex flex-col justify-center">
+                        <div class="flex justify-between items-center text-[10px] text-amber-200 font-medium mb-0.5">
+                            <span id="audio-title" class="truncate max-w-[100px] md:max-w-[160px]">ESQ Meditative Audio</span>
+                            <span id="audio-timer">0:00</span>
+                        </div>
+                        <div class="relative w-full h-1.5 bg-slate-900 rounded-full overflow-hidden cursor-pointer" onclick="seekAudio(event)">
+                            <div id="audio-progress" class="h-full bg-gradient-to-r from-emerald-400 to-amber-400 w-0 transition-all duration-200"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actions Top Right -->
+                <div class="flex items-center space-x-2">
+                    <button onclick="toggleTableOfContents()" class="px-3 py-1.5 rounded-xl bg-emerald-900/80 hover:bg-emerald-800 border border-emerald-500/40 text-xs font-semibold text-amber-300 flex items-center gap-1.5 transition">
+                        <i class="fa-solid fa-list-ul text-amber-400"></i>
+                        <span class="hidden sm:inline">Daftar Isi</span>
+                    </button>
+                    
+                    <button id="pwa-install-btn-main" onclick="triggerPwaInstall()" class="hidden p-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 transition" title="Install App">
+                        <i class="fa-solid fa-download text-xs"></i>
+                    </button>
+                </div>
+            </header>
+
+
+            <!-- SLIDE VIEWPORT MAIN BODY -->
+            <main class="flex-1 w-full max-w-6xl mx-auto p-2 md:p-5 flex flex-col justify-center items-center relative z-10 overflow-hidden">
+                
+                <!-- SLIDE CONTAINER BOX -->
+                <div id="slide-card" class="w-full h-full glass-panel rounded-2xl md:rounded-3xl p-4 md:p-6 gold-glow-box shadow-2xl flex flex-col justify-between slide-viewport relative">
+                    
+                    <!-- Slide Header Title & Badge -->
+                    <div class="flex flex-wrap justify-between items-center gap-2 border-b border-amber-500/20 pb-3 shrink-0">
+                        <div class="flex items-center gap-2">
+                            <span id="slide-badge-num" class="px-3 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-extrabold tracking-wider">
+                                SLIDE 1 / 52
+                            </span>
+                            <span id="slide-category" class="text-xs font-semibold text-emerald-400 uppercase tracking-widest hidden sm:inline">
+                                ORIENTASI UTAMA
+                            </span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-400">
+                            <button onclick="speakSlideText()" class="hover:text-amber-300 transition p-1" title="Text to Speech (Suara Teks)">
+                                <i class="fa-solid fa-volume-high text-emerald-400"></i>
+                            </button>
+                            <button onclick="toggleBookmarkCurrentSlide()" class="hover:text-amber-300 transition p-1" title="Simpan Bookmark">
+                                <i id="bookmark-icon" class="fa-regular fa-bookmark text-amber-400"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- DYNAMIC SCROLLABLE CONTENT BODY -->
+                    <div id="slide-body" class="flex-1 overflow-y-auto custom-scrollbar my-2 pr-1.5 space-y-3">
+                        <!-- Content Injected Dynamically via JS -->
+                    </div>
+
+                    <!-- INTERACTIVE SIMULATORS & DIAGRAM AREA -->
+                    <div id="simulator-container" class="mt-2 shrink-0 hidden border-t border-amber-500/20 pt-3">
+                        <!-- Interactive Diagrams / Canvas Injected -->
+                    </div>
+
+                </div>
+            </main>
+
+
+            <!-- BOTTOM CONTROL BAR (HEADER BAWAH) -->
+            <footer class="glass-panel sticky bottom-0 z-40 w-full px-3 md:px-6 py-2.5 shadow-2xl border-t border-amber-500/20 shrink-0">
+                <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+                    
+                    <!-- Progress & Direct Jump Input -->
+                    <div class="flex items-center space-x-2 w-full sm:w-auto justify-between sm:justify-start">
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-xs text-slate-400 font-medium">Slide</span>
+                            <input type="number" id="jump-slide-input" min="1" max="52" value="1" onchange="jumpToSlide(this.value)" class="w-12 bg-slate-950 border border-amber-500/30 rounded text-center text-xs text-amber-300 font-bold py-0.5 focus:outline-none focus:border-amber-400">
+                            <span class="text-xs text-slate-400 font-medium">/ 52</span>
+                        </div>
+                        
+                        <div class="w-28 md:w-44 h-2 bg-slate-950/80 rounded-full overflow-hidden border border-amber-500/20">
+                            <div id="slide-progress-bar" class="h-full bg-gradient-to-r from-emerald-500 via-amber-400 to-amber-300 w-[2%] transition-all duration-300"></div>
+                        </div>
+                    </div>
+
+                    <!-- Control Buttons -->
+                    <div class="flex items-center justify-center space-x-2 mx-auto sm:mx-0">
+                        <button onclick="prevSlide()" class="px-4 py-1.5 rounded-xl bg-slate-900/90 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs font-bold transition flex items-center gap-1.5 active:scale-95">
+                            <i class="fa-solid fa-chevron-left"></i> Prev
+                        </button>
+
+                        <button id="autoplay-toggle-btn" onclick="toggleAutoPlay()" class="px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-xs font-semibold transition" title="Auto Play Slide">
+                            <i id="autoplay-icon" class="fa-solid fa-play"></i>
+                        </button>
+
+                        <button onclick="nextSlide()" class="px-5 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 text-xs font-extrabold transition shadow-lg flex items-center gap-1.5 active:scale-95">
+                            Next <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+
+                        <button onclick="toggleFullScreen()" class="p-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-amber-500/20 text-slate-300 text-xs transition" title="Layar Penuh">
+                            <i class="fa-solid fa-expand"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </footer>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- MODAL DRAWER NAVIGASI SLIDE MATERI         -->
+        <!-- ========================================== -->
+        <div id="toc-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md transition-opacity duration-300 flex justify-end">
+            <div class="w-full max-w-md bg-slate-950 border-l border-amber-500/30 h-full p-5 flex flex-col shadow-2xl">
+                <div class="flex items-center justify-between border-b border-amber-500/20 pb-3 mb-3">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-book-open text-amber-400"></i>
+                        <h2 class="text-sm font-bold text-amber-300">Daftar Materi ESQ (52 Slide)</h2>
+                    </div>
+                    <button onclick="toggleTableOfContents()" class="w-7 h-7 rounded-full bg-slate-900 text-slate-400 hover:text-amber-300 flex items-center justify-center transition">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <div class="relative mb-3">
+                    <input type="text" id="toc-search" oninput="filterTocItems()" placeholder="Cari judul slide atau kata kunci..." class="w-full bg-slate-900/90 border border-amber-500/30 rounded-xl px-3.5 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-400">
+                    <i class="fa-solid fa-magnifying-glass absolute right-3.5 top-2.5 text-xs text-slate-500"></i>
+                </div>
+
+                <div id="toc-list" class="flex-1 overflow-y-auto custom-scrollbar space-y-1.5 pr-1">
+                    <!-- Slide Items Rendered Dynamically -->
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- MODAL POPUP DETAIL / INTERACTION           -->
+        <!-- ========================================== -->
+        <div id="detail-modal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-md transition-opacity duration-300 flex items-center justify-center p-4">
+            <div class="w-full max-w-lg glass-panel rounded-2xl p-6 gold-glow-box shadow-2xl flex flex-col space-y-4">
+                <div class="flex justify-between items-center border-b border-amber-500/20 pb-3">
+                    <h3 id="modal-title" class="text-base font-bold text-amber-300">Detail Informasi</h3>
+                    <button onclick="closeDetailModal()" class="w-7 h-7 rounded-full bg-slate-900 text-slate-400 hover:text-amber-300 flex items-center justify-center transition">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div id="modal-body" class="text-xs md:text-sm text-slate-200 space-y-3 leading-relaxed max-h-96 overflow-y-auto custom-scrollbar pr-1">
+                    <!-- Modal Details Injected -->
+                </div>
+                <div class="pt-2 text-right">
+                    <button onclick="closeDetailModal()" class="px-4 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-extrabold text-xs hover:bg-amber-400 transition">Tutup</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CUSTOM TOAST NOTIFICATION CONTAINER -->
+        <div id="toast-notification" class="fixed bottom-16 right-4 z-50 hidden px-4 py-2.5 rounded-xl bg-emerald-950/90 border border-amber-400 text-amber-200 text-xs shadow-2xl backdrop-blur-md">
+            <span id="toast-text">Notifikasi</span>
+        </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- DATA SLIDE & SCRIPT LOGIC UTAMA            -->
+    <!-- ========================================== -->
+    <script>
+        /* ----------------------------------------------------
+           STRUCTURED DATA 52 SLIDES (WITH SEPARATE KEY & DESC)
+        ---------------------------------------------------- */
+        const slidesData = [
+            {
+                id: 1,
+                title: "THE ESQ WAY 165",
+                subtitle: "Emotional Spiritual Quotient",
+                category: "PENGANTAR UTAMA",
+                items: [
+                    { key: "1 HATI (IHSAN)", desc: "Menghadirkan kesadaran puncak bahwa Allah SWT senantiasa melihat dan mengawasi setiap langkah kehidupan manusia." },
+                    { key: "6 PRINSIP (RUKUN IMAN)", desc: "Membangun pondasi ketahanan mental building yang kokoh berlandaskan nilai-nilai Rukun Iman." },
+                    { key: "5 LANGKAH (RUKUN ISLAM)", desc: "Mewujudkan tindakan fisik nyata dan ketangguhan pribadi-sosial berlandaskan amalan Rukun Islam." }
+                ],
+                quote: "Membangun kecerdasan emosi dan spiritual secara seimbang menuju manusia paripurna.",
+                type: "standard"
+            },
+            {
+                id: 2,
+                title: "Q.S. 91 Asy-Syams: 1-10",
+                subtitle: "Penyucian Jiwa dan Sukma Manusia",
+                category: "LANDASAN AL-QUR'AN",
+                arabic: "وَالشَّمْسِ وَضُحٰىهَا ۖ وَالْقَمَرِ اِذَا تَلٰىهَا ۖ وَالنَّهَارِ اِذَا جَلّٰىهَا ۖ وَالَّيْلِ اِذَا يَغْشٰىهَا ۖ وَالسَّمَاءِ وَمَا بَنٰىهَا ۖ وَالْاَرْضِ وَمَا طَحٰىهَا ۖ وَنَفْسٍ وَّمَا سَوّٰىهَا ۖ فَاَلْهَمَهَا فُجُوْرَهَا وَتَقْوٰىهَا ۖ قَدْ اَفْلَحَ مَنْ زَكّٰىهَا ۖ وَقَدْ خَابَ مَنْ دَسّٰىهَا ۗ",
+                translation: "Demi matahari dan cahayanya di pagi hari. Demi bulan apabila mengiringi. Demi siang bila ia menampakkan. Demi malam bila ia menutupi. Demi langit dan seluruh binaannya. Demi bumi serta penghamparannya. Demi sukma dan penyempurnaannya. Maka Allah mengilhamkan kepada sukma itu kefasikan dan ketakwaannya. Beruntunglah orang yang menyucikannya, dan rugilah orang yang mengotorinya.",
+                items: [
+                    { key: "KETERATURAN KOSMOS", desc: "Matahari, bulan, siang, malam, langit, dan bumi diciptakan dengan hukum keteraturan Ilahiah yang presisi." },
+                    { key: "POTENSI DUA ARAH", desc: "Jiwa manusia dianugerahi ilham fujur (kefasikan) dan takwa (kesucian)." },
+                    { key: "KUNCI KEBERUNTUNGAN", desc: "Beruntunglah orang yang senantiasa menyucikan jiwanya (Zero Mind Process) dan rugilah yang mengotorinya." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 3,
+                title: "SALAM PERDAMAIAN ESQ",
+                subtitle: "Cahaya Kebenaran Untuk Seluruh Alam",
+                category: "VISI UNIVERSAL",
+                items: [
+                    { key: "BUKAN EKSKLUSIVISME", desc: "Nilai Rukun Iman, Rukun Islam dan Ihsan hadir bukan untuk eksklusifisme golongan, melainkan menyampaikan cahaya kebenaran abadi." },
+                    { key: "AL-QUR'AN UNTUK MANUSIA", desc: "Al-Qur'an bukan hanya untuk kelompok tertentu, tetapi menjadi petunjuk dan rahmat bagi seluruh umat manusia." },
+                    { key: "ISLAM RAHMATAN LIL 'ALAMIN", desc: "Bukan dunia untuk Islam, tetapi Al-Qur'an dan Islam diperuntukkan bagi kebahagiaan dan perdamaian seluruh dunia." }
+                ],
+                quote: "Islam merindukan perdamaian dan kebahagiaan sejati bersama seluruh umat manusia.",
+                type: "standard"
+            },
+            {
+                id: 4,
+                title: "DIMENSI & KECERDASAN MANUSIA",
+                subtitle: "Body, Mind, and Soul Framework",
+                category: "KONSEP DASAR",
+                items: [
+                    { key: "BODY (RAGA/BADAN - LOGOS)", desc: "Dimensi Fisik / IQ (Intelektual). Berfungsi untuk aplikasi praktis, analisis rasional, dan logika." },
+                    { key: "MIND (JIWA/PARESO - PATHOS)", desc: "Dimensi Emosional / EQ (Emosional). Memiliki rasa kepekaan sebagai pengindai atau radar sosial." },
+                    { key: "SOUL (SUKMA/RASO - ETHOS)", desc: "Dimensi Spiritual / SQ (Spiritual). Berisi suara hati nurani, kompas moral, dan dorongan Ilahiah." }
+                ],
+                type: "dimensi-4"
+            },
+            {
+                id: 5,
+                title: "TRILOGI KECERDASAN: IQ, EQ, SQ",
+                subtitle: "Definisi & Peran Setiap Kecerdasan",
+                category: "KONSEP DASAR",
+                items: [
+                    { key: "IQ (INTELLIGENCE QUOTIENT)", desc: "Kemampuan intelektual, analisa rasional, logika dan perhitungan matematika (Contoh: 2 x 2 = 4)." },
+                    { key: "EQ (EMOTIONAL QUOTIENT)", desc: "Kemampuan mendengar suara hati sebagai sumber informasi hubungan sosial (Contoh: Komitmen, Loyalitas, Kepekaan)." },
+                    { key: "SQ (SPIRITUAL QUOTIENT)", desc: "Kemampuan memberikan makna puncak spiritual (ultimate meaning) dalam setiap tindakan (Contoh: Spiritualisasi pekerjaan & Divine Light)." }
+                ],
+                type: "standard"
+            },
+            {
+                id: 6,
+                title: "SELAMA INI TERJADI PEMISAHAN ANTARA EQ DENGAN SQ",
+                subtitle: "Hubungan Horisontal vs Vertikal",
+                category: "ANALISA MASALAH",
+                items: [
+                    { key: "DIMENSI EMOSIONAL (EQ)", desc: "Mengatur hubungan Horisontal antara Manusia dengan Manusia (interaksi sosial)." },
+                    { key: "DIMENSI SPIRITUAL (SQ)", desc: "Mengatur hubungan Vertikal antara Manusia dengan Tuhan (ketaatan dan kesadaran Ilahiah)." },
+                    { key: "DAMPAK PEMISAHAN", desc: "Pemisahan EQ dan SQ menciptakan krisis moral, hilangnya kompas sejati, dan ketidakseimbangan kepribadian." }
+                ],
+                type: "eq-vs-sq"
+            },
+            {
+                id: 7,
+                title: "ESQ MENGGABUNGKAN IQ, EQ DAN SQ",
+                subtitle: "Segitiga Pengambilan Keputusan",
+                category: "FORMULA ESQ",
+                items: [
+                    { key: "SQ SEBAGAI PUNCAK", desc: "SQ (Suara Hati Ilahiah) berada di puncak tertinggi sebagai penentu arah dan tujuan sejati." },
+                    { key: "IQ & EQ SEBAGAI LANDASAN", desc: "IQ (Intelektual) dan EQ (Emosional) menjadi sarana pelaksana yang dipandu oleh SQ." },
+                    { key: "DEFINISI INTEGRASI ESQ", desc: "Cara menggunakan makna, nilai, tujuan & motivasi spiritual dalam proses berpikir (IQ) dan proses merasa (EQ) dalam membuat keputusan serta tindakan." }
+                ],
+                type: "triangle-esq"
+            },
+            {
+                id: 8,
+                title: "SQ & PENEMUAN GOD SPOT",
+                subtitle: "Sains Otak & Pusat Spiritual",
+                category: "SAINS & SPIRITUAL",
+                items: [
+                    { key: "DANAH ZOHAR & IAN MARSHALL (2000)", desc: "Riset Harvard & Oxford University mengukuhkan SQ sebagai kecerdasan tertinggi pemandu IQ dan EQ." },
+                    { key: "V.R. RAMACHANDRAN (1997)", desc: "Neurolog California University menemukan pusat spiritual 'GOD SPOT' dalam jaringan saraf otak manusia." },
+                    { key: "BUILT-IN SPIRITUAL CENTER", desc: "God Spot adalah perangkat biologis bawaan (built-in) yang memancarkan kebutuhan akan nilai-nilai Ketuhanan." }
+                ],
+                type: "standard"
+            },
+            {
+                id: 9,
+                title: "MENGAPA PERLU ESQ?",
+                subtitle: "Matriks Output Kecerdasan Manusia",
+                category: "MATRIKS HASIL",
+                items: [
+                    { key: "IQ BAIK + EQ RENDAH + SQ RENDAH", desc: "Output: BUTA HATI (Pintar secara teknis namun tidak sensitif dan mengabaikan nilai)." },
+                    { key: "IQ BAIK + EQ BAIK + SQ RENDAH", desc: "Output: DIKTATOR & KORUPTOR (Pandai berdiplomasi dan mengatur strategi untuk kepentingan egois)." },
+                    { key: "IQ RENDAH + EQ RENDAH + SQ BAIK", desc: "Output: PERTAPA (Memiliki kesucian diri namun kurang berkontribusi nyata secara sosial dan profesional)." },
+                    { key: "IQ BAIK + EQ BAIK + SQ BAIK", desc: "Output: MANUSIA PARIPURNA (Unggul secara intelektual, matang secara emosional, dan berlandaskan tauhid)." }
+                ],
+                type: "standard"
+            },
+            {
+                id: 10,
+                title: "PENCIPTAAN LANGIT DAN BUMI",
+                subtitle: "Q.S. 3 Ali 'Imran: 190-191",
+                category: "LANDASAN AL-QUR'AN",
+                arabic: "اِنَّ فِيْ خَلْقِ السَّمٰوٰتِ وَالْاَرْضِ وَاخْتِلَافِ الَّيْلِ وَالنَّهَارِ لَاٰيٰتٍ لِّاُولِى الْاَلْبَابِ ۖ الَّذِيْنَ يَذْكُرُوْنَ اللّٰهَ قِيَامًا وَّقُعُوْدًا وَّعَلٰى جُنُوْبِهِمْ وَيَتَفَكَّرُوْنَ فِيْ خَلْقِ السَّمٰوٰتِ وَالْاَرْضِ ۚ رَبَّنَا مَا خَلَقْتَ هٰذَا بَاطِلًا ۚ سُبْحٰنَكَ فَقِنَا عَذَابَ النَّارِ",
+                translation: "Sesungguhnya dalam penciptaan langit dan bumi dan silih bergantinya malam dan siang terdapat tanda-tanda bagi orang yang berakal. Yaitu orang-orang yang mengingat Allah sambil berdiri, duduk, atau dalam keadaan berbaring dan mepikirkan tentang penciptaan langit dan bumi (seraya berkata): 'Ya Tuhan kami, tiadalah Engkau menciptakan ini dengan sia-sia. Maha Suci Engkau, maka peliharalah kami dari siksa neraka'.",
+                items: [
+                    { key: "ULUL ALBAB", desc: "Manusia berakal yang mampu menyatukan aktivitas Zikir (SQ) dan Fikir (IQ)." },
+                    { key: "BEBAS DARI KESIA-SIAAN", desc: "Meyakini bahwa seluruh ciptaan di semesta alam memiliki fungsi dan hikmah yang agung." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 11,
+                title: "BIG BANG DALAM AL-QUR'AN",
+                subtitle: "Q.S. 21 Al-Anbiyaa: 30",
+                category: "SAINS & SPIRITUAL",
+                arabic: "اَوَلَمْ يَرَ الَّذِيْنَ كَفَرُوْٓا اَنَّ السَّمٰوٰتِ وَالْاَرْضَ كَانَتَا رَتْقًا فَفَتَقْنٰهُمَا ۖ وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ ۗ اَفَلَا يُؤْمِنُوْنَ",
+                translation: "Dan apakah orang-orang yang kafir, tidak mengetahui bahwa langit dan bumi itu keduanya dahulu adalah sesuatu yang padu, kemudian Kami pisahkan antara keduanya. Dan dari air Kami jadikan segala sesuatu yang hidup. Maka mengapakah mereka tiada beriman?",
+                items: [
+                    { key: "LEDAKAN DAHSYAT (BIG BANG)", desc: "Al-Qur'an menggambarkan alam semesta yang tadinya menyatu (ratqan) lalu dipisahkan (fataqnahuma)." },
+                    { key: "AIR SEBAGAI SUMBER KEHIDUPAN", desc: "Kesesuaian mutlak antara ayat Al-Qur'an dan sains biologi kosmologi modern." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 12,
+                title: "GARIS WAKTU PEMIKIRAN TOKOH",
+                subtitle: "Evolusi Pemikiran Sains & Spiritual",
+                category: "SEJARAH SEJATI",
+                items: [
+                    { key: "PLATO (400 SM)", desc: "Awal konsep filsafat idealisme kosmologi Yunani Kuno." },
+                    { key: "NABI MUHAMMAD SAW (624 M)", desc: "Membawa Risalah Kebenaran Hakiki, Al-Qur'an, dan Divine Light untuk seluruh alam." },
+                    { key: "COPERNICUS (850 M)", desc: "Perkembangan astronomi awal dan revisi pusat tata surya." },
+                    { key: "GALILEO GALILEI (1690 M)", desc: "Penguatan hukum sains astronomi empiris." },
+                    { key: "STEPHEN HAWKING (2000 M)", desc: "Fisika kuantum, asal-usul alam semesta, dan Singularitas." }
+                ],
+                type: "standard"
+            },
+            {
+                id: 13,
+                title: "KEAGUNGAN GALAKSI",
+                subtitle: "Q.S. 13 Ar-Ra'd: 2",
+                category: "KOSMOLOGI",
+                arabic: "اَللّٰهُ الَّذِيْ رَفَعَ السَّمٰوٰتِ بِغَيْرِ عَمَدٍ تَرَوْنَهَا ثُمَّ اسْتَوٰى عَلَى الْعَرْشِ وَسَخَّرَ الشَّمْسَ وَالْقَمَرَ ۗ كُلٌّ يَّجْرِيْ لِاَجَلٍ مُّسَمًّى ۗ يُدَبِّرُ الْاَمْرَ يُفَصِّلُ الْاٰيٰتِ لَعَلَّكُمْ بِلِقَاءِ رَبِّكُمْ تُوْقِنُوْنَ",
+                translation: "Allah-lah yang meninggikan langit tanpa tiang yang kamu lihat, kemudian Dia bersemayam di atas 'Arsy, dan menundukkan matahari dan bulan. Masing-masing beredar sehingga waktu yang ditentukan...",
+                items: [
+                    { key: "DIMENSI GALAKSI", desc: "Diameter galaksi mencapai 80.000 tahun cahaya dengan lebih dari 100 milyar bintang sebesar matahari." },
+                    { key: "ORBIT TANPA TIANG", desc: "Gaya gravitasi dijaga presisi oleh Allah SWT tanpa tiang fisik yang terlihat." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 14,
+                title: "THE BLACK HOLE & ORBIT",
+                subtitle: "Q.S. 10 Yunus: 5",
+                category: "KOSMOLOGI",
+                arabic: "هُوَ الَّذِيْ جَعَلَ الشَّمْسَ ضِيَاۤءً وَّالْقَمَرَ نُوْرًا وَّقَدَّرَهٗ مَنَازِلَ لِتَعْلَمُوْا عَدَدَ السِّنِيْنَ وَالْحِسَابَ ۗ مَا خَلَقَ اللّٰهُ ذٰلِكَ اِلَّا بِالْحَقِّ ۚ يُفَصِّلُ الْاٰيٰتِ لِقَوْمٍ يَّعْلَمُوْنَ",
+                translation: "Dialah yang menjadikan matahari bersinar dan bulan bercahaya dan ditetapkan-Nya manzilah-manzilah (garis orbit) bagi perjalanan bulan itu supaya kamu mengetahui bilangan tahun dan perhitungan (waktu)...",
+                items: [
+                    { key: "PUSA GRAVITASI BLACK HOLE", desc: "Pusat Bima Sakti memiliki kepadatan massa 2.6 juta kali matahari, menjaga 100 milyar bintang tetap ber-Thawaf." },
+                    { key: "KEPASTIAN GARIS ORBIT", desc: "Setiap benda langit beredar mutlak pada garis orbitnya tanpa ada yang keluar." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 15,
+                title: "THAWAF ALAM SEMESTA",
+                subtitle: "Q.S. 17 Al-Israa': 44",
+                category: "KOSMOLOGI",
+                arabic: "تُسَبِّحُ لَهُ السَّمٰوٰتُ السَّبْعُ وَالْاَرْضُ وَمَنْ فِيْهِنَّ ۗ وَاِنْ مِّنْ شَيْءٍ اِلَّا يُسَبِّحُ بِحَمْدِهٖ وَلٰكِنْ لَّا تَفْقَهُوْنَ تَسْبِيْحَهُمْ ۗ اِنَّهٗ كَانَ حَلِيْمًا غَفُوْرًا",
+                translation: "Langit yang tujuh, bumi dan semua yang ada didalamnya bertasbih kepada Allah. Dan tak ada suatupun melainkan bertasbih dengan memuji-Nya. Tetapi kamu sekalian tidak mengerti tasbih mereka...",
+                items: [
+                    { key: "GERAKAN THAWAF UNIVERSAL", desc: "Rotasi seluruh planet mengelilingi pusatnya adalah simbol gerakan bertasbihnya alam semesta." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 16,
+                title: "THAWAF MIKROKOSMOS",
+                subtitle: "Q.S. 65 Ath-Thalaaq: 12",
+                category: "SAINS MIKRO",
+                arabic: "اَللّٰهُ الَّذِيْ خَلَقَ سَبْعَ سَمٰوٰتٍ وَّمِنَ الْاَرْضِ مِثْلَهُنَّ ۗ يَتَنَزَّلُ الْاَمْرُ بَيْنَهُنَّ لِتَعْلَمُوْٓا اَنَّ اللّٰهَ عَلٰى كُلِّ شَيْءٍ قَدِيْرٌ ۙ وَّاَنَّ اللّٰهَ قَدْ اَحَاطَ بِكُلِّ شَيْءٍ عِلْمًا",
+                translation: "Allah-lah yang telah menciptakan tujuh langit dan bumi seperti itu pula...",
+                items: [
+                    { key: "MODEL ATOM BOHR", desc: "Elektron mengelilingi Inti Atom ber-Thawaf persis seperti planet mengelilingi matahari." },
+                    { key: "KESATUAN HUKUM SEMESTA", desc: "Skala terbesar (Makrokosmos) dan terkecil (Mikrokosmos) tunduk pada pola rotasi Thawaf yang sama." }
+                ],
+                type: "bohr-orbit"
+            },
+            {
+                id: 17,
+                title: "THAWAF MANUSIA",
+                subtitle: "Q.S. 5 Al-Maidah: 97",
+                category: "IBADAH & KESADARAN",
+                arabic: "جَعَلَ اللّٰهُ الْكَعْبَةَ الْبَيْتَ الْحَرَامَ قِيَامًا لِّلنَّاسِ وَالشَّهْرَ الْحَرَامَ وَالْهَدْيَ وَالْقَلَاۤئِدَ ۗ ذٰلِكَ لِتَعْلَمُوْٓا اَنَّ اللّٰهَ يَعْلَمُ مَا فِي السَّمٰوٰتِ وَمَا فِي الْاَرْضِ وَاَنَّ اللّٰهَ بِكُلِّ شَيْءٍ عَلِيْمٌ",
+                translation: "Allah menjadikan Ka'bah, rumah suci sebagai pusat, (peribadatan dan urusan dunia) bagi manusia...",
+                items: [
+                    { key: "KA'BAH SEBAGAI PUSAT ORBIT", desc: "Manusia ber-Thawaf mengelilingi Ka'bah menyatukan frekuensi dengan gerakan alam semesta." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 18,
+                title: "THAWAF ALAM SEMESTA & MANUSIA",
+                subtitle: "Pentingnya Menjaga Garis Orbit",
+                category: "SINTESIS THAWAF",
+                items: [
+                    { key: "GRAVITASI BLACK HOLE", desc: "Gravitasi kuat menjangkar seluruh planet. Jika keluar garis orbit, hancurlah tatanan tata surya." },
+                    { key: "DORONGAN RUHANI MANUSIA", desc: "Aktivitas manusia bergerak atas dorongan spiritual ruhani seperti gerakan Thawaf." },
+                    { key: "DAMPAK KELUAR ORBIT", desc: "Jika manusia mengubah kiblat pusat orbitnya, maka rusaklah tatanan jiwa dan masyarakat." }
+                ],
+                type: "standard"
+            },
+            {
+                id: 19,
+                title: "THAWAF UNIVERSAL",
+                subtitle: "Makrokosmos, Mikrokosmos, Spiritualkosmos",
+                category: "KOSMOS KESATUAN",
+                items: [
+                    { key: "1. MAKROKOSMOS", desc: "Galaksi, bintang, dan sistem tata surya ber-Thawaf mengelilingi pusat gravitasi." },
+                    { key: "2. MIKROKOSMOS", desc: "Elektron-elektron ber-Thawaf mengelilingi Inti Atom." },
+                    { key: "3. SPIRITUALKOSMOS", desc: "Umat manusia ber-Thawaf mengelilingi Ka'bah sebagai pusat peribadatan." },
+                    { key: "PERTANYAAN UTAMA", desc: "Dimanakah sesungguhnya PUSAT ORBIT kehidupan kita?" }
+                ],
+                type: "standard"
+            },
+            {
+                id: 20,
+                title: "15 PERTANYAAN REFLEKSI PUSAT ORBIT",
+                subtitle: "Mencari Pusat Orbit Abadi Jiwa Manusia",
+                category: "REFLEKSI UTUH",
+                items: [
+                    { key: "1. PUSAT ABADI", desc: "Pusat orbit apakah kiranya yang paling bersifat abadi sehingga siapapun akan merasa tenteram di dalamnya?" },
+                    { key: "2. KETEGAKAN HUKUM", desc: "Pusat apakah yang begitu agung dan mulianya sehingga hakim rela mempertaruhkan nyawa demi keadilan?" },
+                    { key: "3. PENGORBANAN PEMIMPIN", desc: "Pusat orbit apakah yang mendorong pemimpin berjuang menyelamatkan karyawannya?" },
+                    { key: "4. KASIH SAYANG YATIM", desc: "Pusat orbit apakah yang membuat seseorang begitu memuliakan anak yatim?" },
+                    { key: "5. KIBLAT KEDAMAIAN", desc: "Kiblat apakah yang menimbulkan rasa damai abadi dalam jiwa?" },
+                    { key: "6. RASA AMAN MENDALAM", desc: "Prinsip apakah yang membuat orang memiliki rasa aman yang begitu mendalam?" },
+                    { key: "7. MANUSIA UNGGUL", desc: "Prinsip apakah yang bisa menghasilkan manusia-manusia unggul?" },
+                    { key: "8. PEMILIK SIFAT TERTINGGI", desc: "Siapakah nama Sang pemilik sifat tertinggi?" },
+                    { key: "9. SIFAT TANGGUNG JAWAB", desc: "Siapakah Sang pemilik sifat maha bertanggung jawab?" },
+                    { key: "10. SIFAT MAHA KASIH", desc: "Siapakah sang pemilik sifat maha kasih?" },
+                    { key: "11. PENIUP RUH ADIL", desc: "Siapakah yang meniupkan ruh yang bersifat adil dalam jiwa?" },
+                    { key: "12. PENIUP RUH TANGGUNG JAWAB", desc: "Siapakah yang meniupkan ruh tanggung jawab?" },
+                    { key: "13. PENIUP RUH PELINDUNG", desc: "Siapakah yang memberikan ruh yang senantiasa melindungi?" },
+                    { key: "14. APALAH PUSAT ORBITNYA?", desc: "Apakah pusat orbit sejati seluruh kehidupan ini?" },
+                    { key: "15. JAWABAN ULTIMATE", desc: "ALLAH SWT SANG PEMILIK SEGALA SIFAT LUKUR ASMAUL HUSNA!" }
+                ],
+                type: "standard"
+            },
+            {
+                id: 21,
+                title: "ASMAUL HUSNA - SANG PEMILIK ORBIT",
+                subtitle: "Q.S. 59 Al-Hasyr: 22-24",
+                category: "LANDASAN AL-QUR'AN",
+                arabic: "هُوَ اللّٰهُ الَّذِيْ لَآ اِلٰهَ اِلَّا هُوَ ۚ عَالِمُ الْغَيْبِ وَالشَّهَادَةِ ۚ هُوَ الرَّحْمٰنُ الرَّحِيْمُ . هُوَ اللّٰهُ الَّذِيْ لَآ اِلٰهَ اِلَّا هُوَ ۚ اَلْمَلِكُ الْقُدُّوْسُ السَّلٰمُ الْمُؤْمِنُ الْمُهَيْمِنُ الْعَزِيْزُ الْجَبَّارُ الْمُتَكَبِّرُ ۗ سُبْحٰنَ اللّٰهِ عَمَّا يُشْرِكُوْنَ . هُوَ اللّٰهُ الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ لَهُ الْاَسْمَاۤءُ الْحُسْنٰى ۗ يُسَبِّحُ لَهٗ مَا فِي السَّمٰوٰتِ وَالْاَرْضِ ۚ وَهُوَ الْعَزِيْزُ الْحَكِيْمُ",
+                translation: "Dia-lah Allah yang tiada Tuhan selain Dia, Yang Mengetahui yang gaib dan yang nyata, Dia-lah yang maha pemurah lagi maha penyayang...",
+                items: [
+                    { key: "SUMBER NILAI FITRAH", desc: "Asmaul Husna adalah cetak biru nilai Ilahiah yang terpatri di dalam God Spot manusia." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 22,
+                title: "BAGAIMANA MENGGABUNGKAN 3 KECERDASAN?",
+                subtitle: "Penyelarasan IQ, EQ, dan SQ",
+                category: "ORBIT MODEL",
+                items: [
+                    { key: "PUSAT ORBIT (SQ)", desc: "Suara Hati Spiritual (God Spot) wajib menjadi pusat gravitas pendorong." },
+                    { key: "ORBIT TENGAH (EQ)", desc: "Lingkaran Emosi dibimbing oleh 6 Prinsip Rukun Iman." },
+                    { key: "ORBIT LUAR (IQ/FISIK)", desc: "Aktivitas Fisik dan Intelektual dibimbing oleh 5 Langkah Rukun Islam." }
+                ],
+                type: "bohr-orbit"
+            },
+            {
+                id: 23,
+                title: "ESQ MODEL FRAMEWORK LENGKAP",
+                subtitle: "Tiga Tingkatan Sistem ESQ",
+                category: "ESQ MODEL",
+                items: [
+                    { key: "1. KECERDASAN SPIRITUAL (SQ)", desc: "Suara hati Ilahi (fitrah) bersumber dari Asmaul Husna. Ber-Thawaf mengelilingi God Spot (Ihsan)." },
+                    { key: "2. KECERDASAN EMOSI (EQ)", desc: "Dibentuk oleh 6 prinsip mental bersumber dari nilai Rukun Iman." },
+                    { key: "3. AKTIVITAS FISIK & IQ", desc: "Dibimbing oleh 5 langkah ketangguhan bersumber pada nilai Rukun Islam." }
+                ],
+                type: "bohr-orbit"
+            },
+            {
+                id: 24,
+                title: "EMPAT KAPASITAS MANUSIA STEPHEN COVEY",
+                subtitle: "Pikiran, Jiwa, Hati, Tubuh",
+                category: "TEORI PENDUKUNG",
+                items: [
+                    { key: "1. MENTAL / PIKIRAN", desc: "IQ (Intelektual) - Kapasitas logika dan analisis." },
+                    { key: "2. SPIRITUAL / JIWA", desc: "SQ (Spiritual) - Kapasitas nilai, moralitas, dan makna puncak." },
+                    { key: "3. SOSIAL / EMOSIONAL", desc: "EQ (Emosional) - Kapasitas hubungan empati dan rasa." },
+                    { key: "4. FISIK / TUBUH", desc: "PQ (Physical Quotient) - Kapasitas daya tahan fisik dan aksi." }
+                ],
+                type: "standard"
+            },
+            {
+                id: 25,
+                title: "KERASNYA HATI SEPERTI BATU",
+                subtitle: "Q.S. 2 Al-Baqarah: 74",
+                category: "LANDASAN AL-QUR'AN",
+                arabic: "ثُمَّ قَسَتْ قُلُوْبُكُمْ مِّنْ بَعْدِ ذٰلِكَ فَهِيَ كَالْحِجَارَةِ اَوْ اَشَدُّ قَسْوَةً ۗ وَاِنَّ مِنَ الْحِجَارَةِ لَمَا يَتَفَجَّرُ مِنْهُ الْاَنْهٰرُ ۗ وَاِنَّ مِنْهَا لَمَا يَشَّقَّقُ فَيَخْرُجُ مِنْهُ الْمَاۤءُ ۗ وَاِنَّ مِنْهَا لَمَا يَهْبِطُ مِنْ خَشْيَةِ اللّٰهِ ۗ وَمَا اللّٰهُ بِغَفْلَةٍ عَمَّا تَعْمَلُوْنَ",
+                translation: "Kemudian setelah itu hatimu menjadi keras seperti batu, bahkan lebih keras lagi...",
+                items: [
+                    { key: "BELENGGU EMOSI", desc: "Hati dapat mengeras melebihi batu jika tertutup belenggu egois dan prasangka." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 26,
+                title: "LANGKAH 1: JERNIHKAN HATI (ZMP)",
+                subtitle: "Bebaskan Jiwa Dari 7 Belenggu",
+                category: "SIMULATOR ZMP",
+                items: [
+                    { key: "1. PRASANGKA NEGATIF", desc: "Membersihkan pikiran buruk terhadap orang lain dan takdir." },
+                    { key: "2. PENGARUH LITERATUR", desc: "Membebaskan diri dari dogma salah yang mengikat." },
+                    { key: "3. PRINSIP HIDUP SAKLEK", desc: "Meluruskan prinsip hidup agar hanya berpatokan pada Allah." },
+                    { key: "4. PENGALAMAN MASA LALU", desc: "Melepaskan trauma atau kejayaan masa lalu yang membelenggu." },
+                    { key: "5. KEPENTINGAN & PRIORITAS", desc: "Menjaga keikhlasan di atas kepentingan pribadi." },
+                    { key: "6. SUDUT PANDANG SEMPIT", desc: "Melihat masalah secara bijaksana dari berbagai prespektif." },
+                    { key: "7. PEMBANDING / EGO", desc: "Menghilangkan kesombongan dan sifat membanding-bandingkan." }
+                ],
+                type: "zmp-wheel"
+            },
+            {
+                id: 27,
+                title: "RUMUS IHSAN & FORMULA ZMP",
+                subtitle: "Q.S. 3 Ali 'Imran: 110",
+                category: "FORMULA ZMP",
+                arabic: "كُنْتُمْ خَيْرَ اُمَّةٍ اُخْرِجَتْ لِلنَّاسِ تَأْمُرُوْنَ بِالْمَعْرُوْفِ وَتَنْهَوْنَ عَنِ الْمُنْكَرِ وَتُؤْمِنُوْنَ بِاللّٰهِ",
+                translation: "Kamu adalah umat yang terbaik yang dilahirkan untuk manusia...",
+                items: [
+                    { key: "FORMULA MATEMATIKA ZMP", desc: "1 / 0 = ~ (Tak Terhingga)." },
+                    { key: "PRINSIP KEIKHLASAN", desc: "Jika diri dan ego kita nol (=0) atau jernih, maka nilai kita di sisi Allah menjadi Tak Terhingga (~)." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 28,
+                title: "HADIST IHSAN",
+                subtitle: "H.R. Bukhari",
+                category: "HADIST SHAHIH",
+                items: [
+                    { key: "DEFINISI IHSAN", desc: "Rosullulah SAW bersabda: 'Beribadah kepada Allah Azza wa Jalla seakan-akan engkau melihat-Nya dan seandainya engkau tidak dapat melihat-Nya, yakinlah bahwa Dia melihatmu'." }
+                ],
+                quote: "Kesadaran mutlak bahwa Allah senantiasa mengawasi setiap detik langkah.",
+                type: "standard"
+            },
+            {
+                id: 29,
+                title: "TUJUH LANGKAH PRAKTIS ZMP",
+                subtitle: "Q.S. 41 Fussilat: 5",
+                category: "PANDUAN ZMP",
+                arabic: "وَقَالُوْا قُلُوْبُنَا فِيْٓ اَكِنَّةٍ مِّمَّا تَدْعُوْنَآ اِلَيْهِ وَفِيْٓ اٰذَانِنَا وَقْرٌ وَّمِنْ بَيْنِنَا وَبَيْنِكَ حِجَابٌ فَاعْمَلْ اِنَّنَا عٰمِلُوْنَ",
+                translation: "Mereka berkata: 'Hati kami tertutup atas apa yang kamu seru...'",
+                items: [
+                    { key: "LANGKAH 1", desc: "Hindari prasangka buruk, upayakan berprasangka baik." },
+                    { key: "LANGKAH 2", desc: "Berprinsiplah selalu kepada Allah Yang Maha Suci." },
+                    { key: "LANGKAH 3", desc: "Bebaskan diri dari pengalaman membelenggu, berpikirlah merdeka." },
+                    { key: "LANGKAH 4", desc: "Dengar suara hati, pegang prinsip 'karena Allah'." },
+                    { key: "LANGKAH 5", desc: "Lihat semua sudut pandang bijaksana berdasar Asmaul Husna." },
+                    { key: "LANGKAH 6", desc: "Periksa pikiran sendiri sebelum menilai orang lain." },
+                    { key: "LANGKAH 7", desc: "Ingat semua ilmu pengetahuan bersumber dari Allah SWT." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 30,
+                title: "HASIL ZMP: CAHAYA DI ATAS CAHAYA",
+                subtitle: "Q.S. 24 An-Nur: 35",
+                category: "LANDASAN AL-QUR'AN",
+                arabic: "اَللّٰهُ نُوْرُ السَّمٰوٰتِ وَالْاَرْضِ ۗ مَثَلُ نُوْرِهٖ كَمِشْكٰوةٍ فِيْهَا مِصْبَاحٌ ۗ اَلْمِصْبَاحُ فِيْ زُجَاجَةٍ ۗ اَلزُّجَاجَةُ كَاَنَّهَا كَوْكَبٌ دُرِّيٌّ يُّوْقَدُ مِنْ شَجَرَةٍ مُّبٰرَكَةٍ زَيْتُوْنَةٍ لَّا شَرَقِيَّةٍ وَّلَا غَرْبِيَّةٍ ۙ يَّكَادُ زَيْتُهَا يُضِيۤءُ وَلَوْ لَمْ تَمْسَسْهُ نَارٌ ۗ نُوْرٌ عَلٰى نُوْرٍ ۗ يَهْدِى اللّٰهُ لِنُوْرِهٖ مَنْ يَّشَاۤءُ ۗ وَيَضْرِبُ اللّٰهُ الْاَمْثَالَ لِلنَّاسِ ۗ وَاللّٰهُ بِكُلِّ شَيْءٍ عَلِيْمٌ",
+                translation: "Allah adalah cahaya langit dan bumi. Perumpamaan cahaya-Nya adalah ibarat misykat... Cahaya di atas cahaya!",
+                items: [
+                    { key: "NUR ILAHIAH", desc: "Hati yang telah terbebas dari 7 belenggu akan memancarkan cahaya kebenaran Ilahi." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 31,
+                title: "LANGKAH 2: DENGAR SUARA HATI ILAHIAH",
+                subtitle: "Q.S. 7 Al-A'Raaf: 172",
+                category: "LANGKAH 2 - FITRAH",
+                arabic: "وَاِذْ اَخَذَ رَبُّكَ مِنْ بَنِيْٓ اٰدَمَ مِنْ ظُهُوْرِهِمْ ذُرِّيَّتَهُمْ وَاَشْهَدَهُمْ عَلٰٓى اَنْفُسِهِمْ ۚ اَلَسْتُ بِرَبِّكُمْ ۗ قَالُوْا بَلٰى ۛ شَهِدْنَا ۛ",
+                translation: "Dan ketika Tuhanmu mengeluarkan keturunan anak Adam dan mengambil kesaksian: 'Bukankah Aku ini Tuhanmu?' Mereka menjawab: 'Betul kami bersaksi'.",
+                items: [
+                    { key: "SIFAT FITRAH MANUSIA (SQ)", desc: "Pengasih, Menguasai Diri, Berhati Jernih, Cintai Damai, Jujur, Kreatif, Pemaaf, Objektif, Adil, Mensyukuri, Enerjik, Sinergis, Ikhlas, Kebenaran, Komitmen, Konsisten, Mandiri, Empati, Sabar." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 32,
+                title: "7 NILAI DASAR ESQ",
+                subtitle: "Pengabdian Kepada Asmaul Husna",
+                category: "NILAI DASAR",
+                items: [
+                    { key: "1. JUJUR", desc: "Pengabdian kepada AL-MU'MIN (Maha Memberi Keamanan & Kebenaran)." },
+                    { key: "2. TANGGUNG JAWAB", desc: "Pengabdian kepada AL-WAKIIL (Maha Pemelihara/Mewakili)." },
+                    { key: "3. VISIONER", desc: "Pengabdian kepada AL-AKHIR (Maha Akhir Tanpa Batas)." },
+                    { key: "4. DISIPLIN", desc: "Pengabdian kepada AL-MATIIN (Maha Kokoh)." },
+                    { key: "5. KERJASAMA", desc: "Pengabdian kepada AL-JAAMI (Maha Mengumpulkan/Menyatukan)." },
+                    { key: "6. ADIL", desc: "Pengabdian kepada AL-'ADL (Maha Adil)." },
+                    { key: "7. PEDULI", desc: "Pengabdian kepada AS-SAMII' & AL-BASHIR (Maha Mendengar & Melihat)." }
+                ],
+                type: "standard"
+            },
+            {
+                id: 33,
+                title: "FITRAH ALLAH PADA MANUSIA",
+                subtitle: "Q.S. 30 Ar-Ruum: 30",
+                category: "LANDASAN AL-QUR'AN",
+                arabic: "فَاَقِمْ وَجْهَكَ لِلدِّيْنِ حَنِيْفًا ۗ فِطْرَتَ اللّٰهِ الَّتِيْ فَطَرَ النَّاسَ عَلَيْهَا ۗ لَا تَبْدِيْلَ لِخَلْقِ اللّٰهِ ۗ ذٰلِكَ الدِّيْنُ الْقَيِّمُ ۙ وَلٰكِنَّ اَكْثَرَ النَّاسِ لَا يَعْلَمُوْنَ",
+                translation: "Maka hadapkanlah wajahmu dengan mantap kepada agama menurut fitrah Allah yang telah menciptakan fitrah itu pada manusia...",
+                items: [
+                    { key: "HUKUM FITRAH", desc: "Hukum ciptaan Allah pada jiwa manusia bersifat mutlak dan tidak berubah." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 34,
+                title: "VISI & MISI ESQ",
+                subtitle: "Tiga Tingkat Visi Kehidupan",
+                category: "PETA JALAN",
+                items: [
+                    { key: "VISI JANGKA PANJANG", desc: "Meninggal dunia dalam keadaan husnul khatimah dan masuk Surga." },
+                    { key: "VISI JANGKA MENENGAH", desc: "Mewujudkan Indonesia Emas yang sejahtera dan berkarakter mulia." },
+                    { key: "VISI JANGKA PENDEK", desc: "Konsisten mengamalkan nilai Rukun Islam, Rukun Iman, dan Ihsan setiap hari." }
+                ],
+                type: "standard"
+            },
+            {
+                id: 35,
+                title: "LANGKAH 3: MENTAL BUILDING",
+                subtitle: "Membangun Mental Dengan 6 Rukun Iman",
+                category: "LANGKAH 3 - MENTAL",
+                items: [
+                    { key: "1. STAR PRINCIPLE", desc: "Iman Kepada Allah (Orientasi Ketauhidan Utuh)." },
+                    { key: "2. ANGEL PRINCIPLE", desc: "Iman Kepada Malaikat (Integritas & Loyalitas)." },
+                    { key: "3. LEADERSHIP PRINCIPLE", desc: "Iman Kepada Nabi & Rasul (Meneladani Kepemimpinan Agung)." },
+                    { key: "4. LEARNING PRINCIPLE", desc: "Iman Kepada Al-Qur'an (Jiwa Pembelajar Seumur Hidup)." },
+                    { key: "5. VISION PRINCIPLE", desc: "Iman Kepada Hari Kemudian (Visi Masa Depan Dunia-Akhirat)." },
+                    { key: "6. WELL ORGANIZED PRINCIPLE", desc: "Iman Kepada Qadha & Qadar (Manajemen Teratur & Sinergis)." }
+                ],
+                type: "bohr-orbit"
+            },
+            {
+                id: 36,
+                title: "RINCIAN 6 PRINSIP MENTAL BUILDING",
+                subtitle: "Q.S. 4 An-Nisa: 136",
+                category: "LANGKAH 3 - MENTAL",
+                arabic: "يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْٓا اٰمِنُوْا بِاللّٰهِ وَرَسُوْلِهٖ وَالْكِتٰبِ الَّذِيْ نَزَّلَ عَلٰى رَسُوْلِهٖ وَالْكِتٰبِ الَّذِيْٓ اَنْزَلَ مِنْ قَبْلُ ۗ",
+                translation: "Hai orang beriman ! Berimanlah kepada Allah dan Rasul-Nya dan Kitab yang diturunkan...",
+                items: [
+                    { key: "STAR PRINCIPLE", desc: "Orientasi tunggal hanya kepada Allah SWT." },
+                    { key: "ANGEL PRINCIPLE", desc: "Merasakan pengawasan dan loyalitas tanpa ragu." },
+                    { key: "LEADERSHIP PRINCIPLE", desc: "Kepemimpinan yang dicintai dan dipercaya." },
+                    { key: "LEARNING PRINCIPLE", desc: "Kritis, evaluatif, dan memiliki panduan Kitab Suci." },
+                    { key: "VISION PRINCIPLE", desc: "Perencanaan jangka panjang hingga akhirat." },
+                    { key: "WELL ORGANIZED", desc: "Pengorganisasian rapi dan taat hukum sunnatullah." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 37,
+                title: "31 OUTPUT MEMBANGUN MENTAL (RUKUN IMAN)",
+                subtitle: "Output Karakter Lengkap Tanpa Potongan",
+                category: "OUTPUT IMAN LENGKAP",
+                items: [
+                    { key: "1. IMAN KEPADA ALLAH (Star)", desc: "Output: Rasa Aman | Kepercayaan Diri | Integritas Tinggi." },
+                    { key: "2. IMAN KEPADA MALAIKAT (Angel)", desc: "Output: Kebijaksanaan | Motivasi Diri | Loyalitas | Komitmen | Kebiasaan Memberi & Mengawal | Kebiasaan Menolong | Saling Percaya." },
+                    { key: "3. IMAN KEPADA NABI & RASUL (Leadership)", desc: "Output: Pemimpin yang Dicintai | Pemimpin yang Dipercaya | Pembimbing Utama | Pimpinan Berkepribadian | Pemimpin Abadi." },
+                    { key: "4. IMAN KEPADA AL-QUR'AN (Learning)", desc: "Output: Kebiasaan Mengevaluasi Situasi | Kebiasaan Membaca & Berpikir Kritis | Kebiasaan Menyempurnakan | Memiliki Pedoman Hidup." },
+                    { key: "5. IMAN KEPADA HARI KEMUDIAN (Vision)", desc: "Output: Berorientasi Tujuan | Optimalisasi Usaha | Kendali Diri & Sosial | Jaminan Masa Depan | Ketenangan Batiniah." },
+                    { key: "6. IMAN KEPADA KETENTUAN ALLAH (Well Organized)", desc: "Output: Kepastian Hukum Alam | Kepastian Hukum Sosial | Pemahaman Arti Proses | Orientasi Pembentukan Sistem | Pemeliharaan Sistem | Menjaga Sinergi." }
+                ],
+                type: "standard"
+            },
+            {
+                id: 38,
+                title: "KEBAJIKAN HAKIKI SEJATI",
+                subtitle: "Q.S. 2 Al-Baqarah: 177",
+                category: "LANDASAN AL-QUR'AN",
+                arabic: "لَيْسَ الْبِرَّ اَنْ تُوَلُّوْا وُجُوْهَكُمْ قِبَلَ الْمَشْرِقِ وَالْمَغْرِبِ وَلٰكِنَّ الْبِرَّ مَنْ اٰمَنَ بِاللّٰهِ وَالْيَوْمِ الْاٰخِرِ وَالْمَلٰۤئِكَةِ وَالْكِتٰبِ وَالنَّبِيّٖنَ ۚ",
+                translation: "Bukanlah menghadapkan wajahmu ke arah timur dan barat itu selalu kebajikan. Akan tetapi kebajikan adalah beriman kepada Allah...",
+                items: [
+                    { key: "HAKIKAT KEBAJIKAN", desc: "Perpaduan utuh antara iman di dalam hati dan aksi nyata memberikan harta yang dicintai kepada kerabat, anak yatim, serta mendirikan shalat & zakat." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 39,
+                title: "LANGKAH 4 & 5: PERSONAL & SOCIAL STRENGTH",
+                subtitle: "Rincian Output Ketangguhan Rukun Islam",
+                category: "OUTPUT RUKUN ISLAM",
+                items: [
+                    { key: "1. MISSION STATEMENT (SYAHADAT)", desc: "OUTPUT PERSONAL: Penetapan Visi Hidup Rahmatan Lil 'Alamin. Memberikan kepastian arah dan jati diri tunggal sebagai hamba Allah." },
+                    { key: "2. CHARACTER BUILDING (SHALAT)", desc: "OUTPUT PERSONAL: Pembangunan Karakter Agung. Melatih integritas, ketepatan waktu, kedisiplinan, dan penyucian jiwa harian." },
+                    { key: "3. SELF CONTROLLING (PUASA)", desc: "OUTPUT PERSONAL: Pengendalian Diri & Benteng Moral. Menguasai hawa nafsu, emosi marah, serta menjaga fisik agar tetap pada garis orbit." },
+                    { key: "4. STRATEGIC COLLABORATION (ZAKAT)", desc: "OUTPUT SOSIAL: Kolaborasi Strategis & Sinergi Fitrah. Mengeluarkankan potensi kebaikan, kepedulian sosial, dan pengentasan kemiskinan." },
+                    { key: "5. TOTAL ACTION (HAJI)", desc: "OUTPUT SOSIAL: Aplikasi Fisik Total. Eksekusi nyata peran manusia sebagai Khilafah (wakil Allah) di bumi dengan derap langkah persatuan." }
+                ],
+                type: "output-islam-39"
+            },
+            {
+                id: 40,
+                title: "RINCIAN KETANGGUHAN PRIBADI DAN SOSIAL",
+                subtitle: "Q.S. 2 Al-Baqarah: 138",
+                category: "LANGKAH 4 - FISIK",
+                arabic: "صِبْغَةَ اللّٰهِ ۚ وَمَنْ اَحْسَنُ مِنَ اللّٰهِ صِبْغَةً ۖ وَّنَحْنُ لَهٗ عٰبِدُوْنَ",
+                translation: "Shibghoh Allah ('Celupan' Allah). Siapakah yang lebih baik shibghohnya dari pada Allah ? Hanya kepada Nyalah kita menyembah.",
+                items: [
+                    { key: "SHIBGHOH ALLAH", desc: "Karakter manusia yang telah 'dicelup' oleh nilai-nilai Ilahiah sehingga tindakan fisiknya selaras dengan hukum alam (Sunnatullah)." },
+                    { key: "TANDA KELUAR ORBIT", desc: "Jika tindakan melenceng, suara hati akan memberi peringatan melalui guncangan emosi atau gelisah batin." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 41,
+                title: "DASAR ESQ: SURAH AL-FATTIHAH",
+                subtitle: "Q.S. 15 Al-Hijr: 87",
+                category: "DASAR ULTIMATE",
+                arabic: "وَلَقَدْ اٰتَيْنٰكَ سَبْعًا مِّنَ الْمَثَانِيْ وَالْقُرْاٰنَ الْعَظِيْمَ",
+                translation: "Dan telah kami berikan kepada mu As Sab'an minal Matsany (tujuh ayat Al-Fatihah) dan Al Qur'an yang mulia.",
+                items: [
+                    { key: "1. INTISARI AL-QUR'AN", desc: "Al-Qur'anul Karim terangkum utuh dalam Al-Fatihah." },
+                    { key: "2. PEMBISIK KEBENARAN", desc: "Pembisik kebenaran abadi dalam jiwa." },
+                    { key: "3. PEMBUKA KEBERKAHAN", desc: "Pembuka pintu keberkahan dan kebaikan hidup." },
+                    { key: "4. PENYEMBUH HATI", desc: "Penyembuh penyakit hati dan pikiran yang tidak sehat." },
+                    { key: "5. PEDOMAN AKHLAK", desc: "Pedoman kecerdasan hati dan moralitas manusia." },
+                    { key: "6. BEKAL HARAPAN", desc: "Bekal maha penting meraih cita-cita dan harapan." },
+                    { key: "7. RASA SYUKUR", desc: "Puncak rasa syukur atas segala karunia dan pencapaian." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 42,
+                title: "JAWABAN ALLAH DALAM AL-FATTIHAH",
+                subtitle: "Dialog Suci Hamba dan Allah (Hadist Qudsi Utuh)",
+                category: "HADIST QUDSI UTUH",
+                items: [
+                    { key: "HAMBA: 'ALHAMDULILLAHI RABBIL 'ALAMIN'", desc: "ALLAH MENJAWAB: 'Hamba-Ku telah memuji-Ku'." },
+                    { key: "HAMBA: 'AR-RAHMANIR RAHIM'", desc: "ALLAH MENJAWAB: 'Hamba-Ku telah menyanjung-Ku'." },
+                    { key: "HAMBA: 'MALIKI YAUMID DIN'", desc: "ALLAH MENJAWAB: 'Hamba-Ku telah memuliakan-Ku'." },
+                    { key: "HAMBA: 'IYYAKA NA'BUDU WA IYYAKA NASTA'IN'", desc: "ALLAH MENJAWAB: 'Ayat ini antara Aku dan hamba-Ku setengah-setengah, dan hamba-Ku berhak atas apa yang diminta'." },
+                    { key: "HAMBA: 'IHDINAS SHIRATHAL MUSTAQIM...'", desc: "ALLAH MENJAWAB: 'Ini semua untuk hamba-Ku dan hamba-Ku berhak atas apa yang ia minta'." }
+                ],
+                type: "standard"
+            },
+            {
+                id: 43,
+                title: "KUTIPAN SAYYIDINA UMAR BIN KHATTAB RA",
+                subtitle: "Melihat Kerajaan Langit dan Bumi",
+                category: "KUTIPAN SAHABAT",
+                items: [
+                    { key: "PERNYATAAN SAYYIDINA UMAR RA", desc: "'Hatiku telah melihat Tuhanku karena hijab (tirai) telah terangkat oleh taqwa. Barang siapa yang telah terangkat hijab (tirai) antara dirinya dan Allah, maka menjadi jelaslah di dalam hatinya akan gambaran kerajaan bumi dan kerajaan langit'." }
+                ],
+                quote: "Ketakwaan mengangkat tirai pembatas kesadaran spiritual.",
+                type: "standard"
+            },
+            {
+                id: 44,
+                title: "DIAGRAM PROSES ESQ LENGKAP",
+                subtitle: "Alur Perjalanan Karakter ESQ",
+                category: "DIAGRAM PROSES",
+                items: [
+                    { key: "1. GOD SPOT", desc: "Pusat Suara Hati Fitrah Ilahi." },
+                    { key: "2. ZERO MIND PROCESS", desc: "Penjernihan emosi dari 7 belenggu ego." },
+                    { key: "3. MENTAL BUILDING (6 IMAN)", desc: "Star, Angel, Leadership, Learning, Vision, Well-Organized." },
+                    { key: "4. KETANGGUHAN FISIK (5 ISLAM)", desc: "Mission Statement, Character Building, Self Controlling, Strategic Collaboration, Total Action." },
+                    { key: "5. MANUSIA PARIPURNA", desc: "Ihsan Sejati dalam kehidupan sehari-hari." }
+                ],
+                type: "standard"
+            },
+            {
+                id: 45,
+                title: "RINGKASAN THE ESQ WAY 165",
+                subtitle: "1 Hati, 6 Prinsip, 5 Langkah",
+                category: "RINGKASAN 165",
+                items: [
+                    { key: "1 (SATU) HATI", desc: "Allah melihat setiap langkahku (Ihsan)." },
+                    { key: "6 (ENAM) PRINSIP", desc: "1. Allah Tuhanku | 2. Malaikat mencatat perbuatanku | 3. Nabi & Rasul teladanku | 4. Kitab Suci pedomanku | 5. Hari Kemudian cita-citaku | 6. Ikhlas & Tawakal sikapku." },
+                    { key: "5 (LIMA) LANGKAH", desc: "1. Pengabdian Syahadatku | 2. Sholat karakterku | 3. Puasa bentengku | 4. Zakat keluarkan potensiku | 5. Haji derap langkahku." }
+                ],
+                type: "standard"
+            },
+            {
+                id: 46,
+                title: "MEMELIHARA ESQ",
+                subtitle: "Amalan Harian Menjaga Garis Orbit",
+                category: "AMALAN HARIAN",
+                items: [
+                    { key: "AMALAN 1 (ZMP)", desc: "Jernihkan hati dengan Istighfar, Wudhu & Ihram." },
+                    { key: "AMALAN 2 (GOD SPOT)", desc: "Hidupkan cahaya hati dengan Dzikir Asma'ul Husna harian." },
+                    { key: "AMALAN 3 (MENTAL)", desc: "Bangun mental dengan Tasbih, Tahmid, Tahlil dan Takbir setelah sholat." },
+                    { key: "AMALAN 4 (PERSONAL)", desc: "Bangun ketangguhan Pribadi dengan Syahadat, Shalat dan Puasa." },
+                    { key: "AMALAN 5 (SOSIAL)", desc: "Bangun ketangguhan Sosial dengan Zakat dan Haji." },
+                    { key: "AMALAN 6 (AL-QUR'AN)", desc: "Baca Al Qur'an dan artinya setiap pagi setelah shubuh." },
+                    { key: "AMALAN 7 (SILATURAHMI)", desc: "Tingkatkan silaturahmi dan saling mendoakan sesama." }
+                ],
+                type: "standard"
+            },
+            {
+                id: 47,
+                title: "FLOWCHART RADAR HATI INTERAKTIF",
+                subtitle: "Materialisme vs Spiritualisme Tauhid",
+                category: "SIMULATOR RADAR",
+                items: [
+                    { key: "JALUR MATERIALISME", desc: "Masalah -> Materialisme -> Emosi Tidak Terkendali -> God Spot Terbelenggu -> Suara Hati Tertutup -> IQ, EQ, SQ Terpisah." },
+                    { key: "JALUR TAUHID SPIRITUAL", desc: "Masalah -> Tauhid Spiritual -> Emosi Terkendali & Damai -> God Spot Terbuka -> Suara Hati Bekerja -> Meta Kecerdasan Terintegrasi." }
+                ],
+                type: "radar-47"
+            },
+            {
+                id: 48,
+                title: "SAMPAIKAN WALAUPUN SATU AYAT",
+                subtitle: "Hadist Nabi SAW & Syiar ESQ",
+                category: "PESAN DAKWAH",
+                items: [
+                    { key: "PESAN RASULULLAH SAW", desc: "'Sampaikan walaupun satu ayat' (Al-Hadist)." },
+                    { key: "SOSIALISASI MODEL ESQ", desc: "Penyebar luasan konsep pembangunan kecerdasan emosi dan spiritual berlandaskan Rukun Iman, Rukun Islam dan Ihsan secara luas ke seluruh masyarakat." }
+                ],
+                type: "standard"
+            },
+            {
+                id: 49,
+                title: "OPTIMISME MEMBANGUN BERKAH",
+                subtitle: "Q.S. 7 Al-A'raaf: 96",
+                category: "PESAN OPTIMISME",
+                arabic: "وَلَوْ اَنَّ اَهْلَ الْقُرٰىٓ اٰمَنُوْا وَاتَّقَوْا لَفَتَحْنَا عَلَيْهِمْ بَرَكٰتٍ مِّنَ السَّمَاۤءِ وَالْاَرْضِ",
+                translation: "Jikalau sekiranya penduduk negeri beriman dan bertakwa, pastilah Kami akan melimpahkan kepada mereka berkah dari langit dan bumi...",
+                items: [
+                    { key: "SEMANGAT MENANAM KEBAIKAN", desc: "Al-Hadist: 'Jika engkau memiliki sebiji kurma di tanganmu maka tanamlah, meskipun besok akan kiamat, semoga engkau mendapat pahala'." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 50,
+                title: "ESQ MENYEBAR KE MANCANEGARA",
+                subtitle: "Q.S. 110 An-Nasr: 1-3",
+                category: "SYIAR GLOBAL",
+                arabic: "اِذَا جَاۤءَ نَصْرُ اللّٰهِ وَالْفَتْحُ . وَرَاَيْتَ النَّاسَ يَدْخُلُوْنَ فِيْ دِيْنِ اللّٰهِ اَفْوَاجًا . فَسَبِّحْ بِحَمْدِ رَبِّكَ وَاسْتَغْفِرْهُ",
+                translation: "Apabila telah datang pertolongan Allah dan Kemenangan; dan kamu lihat manusia masuk Diin Allah berbondong-bondong...",
+                items: [
+                    { key: "PENYEBARAN GLOBAL", desc: "ESQ menyebar meluas dari Jakarta, Aceh, Medan, Makassar, Surabaya hingga Malaysia, Brunei, dan Belanda." }
+                ],
+                type: "quran"
+            },
+            {
+                id: 51,
+                title: "THE ESQ WAY 165 - LOGO KEBENARAN",
+                subtitle: "1 Hati, 6 Prinsip, 5 Langkah",
+                category: "PENUTUP SLIDE",
+                items: [
+                    { key: "KOMITMEN ABADI", desc: "Menjadikan 165 sebagai cetak biru karakter hidup dalam setiap helai nafas dan profesi." }
+                ],
+                type: "standard"
+            },
+            {
+                id: 52,
+                title: "SUMBER MATERI BUKU & TIM PENYUSUN",
+                subtitle: "Dokumentasi Resmi 1 Agustus 2006",
+                category: "REFERENSI RESMI",
+                items: [
+                    { key: "REFERENSI BUKU UTAMA", desc: "1. Rahasia Sukses Membangun Kecerdasan Emosi dan Spiritual (ESQ), Ary Ginanjar Agustian, 2001.\n2. Rahasia Sukses Membangkitkan ESQ Power, Ary Ginanjar Agustian, 2003.\n3. Buku Saku ESQ & Buku Pegangan Alumni ESQ." },
+                    { key: "TIM PENYUSUN DOKUMEN", desc: "Dibuat oleh: Anditya Ibrahim, Suharmadi SEAK (Divisi Eksplorasi - Bidang Perencanaan, BPMIGAS).\nKonsultasi dengan: Ir. H. Jonih Rachmat (Ketua ROHIS BPMIGAS).\nJakarta, 1 Agustus 2006." }
+                ],
+                type: "standard"
+            }
+        ];
+
+
+        /* ----------------------------------------------------
+           STATE & INITIALIZATION
+        ---------------------------------------------------- */
+        let currentSlideIndex = 0;
+        let isAudioPlaying = false;
+        let isAutoPlay = false;
+        let autoPlayTimer = null;
+        let bookmarks = [];
+        let pwaDeferredPrompt = null;
+        let zmpClearedCount = 0;
+        let orbitAnimFrame = null;
+        let orbitAngle1 = 0;
+        let orbitAngle2 = 0;
+
+        window.onload = function() {
+            initPwaSupport();
+            renderTocItems();
+            loadSlide(0);
+            setupKeyboardNav();
+            checkOnlineStatus();
+            window.addEventListener('online', checkOnlineStatus);
+            window.addEventListener('offline', checkOnlineStatus);
+        };
+
+
+        /* ----------------------------------------------------
+           VIEW SWITCHING (LANDING vs MAIN)
+        ---------------------------------------------------- */
+        function switchView(viewName) {
+            const landingView = document.getElementById('landing-view');
+            const mainView = document.getElementById('main-view');
+
+            if (viewName === 'main') {
+                landingView.classList.add('hidden');
+                mainView.classList.remove('hidden');
+                mainView.classList.add('flex');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                mainView.classList.add('hidden');
+                mainView.classList.remove('flex');
+                landingView.classList.remove('hidden');
+            }
+        }
+
+
+        /* ----------------------------------------------------
+           SLIDE RENDER ENGINE (DISTINCT COLOR FOR KEYS)
+        ---------------------------------------------------- */
+        function loadSlide(index) {
+            if (index < 0 || index >= slidesData.length) return;
+            currentSlideIndex = index;
+            const slide = slidesData[index];
+
+            document.getElementById('slide-badge-num').innerText = `SLIDE ${slide.id} / 52`;
+            document.getElementById('slide-category').innerText = slide.category || "MATERI ESQ";
+            document.getElementById('jump-slide-input').value = slide.id;
+            
+            const progressPct = (slide.id / 52) * 100;
+            document.getElementById('slide-progress-bar').style.width = `${progressPct}%`;
+
+            const isBookmarked = bookmarks.includes(slide.id);
+            const bmIcon = document.getElementById('bookmark-icon');
+            bmIcon.className = isBookmarked ? "fa-solid fa-bookmark text-amber-400" : "fa-regular fa-bookmark text-amber-400";
+
+            const bodyContainer = document.getElementById('slide-body');
+            bodyContainer.innerHTML = '';
+
+            // Slide Title & Subtitle
+            const titleEl = document.createElement('div');
+            titleEl.className = 'space-y-1 text-left mb-3';
+            titleEl.innerHTML = `
+                <h2 class="text-xl md:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-100 gold-glow-text">
+                    ${slide.title}
+                </h2>
+                ${slide.subtitle ? `<p class="text-xs text-emerald-400 font-semibold tracking-wide">${slide.subtitle}</p>` : ''}
+            `;
+            bodyContainer.appendChild(titleEl);
+
+            // Arabic Quran Container
+            if (slide.arabic) {
+                const arabicEl = document.createElement('div');
+                arabicEl.className = 'glass-card p-4 rounded-2xl gold-glow-box my-2 text-center';
+                arabicEl.innerHTML = `
+                    <p class="quran-text text-lg md:text-xl font-bold mb-2">${slide.arabic}</p>
+                    ${slide.translation ? `<p class="text-xs text-slate-300 italic border-t border-amber-500/20 pt-2 leading-relaxed">"${slide.translation}"</p>` : ''}
+                `;
+                bodyContainer.appendChild(arabicEl);
+            }
+
+            // Structured Key Items (Differentiated Colors)
+            if (slide.items && slide.items.length > 0) {
+                const pointsList = document.createElement('div');
+                pointsList.className = 'space-y-2.5 my-2';
+                
+                slide.items.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'glass-card p-3.5 rounded-2xl border border-amber-500/20 hover:border-amber-400/50 transition shadow-lg flex flex-col space-y-1';
+                    
+                    card.innerHTML = `
+                        <div class="flex items-center space-x-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0 shadow-[0_0_8px_#ffd700]"></span>
+                            <span class="text-xs md:text-sm font-extrabold text-amber-300 uppercase tracking-wide">
+                                ${item.key}
+                            </span>
+                        </div>
+                        <p class="text-xs md:text-sm text-slate-200 leading-relaxed font-normal pl-4 whitespace-pre-line">
+                            ${item.desc}
+                        </p>
+                    `;
+                    pointsList.appendChild(card);
+                });
+                bodyContainer.appendChild(pointsList);
+            }
+
+            if (slide.quote) {
+                const quoteEl = document.createElement('div');
+                quoteEl.className = 'p-3.5 rounded-xl bg-amber-500/15 border-l-4 border-amber-400 text-amber-200 text-xs italic font-medium flex items-center gap-2.5 shadow-md my-2';
+                quoteEl.innerHTML = `<i class="fa-solid fa-quote-left text-amber-400 text-sm"></i> ${slide.quote}`;
+                bodyContainer.appendChild(quoteEl);
+            }
+
+            renderSimulatorArea(slide);
+        }
+
+        function prevSlide() {
+            if (currentSlideIndex > 0) loadSlide(currentSlideIndex - 1);
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < slidesData.length - 1) {
+                loadSlide(currentSlideIndex + 1);
+            } else {
+                loadSlide(0);
+            }
+        }
+
+        function jumpToSlide(val) {
+            const num = parseInt(val);
+            if (num >= 1 && num <= 52) {
+                loadSlide(num - 1);
+            }
+        }
+
+
+        /* ----------------------------------------------------
+           CLICKABLE ORBITS & INTERACTIVE SIMULATORS
+        ---------------------------------------------------- */
+        function renderSimulatorArea(slide) {
+            const simContainer = document.getElementById('simulator-container');
+            simContainer.innerHTML = '';
+            simContainer.classList.add('hidden');
+
+            if (orbitAnimFrame) {
+                cancelAnimationFrame(orbitAnimFrame);
+                orbitAnimFrame = null;
+            }
+
+            // Clickable Animated Atom Bohr Orbit (Slides 16, 22, 23, 35)
+            if (slide.type === 'bohr-orbit') {
+                simContainer.classList.remove('hidden');
+                simContainer.innerHTML = `
+                    <div class="space-y-2 text-xs">
+                        <div class="font-bold text-amber-300 flex justify-between items-center">
+                            <span>SIMULASI ORBIT ESQ MODEL (KLIK SETIAP PARTIKEL)</span>
+                            <span class="text-[10px] text-emerald-400 animate-pulse"><i class="fa-solid fa-hand-pointer"></i> Interaktif</span>
+                        </div>
+                        <div class="relative w-full h-56 bg-slate-950/95 rounded-2xl border border-amber-500/30 flex items-center justify-center p-2 overflow-hidden shadow-2xl">
+                            <svg viewBox="0 0 300 220" class="w-full h-full">
+                                <!-- Center Nucleus: GOD SPOT -->
+                                <circle cx="150" cy="110" r="20" fill="#ffd700" class="clickable-node" onclick="openDetailModal('GOD SPOT (Pusat Orbit)', 'Pusat Spiritual Ilahiah tempat bersemayamnya Suara Hati Nurani yang bersumber dari Asmaul Husna (Ihsan).')" />
+                                <text x="150" y="113" text-anchor="middle" fill="#000" font-weight="extrabold" font-size="7.5" pointer-events="none">GOD SPOT</text>
+
+                                <!-- Orbit 1 Ring: 6 Rukun Iman -->
+                                <circle cx="150" cy="110" r="52" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4" />
+                                <g id="svg-orbit-1">
+                                    <circle cx="150" cy="58" r="9" fill="#10b981" class="clickable-node" onclick="openDetailModal('6 Rukun Iman (Mental Building)', 'Prinsip Mental: 1. Star Principle (Allah), 2. Angel Principle (Malaikat), 3. Leadership Principle (Rasul), 4. Learning Principle (Al-Quran), 5. Vision Principle (Akhirat), 6. Well Organized (Taqdir).')" />
+                                    <text x="150" y="50" text-anchor="middle" fill="#34d399" font-size="7" font-weight="bold" pointer-events="none">6 Iman</text>
+                                </g>
+
+                                <!-- Orbit 2 Ring: 5 Rukun Islam -->
+                                <circle cx="150" cy="110" r="88" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6" />
+                                <g id="svg-orbit-2">
+                                    <circle cx="238" cy="110" r="10" fill="#f59e0b" class="clickable-node" onclick="openDetailModal('5 Rukun Islam (Output Fisik)', 'Langkah Ketangguhan: 1. Syahadat (Mission Statement), 2. Shalat (Character Building), 3. Puasa (Self Controlling), 4. Zakat (Strategic Collaboration), 5. Haji (Total Action).')" />
+                                    <text x="238" y="127" text-anchor="middle" fill="#fbbf24" font-size="7" font-weight="bold" pointer-events="none">5 Islam</text>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                `;
+
+                function animateOrbits() {
+                    orbitAngle1 += 0.4;
+                    orbitAngle2 -= 0.25;
+                    const g1 = document.getElementById('svg-orbit-1');
+                    const g2 = document.getElementById('svg-orbit-2');
+                    if (g1) g1.setAttribute('transform', `rotate(${orbitAngle1}, 150, 110)`);
+                    if (g2) g2.setAttribute('transform', `rotate(${orbitAngle2}, 150, 110)`);
+                    orbitAnimFrame = requestAnimationFrame(animateOrbits);
+                }
+                animateOrbits();
+            }
+
+            // Output Rukun Islam Special Card Grid (Slide 39)
+            else if (slide.type === 'output-islam-39') {
+                simContainer.classList.remove('hidden');
+                simContainer.innerHTML = `
+                    <div class="space-y-2 text-xs">
+                        <div class="font-bold text-amber-300">MATRIKS KETANGGUHAN RUKUN ISLAM (PERSONAL & SOSIAL)</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
+                            <div onclick="openDetailModal('Personal Strength', '1. Syahadat -> Mission Statement\n2. Shalat -> Character Building\n3. Puasa -> Self Controlling')" class="p-2.5 rounded-xl bg-emerald-950/80 border border-emerald-500/40 cursor-pointer hover:border-emerald-300 transition">
+                                <span class="font-extrabold text-emerald-400 block mb-1">PERSONAL STRENGTH</span>
+                                <span class="text-slate-300">Syahadat (Misi) | Shalat (Karakter) | Puasa (Kendali Diri)</span>
+                            </div>
+                            <div onclick="openDetailModal('Social Strength', '4. Zakat -> Strategic Collaboration\n5. Haji -> Total Action')" class="p-2.5 rounded-xl bg-amber-950/80 border border-amber-500/40 cursor-pointer hover:border-amber-300 transition">
+                                <span class="font-extrabold text-amber-400 block mb-1">SOCIAL STRENGTH</span>
+                                <span class="text-slate-300">Zakat (Sinergi & Kolaborasi) | Haji (Aplikasi Total Fisik)</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Slide 26: ZMP Wheel
+            else if (slide.type === 'zmp-wheel') {
+                simContainer.classList.remove('hidden');
+                simContainer.innerHTML = `
+                    <div class="space-y-2 text-xs">
+                        <div class="flex justify-between items-center font-bold text-amber-300">
+                            <span>ZERO MIND PROCESS - LEPASKAN 7 BELENGGU JIWA</span>
+                            <span id="zmp-status" class="text-emerald-400 font-bold">${zmpClearedCount}/7 Terbebas</span>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5 text-[10px]">
+                            <button onclick="clearShackle(this)" class="p-2 rounded-lg bg-slate-900 border border-rose-500/40 text-rose-300 hover:bg-rose-950 transition">1. Prasangka Negatif</button>
+                            <button onclick="clearShackle(this)" class="p-2 rounded-lg bg-slate-900 border border-rose-500/40 text-rose-300 hover:bg-rose-950 transition">2. Pengaruh Literatur</button>
+                            <button onclick="clearShackle(this)" class="p-2 rounded-lg bg-slate-900 border border-rose-500/40 text-rose-300 hover:bg-rose-950 transition">3. Prinsip Hidup Saklek</button>
+                            <button onclick="clearShackle(this)" class="p-2 rounded-lg bg-slate-900 border border-rose-500/40 text-rose-300 hover:bg-rose-950 transition">4. Pengalaman Masa Lalu</button>
+                            <button onclick="clearShackle(this)" class="p-2 rounded-lg bg-slate-900 border border-rose-500/40 text-rose-300 hover:bg-rose-950 transition">5. Kepentingan & Prioritas</button>
+                            <button onclick="clearShackle(this)" class="p-2 rounded-lg bg-slate-900 border border-rose-500/40 text-rose-300 hover:bg-rose-950 transition">6. Sudut Pandang</button>
+                            <button onclick="clearShackle(this)" class="p-2 rounded-lg bg-slate-900 border border-rose-500/40 text-rose-300 hover:bg-rose-950 transition">7. Pembanding / Ego</button>
+                            <button onclick="resetZMPWheel()" class="p-2 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-300 font-bold">Reset Belenggu</button>
+                        </div>
+                        <div id="zmp-result-box" class="p-2 rounded-lg bg-slate-900 text-center text-[11px] text-slate-300 border border-amber-500/20">
+                            Klik setiap belenggu di atas untuk membebaskan jiwa menuju Cahaya di Atas Cahaya!
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+
+        /* ----------------------------------------------------
+           ZMP WHEEL MECHANICS
+        ---------------------------------------------------- */
+        function clearShackle(btn) {
+            if (btn.classList.contains('cleared')) return;
+            btn.classList.remove('bg-slate-900', 'border-rose-500/40', 'text-rose-300');
+            btn.classList.add('bg-emerald-900', 'border-emerald-400', 'text-emerald-300', 'cleared');
+            btn.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i> ` + btn.innerText;
+            
+            zmpClearedCount++;
+            document.getElementById('zmp-status').innerText = `${zmpClearedCount}/7 Terbebas`;
+
+            const resBox = document.getElementById('zmp-result-box');
+            if (zmpClearedCount === 7) {
+                resBox.className = "p-2.5 rounded-lg bg-amber-500/25 border border-amber-400 text-center text-xs font-bold text-amber-200 gold-glow-box";
+                resBox.innerHTML = "✨ SUBHANALLAH! Jiwa Bersih Sempurna (ZMP = 0) -> CAHAYA DI ATAS CAHAYA (Q.S. An-Nur: 35) & Formula 1/0 = ~ ✨";
+            } else {
+                resBox.innerText = `Terbebas ${zmpClearedCount} belenggu. Bersihkan seluruh belenggu ego!`;
+            }
+        }
+
+        function resetZMPWheel() {
+            zmpClearedCount = 0;
+            renderSimulatorArea(slidesData[currentSlideIndex]);
+        }
+
+
+        /* ----------------------------------------------------
+           MODALS & TOAST NOTIFICATIONS
+        ---------------------------------------------------- */
+        function openDetailModal(title, bodyText) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-body').innerText = bodyText;
+            document.getElementById('detail-modal').classList.remove('hidden');
+        }
+
+        function closeDetailModal() {
+            document.getElementById('detail-modal').classList.add('hidden');
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-text').innerText = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+
+
+        /* ----------------------------------------------------
+           DRAWER TABLE OF CONTENTS
+        ---------------------------------------------------- */
+        function toggleTableOfContents() {
+            document.getElementById('toc-modal').classList.toggle('hidden');
+        }
+
+        function renderTocItems(filteredSlides = slidesData) {
+            const container = document.getElementById('toc-list');
+            container.innerHTML = '';
+
+            filteredSlides.forEach(slide => {
+                const item = document.createElement('button');
+                item.className = `w-full text-left p-2 rounded-xl transition flex items-center justify-between text-xs border ${
+                    slide.id - 1 === currentSlideIndex 
+                    ? 'bg-amber-500/20 border-amber-400 text-amber-300 font-bold' 
+                    : 'bg-slate-900/60 hover:bg-emerald-900/50 border-amber-500/10 text-slate-300'
+                }`;
+                item.onclick = () => {
+                    loadSlide(slide.id - 1);
+                    toggleTableOfContents();
+                };
+
+                item.innerHTML = `
+                    <div class="flex items-center space-x-2 truncate">
+                        <span class="w-5 h-5 rounded-full bg-slate-950 flex items-center justify-center text-[10px] text-amber-400 font-extrabold border border-amber-500/20 shrink-0">
+                            ${slide.id}
+                        </span>
+                        <span class="truncate">${slide.title}</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-500 shrink-0"></i>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function filterTocItems() {
+            const query = document.getElementById('toc-search').value.toLowerCase();
+            const filtered = slidesData.filter(s => 
+                s.title.toLowerCase().includes(query) || 
+                s.category.toLowerCase().includes(query) ||
+                (s.items && s.items.some(i => i.key.toLowerCase().includes(query) || i.desc.toLowerCase().includes(query)))
+            );
+            renderTocItems(filtered);
+        }
+
+
+        /* ----------------------------------------------------
+           AUDIO SYNTHESIZER MEDITASI
+        ---------------------------------------------------- */
+        let audioCtx = null;
+        let ambientOsc = null;
+
+        function toggleAudio() {
+            const icon = document.getElementById('audio-icon');
+            
+            if (!isAudioPlaying) {
+                try {
+                    if (!audioCtx) {
+                        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    }
+                    if (audioCtx.state === 'suspended') {
+                        audioCtx.resume();
+                    }
+
+                    ambientOsc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+
+                    ambientOsc.type = 'sine';
+                    ambientOsc.frequency.setValueAtTime(136.1, audioCtx.currentTime);
+                    gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+
+                    ambientOsc.connect(gain);
+                    gain.connect(audioCtx.destination);
+
+                    ambientOsc.start();
+                    isAudioPlaying = true;
+                    icon.className = "fa-solid fa-pause text-xs";
+                    document.getElementById('audio-title').innerText = "ESQ Suara Hati Drone Active";
+                    showToast("Audio Meditasi ESQ Diputar");
+                } catch(e) {
+                    showToast("Audio Player Aktif");
+                }
+            } else {
+                if (ambientOsc) {
+                    ambientOsc.stop();
+                    ambientOsc.disconnect();
+                }
+                isAudioPlaying = false;
+                icon.className = "fa-solid fa-play text-xs";
+                document.getElementById('audio-title').innerText = "ESQ Meditative Audio";
+                showToast("Audio Dihentikan");
+            }
+        }
+
+        function seekAudio(e) {
+            const progressBar = document.getElementById('audio-progress');
+            const rect = e.currentTarget.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const pct = (clickX / rect.width) * 100;
+            progressBar.style.width = `${pct}%`;
+        }
+
+
+        /* ----------------------------------------------------
+           UTILITIES & PWA
+        ---------------------------------------------------- */
+        function toggleBookmarkCurrentSlide() {
+            const currentId = slidesData[currentSlideIndex].id;
+            const idx = bookmarks.indexOf(currentId);
+            if (idx > -1) {
+                bookmarks.splice(idx, 1);
+                showToast(`Bookmark Slide ${currentId} Dihapus`);
+            } else {
+                bookmarks.push(currentId);
+                showToast(`Slide ${currentId} Disimpan di Bookmark`);
+            }
+            loadSlide(currentSlideIndex);
+        }
+
+        function speakSlideText() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const slide = slidesData[currentSlideIndex];
+                let textToRead = `${slide.title}. ${slide.subtitle || ''}. `;
+                if (slide.items) {
+                    textToRead += slide.items.map(i => `${i.key}. ${i.desc}`).join('. ');
+                }
+                
+                const utterance = new SpeechSynthesisUtterance(textToRead);
+                utterance.lang = 'id-ID';
+                utterance.rate = 0.95;
+                window.speechSynthesis.speak(utterance);
+                showToast("Membaca Teks Slide...");
+            } else {
+                showToast("Fitur Text to Speech tidak didukung browser ini.");
+            }
+        }
+
+        function toggleAutoPlay() {
+            const btn = document.getElementById('autoplay-toggle-btn');
+            const icon = document.getElementById('autoplay-icon');
+
+            if (!isAutoPlay) {
+                isAutoPlay = true;
+                icon.className = "fa-solid fa-pause text-amber-400";
+                btn.classList.add('bg-amber-500/30');
+                showToast("Auto Play Diputar (8 Detik/Slide)");
+                autoPlayTimer = setInterval(() => {
+                    nextSlide();
+                }, 8000);
+            } else {
+                isAutoPlay = false;
+                icon.className = "fa-solid fa-play";
+                btn.classList.remove('bg-amber-500/30');
+                clearInterval(autoPlayTimer);
+                showToast("Auto Play Dihentikan");
+            }
+        }
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(() => {});
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen().catch(() => {});
+                }
+            }
+        }
+
+        function setupKeyboardNav() {
+            document.addEventListener('keydown', (e) => {
+                if (e.key === "ArrowRight" || e.key === "PageDown") nextSlide();
+                else if (e.key === "ArrowLeft" || e.key === "PageUp") prevSlide();
+            });
+        }
+
+        function checkOnlineStatus() {
+            const statusBadge = document.getElementById('online-status-landing');
+            if (navigator.onLine) {
+                statusBadge.innerText = "Online Mode";
+                statusBadge.className = "text-xs font-semibold text-emerald-400 uppercase tracking-widest bg-emerald-950/90 px-3 py-1 rounded-full border border-emerald-500/40";
+            } else {
+                statusBadge.innerText = "Offline Mode";
+                statusBadge.className = "text-xs font-semibold text-amber-400 uppercase tracking-widest bg-amber-950/90 px-3 py-1 rounded-full border border-amber-500/40";
+            }
+        }
+
+        function initPwaSupport() {
+            const manifestData = {
+                "name": "ESQ 165 Interactive Experience",
+                "short_name": "ESQ 165",
+                "start_url": "./",
+                "display": "standalone",
+                "background_color": "#050811",
+                "theme_color": "#050811",
+                "icons": [
+                    {
+                        "src": "logo.png",
+                        "sizes": "192x192",
+                        "type": "image/png"
+                    }
+                ]
+            };
+            const manifestBlob = new Blob([JSON.stringify(manifestData)], { type: 'application/json' });
+            const manifestUrl = URL.createObjectURL(manifestBlob);
+            const link = document.createElement('link');
+            link.rel = 'manifest';
+            link.href = manifestUrl;
+            document.head.appendChild(link);
+
+            if ('serviceWorker' in navigator) {
+                const swCode = `
+                    self.addEventListener('install', (e) => self.skipWaiting());
+                    self.addEventListener('activate', (e) => self.clients.claim());
+                    self.addEventListener('fetch', (e) => {
+                        e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
+                    });
+                `;
+                const swBlob = new Blob([swCode], { type: 'text/javascript' });
+                const swUrl = URL.createObjectURL(swBlob);
+                navigator.serviceWorker.register(swUrl).catch(() => {});
+            }
+
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                pwaDeferredPrompt = e;
+                document.getElementById('pwa-install-btn-landing')?.classList.remove('hidden');
+                document.getElementById('pwa-install-btn-main')?.classList.remove('hidden');
+            });
+        }
+
+        function triggerPwaInstall() {
+            if (pwaDeferredPrompt) {
+                pwaDeferredPrompt.prompt();
+                pwaDeferredPrompt.userChoice.then(() => {
+                    pwaDeferredPrompt = null;
+                });
+            } else {
+                showToast("Gunakan menu 'Add to Home Screen' di browser Anda.");
+            }
+        }
+    </script>
+</body>
+</html>

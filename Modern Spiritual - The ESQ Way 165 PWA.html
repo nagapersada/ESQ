@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Modern Spiritual - The ESQ Way 165</title>
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#050505">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ESQ 165">
+    <meta name="description" content="Aplikasi Interaktif Modern Spiritual - The ESQ Way 165 karya Deka Sonjaya. Membangun Kecerdasan Emosi dan Spiritual.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400;1,600&display=swap" rel="stylesheet">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        esqGold: '#d4af37',
+                        esqGoldLight: '#f3e5ab',
+                        esqGoldDark: '#997a15',
+                        esqDark: '#050505',
+                        esqGray: '#121212',
+                        esqCard: '#1a1a1a'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Safe-Area & Viewport Setup */
+        :root {
+            --sat: env(safe-area-inset-top, 0px);
+            --sab: env(safe-area-inset-bottom, 0px);
+            --sal: env(safe-area-inset-left, 0px);
+            --sar: env(safe-area-inset-right, 0px);
+            --font-scale: 1;
+        }
+
+        html, body {
+            background-color: #050505;
+            color: #f3f4f6;
+            height: 100%;
+            height: 100dvh;
+            width: 100vw;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* Scalable Font Stage */
+        .scalable-text-container {
+            font-size: calc(1rem * var(--font-scale));
+            line-height: calc(1.65rem * var(--font-scale));
+        }
+
+        /* Glassmorphism Styles */
+        .glass-panel {
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+
+        .glass-card {
+            background: rgba(26, 26, 26, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .gold-glow {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+        }
+
+        .gold-text-glow {
+            text-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Smooth Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: rgba(5,5,5,0.8); }
+        ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #f3e5ab; }
+
+        /* Slide Transition Animations */
+        .page {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
+            opacity: 0; visibility: hidden; pointer-events: none;
+            transform: scale(0.98);
+        }
+        .page.active {
+            opacity: 1; visibility: visible; pointer-events: auto;
+            transform: scale(1);
+        }
+
+        .slide-fade-enter {
+            animation: slideFadeIn 0.35s ease-out forwards;
+        }
+        @keyframes slideFadeIn {
+            from { opacity: 0; transform: translateY(12px) scale(0.99); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Continuous CSS Orbit Animations */
+        .animate-orbit {
+            animation: orbitRotate var(--speed, 10s) linear infinite;
+            animation-play-state: var(--orbit-play-state, running);
+        }
+        .animate-orbit-rev {
+            animation: orbitRotate var(--speed, 14s) linear infinite reverse;
+            animation-play-state: var(--orbit-play-state, running);
+        }
+        @keyframes orbitRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Pulse Animations */
+        .animate-pulse-glow {
+            animation: pulseGlow 2s infinite alternate;
+        }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+            100% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.8); }
+        }
+
+        .safe-pb { padding-bottom: max(1rem, var(--sab)); }
+        .safe-pt { padding-top: max(0.75rem, var(--sat)); }
+        .safe-px { padding-left: max(1rem, var(--sal)); padding-right: max(1rem, var(--sar)); }
+    </style>
+</head>
+<body class="antialiased selection:bg-esqGold selection:text-black font-sans bg-esqDark text-gray-100">
+
+    <div id="app" class="relative w-full h-full overflow-hidden flex flex-col">
+
+        <!-- ========================================== -->
+        <!-- 1. LANDING / HOME PAGE                     -->
+        <!-- ========================================== -->
+        <div id="page-landing" class="page active z-30 flex flex-col justify-between p-6 safe-pt safe-pb safe-px bg-gradient-to-b from-black/80 via-esqDark to-black">
+            <div class="absolute inset-0 z-[-2] bg-cover bg-center opacity-40 transition-scale duration-1000 transform scale-105" style="background-image: url('background.jpg'), radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);"></div>
+            <div class="absolute inset-0 z-[-1] bg-gradient-to-t from-esqDark via-black/80 to-transparent"></div>
+
+            <div class="w-full flex justify-between items-center z-10 pt-2">
+                <div class="flex items-center space-x-2">
+                    <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                    <span class="text-xs font-mono tracking-widest text-emerald-400 uppercase font-semibold">PWA Online Ready</span>
+                </div>
+                <button id="pwa-install-btn" onclick="triggerPWAInstall()" class="hidden bg-esqGold/20 hover:bg-esqGold/30 border border-esqGold text-esqGold text-xs px-3 py-1.5 rounded-full transition-all flex items-center space-x-2 shadow-lg">
+                    <i class="fas fa-download text-xs"></i>
+                    <span>Install App</span>
+                </button>
+            </div>
+
+            <div class="my-auto text-center flex flex-col items-center space-y-6 z-10 max-w-xl mx-auto">
+                <div class="relative group cursor-pointer" onclick="goToMainPage()">
+                    <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-esqGold via-yellow-200 to-esqGold opacity-75 blur-md group-hover:opacity-100 transition duration-500"></div>
+                    <div class="w-36 h-36 md:w-48 md:h-48 relative rounded-full border-2 border-esqGold/80 flex items-center justify-center p-3 bg-black/80 shadow-2xl overflow-hidden">
+                        <img src="logo.png" alt="Logo ESQ 165" class="w-full h-full object-contain transform group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/200x200/050505/d4af37?text=ESQ+165'">
+                    </div>
+                </div>
+                
+                <div class="space-y-2">
+                    <h2 class="text-xs md:text-sm font-semibold tracking-[0.3em] text-esqGold uppercase">Karya Deka Sonjaya</h2>
+                    <h1 class="text-3xl md:text-5xl font-serif font-black text-white tracking-wide gold-text-glow">Modern Spiritual</h1>
+                    <p class="text-sm md:text-lg text-gray-300 font-serif italic">"The ESQ Way 165 - Rahasia Puncak Sukses & Kebahagiaan Sejati"</p>
+                </div>
+
+                <div class="px-4 py-3 rounded-xl glass-card border-l-4 border-esqGold text-center max-w-md w-full">
+                    <p class="font-serif text-sm md:text-base italic text-esqGoldLight">
+                        "Pantang Gelap Sebelum Terang."
+                    </p>
+                    <p class="text-[11px] text-gray-400 mt-1 uppercase tracking-widest font-mono">Integrasi Utuh 52 Slide IQ, EQ & SQ</p>
+                </div>
+            </div>
+
+            <div class="w-full max-w-xs mx-auto z-10 mb-4 flex flex-col space-y-3">
+                <button onclick="goToMainPage()" class="w-full py-4 rounded-full bg-gradient-to-r from-esqGold via-yellow-400 to-esqGold text-black font-extrabold tracking-widest uppercase hover:brightness-110 transition-all duration-300 shadow-[0_0_25px_rgba(212,175,55,0.5)] flex items-center justify-center space-x-3 active:scale-95">
+                    <span>Mulai Penjelajahan</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <div class="flex justify-between items-center text-xs text-gray-400 px-2 font-mono">
+                    <span><i class="fas fa-layer-group text-esqGold"></i> 52 Slide Lengkap</span>
+                    <span><i class="fas fa-wifi text-emerald-400"></i> Full Offline PWA</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- 2. MAIN PRESENTATION VIEWER                -->
+        <!-- ========================================== -->
+        <div id="page-main" class="page z-20 flex flex-col bg-esqDark h-full w-full">
+            
+            <!-- Dynamic Navigation Bar Header -->
+            <header class="w-full bg-black/90 backdrop-blur-md border-b border-esqGold/30 flex items-center justify-between px-3 md:px-6 py-2 z-30 shrink-0 safe-pt shadow-lg">
+                <div class="flex items-center space-x-2 md:space-x-3 truncate">
+                    <button onclick="goToLandingPage()" title="Kembali ke Beranda" class="text-gray-400 hover:text-esqGold p-2 rounded-lg hover:bg-esqCard transition-colors">
+                        <i class="fas fa-home text-base md:text-lg"></i>
+                    </button>
+                    <div class="h-5 w-px bg-gray-800"></div>
+                    <div class="truncate">
+                        <h1 class="text-xs md:text-sm font-serif font-bold text-esqGold truncate">Modern Spiritual 165</h1>
+                        <p id="current-slide-title-head" class="text-[10px] md:text-xs text-gray-400 truncate">Slide 1 dari 52</p>
+                    </div>
+                </div>
+
+                <!-- Font Zoom & Control Buttons Hub -->
+                <div class="flex items-center space-x-1 md:space-x-2 shrink-0">
+                    <!-- Font Size Zoom Controls -->
+                    <div class="flex items-center bg-esqCard border border-gray-700 rounded-lg p-0.5 text-xs font-bold text-gray-300">
+                        <button onclick="adjustFontSize(-0.1)" title="Kecilkan Teks (A-)" class="px-2 py-1 hover:text-esqGold transition-colors">A-</button>
+                        <button onclick="resetFontSize()" title="Reset Ukuran Teks" class="px-1 py-1 text-[10px] font-mono text-gray-500 hover:text-white border-x border-gray-800">R</button>
+                        <button onclick="adjustFontSize(0.1)" title="Besarkan Teks (A+)" class="px-2 py-1 hover:text-esqGold transition-colors">A+</button>
+                    </div>
+
+                    <!-- Text to Speech Narator -->
+                    <button id="btn-tts" onclick="toggleTTS()" title="Baca Teks (Narator Suara)" class="w-8 h-8 md:w-9 md:h-9 rounded-full border border-gray-700 text-gray-300 hover:text-esqGold hover:border-esqGold flex items-center justify-center transition-all bg-esqCard">
+                        <i class="fas fa-volume-high text-xs" id="icon-tts"></i>
+                    </button>
+
+                    <!-- Ambient Sound Synth -->
+                    <button id="btn-ambient" onclick="toggleAmbientSound()" title="Musik Meditasi 432Hz" class="w-8 h-8 md:w-9 md:h-9 rounded-full border border-gray-700 text-gray-300 hover:text-esqGold hover:border-esqGold flex items-center justify-center transition-all bg-esqCard">
+                        <i class="fas fa-music text-xs" id="icon-ambient"></i>
+                    </button>
+
+                    <!-- Bookmark Toggle -->
+                    <button id="btn-bookmark" onclick="toggleBookmark()" title="Tandai Slide Ini" class="w-8 h-8 md:w-9 md:h-9 rounded-full border border-gray-700 text-gray-300 hover:text-esqGold hover:border-esqGold flex items-center justify-center transition-all bg-esqCard">
+                        <i class="far fa-bookmark text-xs" id="icon-bookmark"></i>
+                    </button>
+
+                    <!-- Table of Contents Modal Button -->
+                    <button onclick="openTocModal()" class="flex items-center space-x-1 bg-gradient-to-r from-esqGoldDark to-esqGold text-black font-bold px-2.5 py-1.5 md:px-3 md:py-1.5 rounded-full text-xs transition-all shadow-md hover:brightness-110 active:scale-95">
+                        <i class="fas fa-list-ul"></i>
+                        <span class="hidden md:inline">Daftar Isi</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Top Reading Progress Indicator -->
+            <div class="w-full h-1 bg-gray-900 shrink-0">
+                <div id="top-progress-bar" class="h-full bg-gradient-to-r from-yellow-600 via-esqGold to-yellow-300 w-0 transition-all duration-300"></div>
+            </div>
+
+            <!-- Scrollable Slide Stage Container -->
+            <main id="main-scroll-viewport" class="flex-grow overflow-y-auto overflow-x-hidden scroll-smooth flex justify-center w-full px-3 md:px-8 py-4 safe-px pb-28 md:pb-32">
+                <div class="w-full max-w-4xl flex flex-col items-center">
+                    <div id="slide-stage" class="w-full slide-fade-enter scalable-text-container text-gray-200 bg-esqGray/90 p-4 md:p-8 rounded-2xl border border-esqGold/20 shadow-2xl min-h-[65vh] flex flex-col justify-between">
+                        <!-- Dynamic HTML Content Loaded via JS -->
+                    </div>
+                </div>
+            </main>
+
+            <!-- Sticky Control Footer Navigation -->
+            <footer class="w-full bg-black/95 backdrop-blur-lg border-t border-esqGold/30 p-3 shrink-0 flex items-center justify-between z-30 fixed bottom-0 left-0 right-0 safe-pb safe-px shadow-2xl">
+                <button id="btn-prev-slide" onclick="prevSlide()" class="flex items-center space-x-2 text-gray-300 hover:text-esqGold disabled:opacity-20 disabled:hover:text-gray-300 px-3 py-2 rounded-xl bg-esqCard hover:bg-gray-800 transition-all font-semibold text-xs md:text-sm border border-gray-800 active:scale-95">
+                    <i class="fas fa-chevron-left"></i>
+                    <span class="hidden sm:inline">Sebelumnya</span>
+                </button>
+                
+                <div class="flex items-center space-x-2 bg-esqCard px-3 py-1 rounded-full border border-esqGold/40 text-xs md:text-sm font-mono shadow-inner">
+                    <span class="text-gray-400">Slide</span>
+                    <input id="slide-input-num" type="number" min="1" max="52" value="1" onchange="jumpToSlideInput(this.value)" class="w-10 bg-black text-center text-esqGold font-bold rounded border border-gray-700 py-0.5 focus:outline-none focus:border-esqGold">
+                    <span class="text-gray-500">/ 52</span>
+                </div>
+
+                <button id="btn-next-slide" onclick="nextSlide()" class="flex items-center space-x-2 text-black bg-gradient-to-r from-esqGold via-yellow-400 to-esqGold hover:brightness-110 disabled:opacity-30 px-4 py-2 rounded-xl font-bold text-xs md:text-sm transition-all shadow-[0_0_12px_rgba(212,175,55,0.3)] active:scale-95">
+                    <span class="hidden sm:inline">Selanjutnya</span>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </footer>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- 3. TABLE OF CONTENTS & BOOKMARKS MODAL     -->
+        <!-- ========================================== -->
+        <div id="modal-toc-overlay" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-3 md:p-6 opacity-0 transition-opacity duration-300">
+            <div class="bg-esqGray border border-esqGold/50 rounded-2xl w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+                <div class="flex items-center justify-between p-4 border-b border-gray-800 bg-black/60">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-book-open text-esqGold text-xl"></i>
+                        <h3 class="font-serif text-lg font-bold text-esqGold">Daftar Isi 52 Slide Complete</h3>
+                    </div>
+                    <button onclick="closeTocModal()" class="text-gray-400 hover:text-white p-2 rounded-lg hover:bg-gray-800 transition-colors">
+                        <i class="fas fa-times text-lg"></i>
+                    </button>
+                </div>
+
+                <div class="p-3 bg-black/40 border-b border-gray-800 flex items-center space-x-2">
+                    <div class="relative flex-grow">
+                        <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs"></i>
+                        <input id="toc-search-input" type="text" placeholder="Cari judul slide atau kata..." oninput="filterTocList(this.value)" class="w-full bg-esqCard text-xs text-white pl-9 pr-3 py-2 rounded-lg border border-gray-700 focus:outline-none focus:border-esqGold">
+                    </div>
+                    <button onclick="toggleTocFilterBookmarks()" id="btn-filter-bm" class="px-3 py-2 bg-esqCard border border-gray-700 text-gray-300 text-xs rounded-lg hover:border-esqGold flex items-center space-x-1.5 shrink-0">
+                        <i class="fas fa-bookmark text-esqGold"></i>
+                        <span>Tersimpan</span>
+                    </button>
+                </div>
+
+                <div id="toc-list-container" class="p-4 overflow-y-auto flex-grow space-y-2 text-xs md:text-sm">
+                    <!-- Dynamic TOC Buttons injected by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- iOS PWA Install Modal -->
+        <div id="modal-ios-install" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-esqGray border border-esqGold rounded-2xl p-6 max-w-sm text-center space-y-4 shadow-2xl">
+                <i class="fab fa-apple text-4xl text-esqGold"></i>
+                <h3 class="text-lg font-serif font-bold text-white">Instal di iPhone / iPad</h3>
+                <p class="text-xs text-gray-300 leading-relaxed text-left">
+                    Untuk memasang aplikasi ini di iOS:
+                    <br>1. Ketuk tombol <strong class="text-esqGold"><i class="fas fa-share-from-square"></i> Share</strong> di Safari.
+                    <br>2. Pilih <strong class="text-esqGold"><i class="fas fa-plus-square"></i> Add to Home Screen</strong>.
+                </p>
+                <button onclick="document.getElementById('modal-ios-install').classList.add('hidden')" class="w-full py-2 bg-esqGold text-black font-bold rounded-lg text-xs uppercase">
+                    Mengerti
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        /* --------------------------------------------------
+           STATE & CONFIGURATION
+           -------------------------------------------------- */
+        let currentSlideIndex = 0;
+        let fontScale = 1.0;
+        let isAudioPlaying = false;
+        let isTTSPlaying = false;
+        let orbitPlayState = 'running';
+        let orbitSpeedMultiplier = 1;
+        let bookmarks = JSON.parse(localStorage.getItem('esq_bookmarks') || '[]');
+        let deferredPWAInstallPrompt = null;
+        let audioCtx = null, ambientOsc1 = null, ambientOsc2 = null, ambientGain = null;
+
+        /* DOM Elements */
+        const pageLanding = document.getElementById('page-landing');
+        const pageMain = document.getElementById('page-main');
+        const slideStage = document.getElementById('slide-stage');
+        const slideInputNum = document.getElementById('slide-input-num');
+        const topProgressBar = document.getElementById('top-progress-bar');
+        const currentSlideTitleHead = document.getElementById('current-slide-title-head');
+        const btnPrev = document.getElementById('btn-prev-slide');
+        const btnNext = document.getElementById('btn-next-slide');
+        const mainScrollViewport = document.getElementById('main-scroll-viewport');
+        const modalTocOverlay = document.getElementById('modal-toc-overlay');
+        const tocListContainer = document.getElementById('toc-list-container');
+        const btnBookmark = document.getElementById('btn-bookmark');
+        const iconBookmark = document.getElementById('icon-bookmark');
+        const btnAudio = document.getElementById('btn-ambient');
+        const iconAudio = document.getElementById('icon-ambient');
+        const btnTTS = document.getElementById('btn-tts');
+        const iconTTS = document.getElementById('icon-tts');
+
+        /* --------------------------------------------------
+           FULL 52 SLIDES DATA - 100% UNTRUNCATED TEXT
+           -------------------------------------------------- */
+        const slidesData = [
+            {
+                title: "THE ESQ WAY 165",
+                category: "Pendahuluan",
+                html: `
+                    <div class="flex flex-col items-center justify-center min-h-[50vh] text-center space-y-6 my-auto">
+                        <div class="inline-block px-4 py-1.5 rounded-full border border-esqGold/40 bg-esqGold/10 text-esqGold text-xs font-mono font-bold uppercase tracking-widest">Masterpiece Presentation</div>
+                        <h1 class="text-4xl md:text-6xl font-black text-esqGold tracking-widest gold-text-glow">THE ESQ WAY</h1>
+                        <div class="relative">
+                            <h2 class="text-7xl md:text-9xl font-serif font-black text-white drop-shadow-2xl">165</h2>
+                            <span class="absolute -top-3 -right-6 text-xs bg-esqGold text-black font-bold px-2 py-0.5 rounded-full">Pro</span>
+                        </div>
+                        <h3 class="text-lg md:text-2xl text-gray-300 font-serif tracking-wider italic">Emotional Spiritual Quotient</h3>
+                        <p class="text-xs md:text-sm text-gray-400 max-w-md">Sebuah Konsep Pemikiran Terintegrasi Berdasarkan Rukun Iman, Rukun Islam, dan Ihsan.</p>
+                    </div>`
+            },
+            {
+                title: "Q.S: 91 Asy Syam 1-10",
+                category: "Pendahuluan",
+                html: `
+                    <div class="space-y-4 my-auto">
+                        <h3 class="text-xl md:text-2xl text-esqGold font-bold text-center border-b border-gray-800 pb-3 font-serif">Q.S: 91 Asy Syam 1~10</h3>
+                        <div class="glass-card p-5 md:p-6 rounded-xl border-l-4 border-esqGold text-center leading-relaxed text-sm md:text-base font-serif italic text-gray-200 space-y-1.5">
+                            <p>Demi matahari dan cahayanya di pagi hari,</p>
+                            <p>Demi bulan apabila mengiringi,</p>
+                            <p>Demi siang bila ia menampakkan,</p>
+                            <p>Demi malam bila ia menutupi,</p>
+                            <p>Demi langit dan seluruh binaannya,</p>
+                            <p>Demi bumi serta penghamparannya,</p>
+                            <p>Demi sukma dan penyempurnaannya,</p>
+                            <p class="text-gray-400">Maka Allah mengilhamkan kepada sukma itu kefasikan dan ketakwaannya,</p>
+                            <div class="pt-4 font-sans not-italic space-y-2">
+                                <p class="text-esqGold font-bold text-base md:text-xl">"Beruntunglah orang yang mensucikannya,"</p>
+                                <p class="text-red-400 font-bold text-base md:text-xl">"Rugilah orang yang mengotorinya."</p>
+                            </div>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Salam Perdamaian ESQ",
+                category: "Pendahuluan",
+                html: `
+                    <div class="space-y-6 my-auto text-center">
+                        <h3 class="text-2xl font-serif font-bold text-esqGold uppercase tracking-widest">SALAM PERDAMAIAN ESQ</h3>
+                        <div class="glass-card p-6 md:p-8 rounded-xl leading-relaxed text-sm md:text-base space-y-4 text-gray-300">
+                            <p>Kalau di dalam ESQ ada Rukun Iman, Rukun Islam dan Ihsan, bukan berarti eksklusifisme aliran atau agama, melainkan keinginan untuk menyampaikan cahaya kebenaran.</p>
+                            <p>Kalau di dalam ESQ ada Al Qur'an, itu bukan berarti hanya untuk golongan tertentu, melainkan untuk seluruh umat manusia.</p>
+                            <div class="py-4 border-y border-esqGold/30 text-base md:text-xl font-bold font-serif text-white">
+                                <p class="text-gray-400">Bukan Al Qur'an untuk Islam,</p>
+                                <p class="text-gray-400">Bukan dunia untuk Islam,</p>
+                                <p class="text-esqGold mt-2">Tapi Al Qur'an dan Islam untuk Dunia.</p>
+                            </div>
+                            <p class="italic text-gray-400">Islam merindukan perdamaian dan kebahagiaan sejati bersama dengan yang lain.</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Dimensi & Kecerdasan Manusia",
+                category: "Landasan Teoritis",
+                html: `
+                    <div class="space-y-5 my-auto">
+                        <h3 class="text-xl md:text-2xl text-esqGold font-bold text-center uppercase tracking-wider">DIMENSI & KECERDASAN MANUSIA</h3>
+                        <div class="flex justify-center my-4">
+                            <div class="relative w-56 h-56 flex items-center justify-center">
+                                <div onclick="alert('Body (Logos): Dimensi Fisik & Logika (IQ)')" class="absolute inset-0 rounded-full bg-gradient-to-r from-orange-600 to-amber-700 opacity-90 animate-pulse flex items-start justify-center pt-2 text-[10px] font-bold text-white uppercase shadow-lg cursor-pointer">Body (IQ) - Logos</div>
+                                <div onclick="alert('Mind (Pathos): Dimensi Emosi & Kepekaan (EQ)')" class="absolute inset-6 rounded-full bg-gradient-to-r from-blue-800 to-indigo-900 opacity-95 flex items-start justify-center pt-2 text-[10px] font-bold text-white uppercase shadow-lg cursor-pointer">Mind (EQ) - Pathos</div>
+                                <div onclick="alert('Soul (Ethos): Dimensi Spiritual Suara Hati (SQ)')" class="absolute inset-14 rounded-full bg-white flex flex-col items-center justify-center text-black font-extrabold shadow-[0_0_20px_#fff] text-center p-2 cursor-pointer">
+                                    <span class="text-xs">Soul (SQ)</span>
+                                    <span class="text-[9px] font-mono text-gray-800">Ethos</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs md:text-sm">
+                            <div class="glass-card p-3.5 rounded-lg border-l-4 border-orange-500">
+                                <h4 class="font-bold text-orange-400 uppercase">Body (Raga) - Logos</h4>
+                                <p class="text-gray-300 text-xs mt-1">Dimensi Fisik & Intelektual untuk aplikasi praktis (IQ).</p>
+                            </div>
+                            <div class="glass-card p-3.5 rounded-lg border-l-4 border-blue-500">
+                                <h4 class="font-bold text-blue-400 uppercase">Mind (Jiwa) - Pathos</h4>
+                                <p class="text-gray-300 text-xs mt-1">Dimensi Emosional, memiliki rasa sebagai radar pengindera (EQ).</p>
+                            </div>
+                            <div class="glass-card p-3.5 rounded-lg border-l-4 border-white">
+                                <h4 class="font-bold text-white uppercase">Soul (Sukma) - Ethos</h4>
+                                <p class="text-gray-300 text-xs mt-1">Dimensi Spiritual, berisi dorongan suara hati suci (SQ).</p>
+                            </div>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Perbedaan IQ, EQ, & SQ",
+                category: "Landasan Teoritis",
+                html: `
+                    <div class="space-y-6 my-auto">
+                        <h3 class="text-2xl text-esqGold font-bold text-center uppercase tracking-widest border-b border-gray-800 pb-3">TRILOGI KECERDASAN</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="glass-card p-5 rounded-xl border border-gray-800 hover:border-esqGold transition-all">
+                                <span class="text-4xl font-black text-orange-500 font-serif">IQ</span>
+                                <h4 class="font-bold text-white text-base mt-2">Intelligence Quotient</h4>
+                                <p class="text-xs text-gray-300 mt-2 leading-relaxed">Kemampuan intelektual, analisa, logika dan rasio.</p>
+                                <span class="block mt-4 text-[11px] font-mono bg-black/50 px-2 py-1 rounded text-orange-400">Contoh: 2 x 2 = 4</span>
+                            </div>
+                            <div class="glass-card p-5 rounded-xl border border-gray-800 hover:border-esqGold transition-all">
+                                <span class="text-4xl font-black text-blue-400 font-serif">EQ</span>
+                                <h4 class="font-bold text-white text-base mt-2">Emotional Quotient</h4>
+                                <p class="text-xs text-gray-300 mt-2 leading-relaxed">Kemampuan mendengar suara hati sebagai sumber informasi.</p>
+                                <span class="block mt-4 text-[11px] font-mono bg-black/50 px-2 py-1 rounded text-blue-300">Contoh: Komitmen & Kepekaan</span>
+                            </div>
+                            <div class="glass-card p-5 rounded-xl border border-esqGold/40 gold-glow transition-all">
+                                <span class="text-4xl font-black text-esqGold font-serif">SQ</span>
+                                <h4 class="font-bold text-white text-base mt-2">Spiritual Quotient</h4>
+                                <p class="text-xs text-gray-300 mt-2 leading-relaxed">Kemampuan memberi makna puncak spiritual (Ultimate Meaning).</p>
+                                <span class="block mt-4 text-[11px] font-mono bg-black/50 px-2 py-1 rounded text-esqGold">Contoh: Spiritualisasi Pekerjaan</span>
+                            </div>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Pemisahan EQ dan SQ",
+                category: "Landasan Teoritis",
+                html: `
+                    <div class="space-y-6 my-auto text-center">
+                        <h3 class="text-lg md:text-xl font-bold text-red-400 border-b border-gray-800 pb-3 uppercase">SELAMA INI TERJADI PEMISAHAN ANTARA EQ DENGAN SQ</h3>
+                        <div class="flex flex-col items-center justify-center space-y-8 my-6">
+                            <div class="w-full max-w-md glass-card p-4 rounded-xl flex justify-between items-center border border-red-900/50">
+                                <span class="text-xs font-bold text-gray-300">Manusia</span>
+                                <div class="h-1 bg-red-600 flex-grow mx-4 relative">
+                                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] bg-red-900 text-white px-2 py-0.5 rounded font-bold">Terpisah oleh EQ</span>
+                                </div>
+                                <span class="text-xs font-bold text-gray-300">Manusia</span>
+                            </div>
+                            <div class="w-full max-w-md glass-card p-4 rounded-xl flex flex-col items-center border border-red-900/50 space-y-3">
+                                <span class="text-sm font-bold text-esqGold">Tuhan (SQ)</span>
+                                <div class="w-1 h-14 bg-red-600 relative">
+                                    <span class="absolute top-1/2 left-3 -translate-y-1/2 text-[10px] bg-red-900 text-white px-2 py-0.5 rounded whitespace-nowrap font-bold">Jurang SQ</span>
+                                </div>
+                                <span class="text-xs font-bold text-gray-300">Manusia (Kehidupan)</span>
+                            </div>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "ESQ Menggabungkan IQ, EQ & SQ",
+                category: "Landasan Teoritis",
+                html: `
+                    <div class="space-y-5 my-auto">
+                        <h3 class="text-xl md:text-2xl font-bold text-center text-white">ESQ MENGGABUNGKAN <span class="text-esqGold">IQ, EQ DAN SQ</span></h3>
+                        <div class="flex justify-center">
+                            <svg viewBox="0 0 400 320" class="w-full max-w-md h-auto drop-shadow-2xl">
+                                <polygon points="200,30 370,280 30,280" fill="none" stroke="#d4af37" stroke-width="8" stroke-linejoin="round" />
+                                <circle cx="200" cy="30" r="26" fill="#050505" stroke="#d4af37" stroke-width="4"/>
+                                <text x="200" y="37" fill="#fff" font-size="18" font-weight="900" text-anchor="middle">SQ</text>
+                                <circle cx="30" cy="280" r="26" fill="#050505" stroke="#f97316" stroke-width="4"/>
+                                <text x="30" y="287" fill="#fff" font-size="18" font-weight="900" text-anchor="middle">IQ</text>
+                                <circle cx="370" cy="280" r="26" fill="#050505" stroke="#3b82f6" stroke-width="4"/>
+                                <text x="370" y="287" fill="#fff" font-size="18" font-weight="900" text-anchor="middle">EQ</text>
+                                <text x="105" y="145" fill="#d4af37" font-size="14" font-weight="bold" transform="rotate(-56 105 145)">Intelektual</text>
+                                <text x="295" y="145" fill="#d4af37" font-size="14" font-weight="bold" transform="rotate(56 295 145)">Emosional</text>
+                                <text x="200" y="265" fill="#d4af37" font-size="14" font-weight="bold" text-anchor="middle">Suara Hati</text>
+                            </svg>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl text-xs md:text-sm text-gray-300 leading-relaxed border border-esqGold/30">
+                            <strong class="text-esqGold">ESQ:</strong> Cara menggunakan makna, nilai, tujuan & motivasi spiritual dalam proses berpikir (IQ) dan proses merasa (EQ) dalam membuat keputusan serta dalam berpikir atau melakukan sesuatu.
+                        </div>
+                    </div>`
+            },
+            {
+                title: "God Spot - Penemuan Ilmiah",
+                category: "Landasan Teoritis",
+                html: `
+                    <div class="space-y-5 my-auto text-center">
+                        <h1 class="text-4xl md:text-6xl font-black text-esqGold font-serif gold-text-glow">GOD SPOT</h1>
+                        <h3 class="text-lg font-bold text-white">Kecerdasan Spiritual (SQ)</h3>
+                        <div class="glass-card p-4 rounded-xl text-xs text-gray-400 space-y-1 font-mono">
+                            <p>• Danah Zohar & Ian Marshall (Harvard & Oxford University, 2000)</p>
+                            <p>• V.S. Ramachandran, Neurolog (California University, 1997)</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-esqGold/40 text-left text-xs md:text-sm leading-relaxed text-gray-200">
+                            <strong>GOD SPOT</strong> ditemukan dalam otak manusia telah "build in" sebagai pusat spiritual (Spiritual Center) yang terletak di antara jaringan saraf & otak.
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Mengapa Perlu ESQ?",
+                category: "Landasan Teoritis",
+                html: `
+                    <div class="space-y-4 my-auto">
+                        <h3 class="text-xl font-bold text-esqGold text-center uppercase tracking-widest">MENGAPA PERLU ESQ?</h3>
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="glass-card p-4 rounded-xl border-l-4 border-red-500">
+                                <p class="text-xs text-gray-300">IQ (Tinggi) + EQ (Rendah) + SQ (Rendah)</p>
+                                <p class="text-sm font-bold text-red-400 uppercase mt-1">HASIL: DIKTATOR, KORUPTOR (BUTA HATI)</p>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl border-l-4 border-blue-500">
+                                <p class="text-xs text-gray-300">IQ (Rendah) + EQ (Rendah) + SQ (Tinggi)</p>
+                                <p class="text-sm font-bold text-blue-400 uppercase mt-1">HASIL: PERTAPA</p>
+                            </div>
+                            <div class="glass-card p-5 rounded-xl border-2 border-esqGold gold-glow bg-esqGold/10">
+                                <p class="text-xs text-esqGold font-bold">IQ (Tinggi) + EQ (Tinggi) + SQ (Tinggi)</p>
+                                <p class="text-base md:text-xl font-black text-white uppercase tracking-wider mt-1">HASIL: MANUSIA PARIPURNA</p>
+                            </div>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Q.S 3 Ali 'Imran: 190-191",
+                category: "Landasan Teoritis",
+                html: `
+                    <div class="space-y-4 my-auto">
+                        <h3 class="text-lg font-bold text-center text-white border-b border-gray-800 pb-2">PENCIPTAAN LANGIT DAN BUMI</h3>
+                        <div class="glass-card p-6 rounded-xl border-l-4 border-esqGold leading-relaxed text-xs md:text-sm italic text-gray-200 space-y-3 font-serif">
+                            <p>"Sesungguhnya dalam penciptaan langit dan bumi dan silih bergantinya malam dan siang terdapat tanda-tanda bagi orang yang berakal."</p>
+                            <p>"Yaitu orang-orang yang mengingat Allah sambil berdiri, duduk, atau dalam keadaan berbaring dan mereka memikirkan tentang penciptaan langit dan bumi (seraya berkata):"</p>
+                            <div class="p-3 bg-esqGold/10 border border-esqGold rounded-lg font-bold not-italic text-esqGold text-center">
+                                "Ya Tuhan kami, tiadalah Engkau menciptakan ini dengan sia-sia. Maha Suci Engkau, maka peliharalah kami dari siksa neraka."
+                            </div>
+                            <p class="text-right text-xs font-sans font-bold text-esqGold not-italic">Q.S 3 Ali 'Imran: 190 - 191</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "BIG BANG",
+                category: "Landasan Teoritis",
+                html: `
+                    <div class="space-y-6 my-auto text-center">
+                        <h1 class="text-4xl md:text-6xl font-black text-white tracking-widest font-serif gold-text-glow">BIG BANG</h1>
+                        <p class="text-xs md:text-sm text-gray-300">Proses terciptanya galaksi melalui sebuah <strong class="text-esqGold">ledakan besar</strong>.</p>
+                        <div class="glass-card p-6 rounded-xl border border-gray-800 text-left leading-relaxed text-xs md:text-sm italic text-gray-200 font-serif space-y-3">
+                            <p>"Dan apakah orang-orang yang kafir, tidak mengetahui bahwa langit dan bumi itu keduanya dahulu adalah sesuatu yang padu, kemudian Kami pisahkan antara keduanya. Dan dari air Kami jadikan segala sesuatu yang hidup. Maka mengapakah mereka tiada beriman?"</p>
+                            <p class="text-right font-sans font-bold text-esqGold not-italic text-xs">Q.S 21 Al-Anbiyaa : 30</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Divine Light Timeline",
+                category: "Landasan Teoritis",
+                html: `
+                    <div class="space-y-5 my-auto">
+                        <h3 class="text-xl md:text-2xl text-esqGold font-bold text-center uppercase tracking-widest">DIVINE LIGHT TIMELINE</h3>
+                        <div class="space-y-3 text-xs md:text-sm font-serif max-w-md mx-auto">
+                            <div class="flex items-center space-x-3 glass-card p-2.5 rounded-lg border-l-4 border-gray-600">
+                                <span class="font-bold text-gray-400 w-16 text-right">400 SM</span>
+                                <span class="text-white">Plato</span>
+                            </div>
+                            <div class="flex items-center space-x-3 glass-card p-3 rounded-lg border-l-4 border-esqGold bg-esqGold/10">
+                                <span class="font-bold text-esqGold w-16 text-right">624 M</span>
+                                <span class="text-esqGold font-bold text-base">Muhammad SAW</span>
+                            </div>
+                            <div class="flex items-center space-x-3 glass-card p-2.5 rounded-lg border-l-4 border-gray-600">
+                                <span class="font-bold text-gray-400 w-16 text-right">850 M</span>
+                                <span class="text-white">Copernicus</span>
+                            </div>
+                            <div class="flex items-center space-x-3 glass-card p-2.5 rounded-lg border-l-4 border-gray-600">
+                                <span class="font-bold text-gray-400 w-16 text-right">1690 M</span>
+                                <span class="text-white">Galileo</span>
+                            </div>
+                            <div class="flex items-center space-x-3 glass-card p-2.5 rounded-lg border-l-4 border-gray-600">
+                                <span class="font-bold text-gray-400 w-16 text-right">2000 M</span>
+                                <span class="text-white">Stephen Hawking</span>
+                            </div>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "GALAKSI",
+                category: "Landasan Teoritis",
+                html: `
+                    <div class="space-y-6 my-auto text-center">
+                        <h3 class="text-3xl font-black text-white tracking-widest font-serif uppercase">GALAKSI</h3>
+                        <p class="text-xs md:text-sm text-gray-300 glass-card p-4 rounded-xl border border-gray-800">
+                            Diameter galaksi <strong class="text-esqGold">80.000 tahun cahaya</strong> dan di dalamnya terdapat <strong class="text-esqGold">100 milyar bintang-bintang</strong> sebesar matahari.
+                        </p>
+                        <div class="glass-card p-6 rounded-xl border border-gray-800 text-left italic text-xs md:text-sm font-serif text-gray-200 space-y-3">
+                            <p>"Allah-lah yang meninggikan langit tanpa tiang (sebagaimana) yang kamu lihat, kemudian Dia bersemayam di atas 'Arsy, dan menundukkan matahari dan bulan. Masing-masing beredar sehingga waktu yang ditentukan. Allah mengatur urusan (makhluk-Nya), menjelaskan tanda-tanda (kebesaran-Nya), supaya kamu meyakini pertemuan dengan Tuhanmu."</p>
+                            <p class="text-right font-sans font-bold text-esqGold not-italic text-xs">Q.S 13 Ar Ra'd: 2</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "THE BLACK HOLE",
+                category: "Landasan Teoritis",
+                html: `
+                    <div class="space-y-4 my-auto text-center">
+                        <h3 class="text-xl font-bold text-white uppercase tracking-widest">THE BLACK HOLE</h3>
+                        
+                        <!-- Interactive Simulator -->
+                        <div class="relative w-44 h-44 mx-auto my-2 flex items-center justify-center">
+                            <div class="w-16 h-16 rounded-full bg-black border-2 border-esqGold gold-glow flex items-center justify-center text-[10px] font-bold text-esqGold z-10">Pusat Orbit</div>
+                            <div class="absolute inset-0 rounded-full border border-dashed border-esqGold/60 animate-orbit" style="--speed: 8s;">
+                                <div class="w-3.5 h-3.5 rounded-full bg-white shadow-[0_0_8px_#fff] absolute -top-2 left-1/2 -translate-x-1/2"></div>
+                            </div>
+                        </div>
+
+                        <!-- Orbit Controls -->
+                        <div class="flex justify-center space-x-2 my-2">
+                            <button onclick="toggleOrbitAnimation()" class="px-3 py-1 bg-esqCard border border-esqGold text-esqGold text-xs rounded-full font-bold">Play / Pause Orbit</button>
+                            <button onclick="changeOrbitSpeed()" class="px-3 py-1 bg-esqCard border border-gray-700 text-gray-300 text-xs rounded-full">Speed x<span id="speed-indicator">1</span></button>
+                        </div>
+
+                        <p class="text-xs text-gray-300 leading-relaxed text-left glass-card p-3 rounded-lg">
+                            <strong class="text-esqGold">The Milky Way (Bima Sakti):</strong> Kepadatan massa Black Hole 2.6 juta kali matahari, jarak 26.000 tahun cahaya dan terdapat 100 milyar bintang dalam satu galaksi, <strong class="text-white underline">semua ber-Thawaf.</strong>
+                        </p>
+
+                        <div class="glass-card p-4 rounded-xl text-left italic text-xs font-serif text-gray-200">
+                            "Dialah yang menjadikan matahari bersinar dan bulan bercahaya dan ditetapkan-Nya manzilah-manzilah (garis orbit) bagi perjalanan bulan itu..." (Q.S 10 Yunus: 5)
+                        </div>
+                    </div>`
+            },
+            {
+                title: "THAWAF ALAM SEMESTA",
+                category: "Landasan Teoritis",
+                html: `
+                    <div class="space-y-6 my-auto text-center">
+                        <h3 class="text-2xl text-esqGold font-bold uppercase tracking-widest border-b border-gray-800 pb-2">THAWAF ALAM SEMESTA</h3>
+                        <p class="text-base md:text-xl font-serif text-white font-bold">
+                            Seluruh planet berputar mengelilingi pusat,<br><strong class="text-esqGold">inilah Thawaf alam semesta.</strong>
+                        </p>
+                        <div class="glass-card p-6 rounded-xl border border-esqGold/30 text-left italic text-xs md:text-sm font-serif text-gray-200 space-y-3">
+                            <p>"Langit yang tujuh, bumi dan semua yang ada di dalamnya bertasbih kepada Allah. Dan tak ada suatupun melainkan bertasbih dengan memuji-Nya. Tetapi kamu sekalian tidak mengerti tasbih mereka. Sesungguhnya Dia adalah Maha Penyantun lagi Maha Pengampun."</p>
+                            <p class="text-right font-sans font-bold text-esqGold not-italic text-xs">Q.S 17 Al-Israa': 44</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "THAWAF MIKROKOSMOS (ATOM)",
+                category: "Landasan Teoritis",
+                html: `
+                    <div class="space-y-4 my-auto text-center">
+                        <h3 class="text-xl font-bold text-esqGold uppercase tracking-widest">THAWAF MIKROKOSMOS</h3>
+                        
+                        <!-- Interactive Atom Bohr Simulator -->
+                        <div class="relative w-48 h-48 mx-auto my-4 flex items-center justify-center">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-yellow-400 to-esqGold text-black font-bold text-[9px] flex items-center justify-center z-10 shadow-lg">Inti Atom</div>
+                            <div class="absolute w-full h-16 border border-blue-400/50 rounded-[50%] animate-orbit" style="--speed: 6s;">
+                                <div class="w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_6px_#60a5fa] absolute -top-1.5 left-1/2"></div>
+                            </div>
+                            <div class="absolute w-full h-16 border border-orange-400/50 rounded-[50%] animate-orbit-rev" style="--speed: 9s; transform: rotate(60deg);">
+                                <div class="w-3 h-3 bg-orange-400 rounded-full shadow-[0_0_6px_#fb923c] absolute -top-1.5 left-1/2"></div>
+                            </div>
+                        </div>
+
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">'Model Atom Bohr'</p>
+
+                        <div class="glass-card p-4 rounded-xl text-left italic text-xs font-serif text-gray-200 space-y-2">
+                            <p>"Allah-lah yang telah menciptakan tujuh langit dan bumi seperti itu pula. Perintah Allah berlaku padanya, supaya kamu ketahui bahwa Allah itu Maha Kuasa atas tiap-tiap sesuatu, dan sesungguhnya Allah ilmu-Nya meliputi segala sesuatu."</p>
+                            <p class="text-right font-sans font-bold text-esqGold not-italic text-xs">QS Ath-Thalaaq 65:12</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "THAWAF MANUSIA",
+                category: "Landasan Teoritis",
+                html: `
+                    <div class="space-y-6 my-auto text-center">
+                        <h3 class="text-2xl text-esqGold font-bold uppercase tracking-widest border-b border-gray-800 pb-2">THAWAF MANUSIA</h3>
+                        <div class="flex justify-center my-4">
+                            <div class="w-24 h-24 bg-black border-2 border-esqGold gold-glow flex items-center justify-center relative">
+                                <span class="text-xs text-esqGold font-bold uppercase">Ka'bah</span>
+                                <div class="absolute inset-0 border border-dashed border-white/40 animate-orbit" style="--speed: 10s;">
+                                    <div class="w-2.5 h-2.5 bg-white rounded-full absolute -top-1.5 left-1/2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-esqGold/40 text-left italic text-xs md:text-sm font-serif text-gray-200 space-y-3">
+                            <p>"Allah menjadikan Ka'bah, rumah suci sebagai pusat, (peribadatan dan urusan dunia) bagi manusia dan (demikian pula) bulan Haram, hadya, qalaid (Allah menjadikan yang) demikian itu agar kamu tahu, bahwa sesungguhnya Allah tahu apa yang ada di langit dan yang ada di bumi dan bahwa sesungguhnya Allah Maha Mengetahui segala sesuatu."</p>
+                            <p class="text-right font-sans font-bold text-esqGold not-italic text-xs">Q.S 5 Al-Maidah : 97</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "THAWAF ALAM & MANUSIA",
+                category: "Landasan Teoritis",
+                html: `
+                    <div class="space-y-4 my-auto text-xs md:text-sm text-gray-300 leading-relaxed text-justify">
+                        <h3 class="text-xl font-bold text-white text-center border-b border-gray-800 pb-3">HARMONI THAWAF ALAM & MANUSIA</h3>
+                        <p>Black Hole dengan Gravitasinya yang sangat kuat menjaga, menjangkar dan menarik seluruh planet agar tetap pada orbitnya. Apabila keluar dari garis orbit maka hancurlah tatanan alam semesta.</p>
+                        <p>Begitu pula aktivitas manusia terjadi karena tarikan dan dorongan spiritual pada ruh manusia, seperti gerakan Thawaf.</p>
+                        <div class="glass-card p-4 rounded-xl border-l-4 border-red-500 text-red-200 text-center font-bold">
+                            Apabila manusia keluar dari "garis orbit" dan mengubah "pusat orbit" (kiblat) maka rusaklah tatanan jiwa dan sosial masyarakat.
+                        </div>
+                    </div>`
+            },
+            {
+                title: "THAWAF UNIVERSAL",
+                category: "Landasan Teoritis",
+                html: `
+                    <div class="space-y-6 my-auto text-center">
+                        <h3 class="text-2xl text-esqGold font-bold uppercase tracking-widest border-b border-gray-800 pb-3">THAWAF UNIVERSAL</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="glass-card p-4 rounded-xl border border-blue-500/40">
+                                <i class="fas fa-globe text-2xl text-blue-400 mb-2"></i>
+                                <h4 class="font-bold text-white text-sm">Makrokosmos</h4>
+                                <p class="text-xs text-gray-400">Peredaran Bintang & Galaksi</p>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl border border-orange-500/40">
+                                <i class="fas fa-atom text-2xl text-orange-400 mb-2"></i>
+                                <h4 class="font-bold text-white text-sm">Mikrokosmos</h4>
+                                <p class="text-xs text-gray-400">Peredaran Elektron Atom</p>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl border border-esqGold gold-glow">
+                                <i class="fas fa-kaaba text-2xl text-esqGold mb-2"></i>
+                                <h4 class="font-bold text-white text-sm">Spiritualkosmos</h4>
+                                <p class="text-xs text-esqGold">Thawaf Hati Manusia</p>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-red-900/40 border-2 border-red-500 rounded-xl text-center">
+                            <p class="text-xl md:text-2xl font-black text-white uppercase tracking-widest animate-pulse">DIMANA PUSAT ORBIT KITA ?</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Refleksi Pusat Orbit",
+                category: "Landasan Teoritis",
+                html: `
+                    <div class="space-y-3 text-xs md:text-sm text-gray-300 text-justify leading-relaxed">
+                        <p>Pusat orbit apakah kiranya, yang paling bersifat abadi sehingga siapapun akan merasa tenteram di dalamnya ?</p>
+                        <p>Pusat apakah yang begitu agung dan mulianya sehingga hakim rela mempertaruhkan nyawa demi keadilan ?</p>
+                        <p>Pusat orbit apakah yang mendorong pemimpin berjuang untuk menyelamatkan para karyawannya ?</p>
+                        <p>Pusat orbit apakah yang membuat seorang begitu memuliakan sifat kasih sayang kepada anak yatim?</p>
+                        <p>Kiblat apakah yang bisa menimbulkan rasa damai abadi dalam jiwa manusia ?</p>
+                        <p>Prinsip apakah yang membuat orang memiliki rasa aman yang begitu mendalam ?</p>
+                        <p>Prinsip apakah yang bisa menghasilkan manusia-manusia yang begitu unggul?</p>
+                        <div class="pt-3 border-t border-gray-800 text-center space-y-2 mt-4">
+                            <p class="text-esqGold font-bold text-base">Siapakah nama Sang pemilik sifat tertinggi ?</p>
+                            <p class="text-white">Siapakah Sang pemilik sifat bertanggung jawab ? Siapakah sang pemilik sifat maha kasih?</p>
+                            <p class="text-red-400 font-black text-lg uppercase mt-2">LALU APAKAH PUSAT ORBITNYA?</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Dia-lah Allah (QS Al-Hasyr 59: 22-24)",
+                category: "Landasan Teoritis",
+                html: `
+                    <div class="space-y-4 my-auto">
+                        <h3 class="text-xl font-bold text-esqGold text-center uppercase tracking-wider">DIA-LAH ALLAH</h3>
+                        <div class="glass-card p-6 rounded-xl border border-esqGold/40 text-xs md:text-sm italic font-serif leading-relaxed text-gray-200 space-y-3">
+                            <p>"Dia-lah Allah yang tiada Tuhan (yang berhak disembah) selain Dia, Yang Mengetahui yang gaib dan yang nyata, Dia-lah yang maha pemurah lagi maha penyayang."</p>
+                            <p>"Dia-lah Allah yang tiada Tuhan (yang berhak disembah) selain Dia, Raja, Yang Maha Suci, Yang Maha Sejahtera, Yang Maha Perkasa, Yang Maha Kuasa, Yang Maha Memiliki Segala Keagungan..."</p>
+                            <p>"Dia-lah Allah Yang Menciptakan, Yang Mengadakan, Yang Maha Membentuk Rupa, Yang Mempunyai Nama-nama Paling Baik..."</p>
+                            <p class="text-right font-sans font-bold text-esqGold not-italic text-xs">QS Al-Hasyr 59: 22-24</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "MENGGABUNGKAN 3 KECERDASAN",
+                category: "Formula ESQ",
+                html: `
+                    <div class="space-y-5 my-auto text-center">
+                        <h3 class="text-lg md:text-xl text-white font-bold uppercase">BAGAIMANA MENGGABUNGKAN <span class="text-esqGold">3 KECERDASAN SEKALIGUS</span> SECARA SEIMBANG?</h3>
+                        
+                        <div class="relative w-56 h-56 mx-auto my-6 flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full bg-white text-black font-extrabold text-xs flex flex-col items-center justify-center shadow-[0_0_25px_#fff] z-20">
+                                <span>SQ</span>
+                                <span class="text-[8px] font-normal">Pusat Orbit</span>
+                            </div>
+                            <div class="absolute w-[80%] h-[80%] border-2 border-blue-500 rounded-full animate-orbit" style="--speed: 7s;">
+                                <div class="w-6 h-6 rounded-full bg-blue-500 text-white text-[9px] font-bold flex items-center justify-center absolute -top-3 left-1/2 -translate-x-1/2">EQ</div>
+                            </div>
+                            <div class="absolute w-full h-full border-2 border-orange-500 rounded-full animate-orbit-rev" style="--speed: 11s;">
+                                <div class="w-6 h-6 rounded-full bg-orange-500 text-white text-[9px] font-bold flex items-center justify-center absolute -bottom-3 left-1/2 -translate-x-1/2">IQ</div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-xl border border-gray-700 text-center text-xs md:text-sm">
+                            Aktifitas Fisik (IQ) dan emosi (EQ) <strong class="text-esqGold">harus mengorbit kepada SQ</strong> sebagai pusat orbit.
+                        </div>
+                    </div>`
+            },
+            {
+                title: "'ESQ MODEL'",
+                category: "Formula ESQ",
+                html: `
+                    <div class="space-y-4 my-auto">
+                        <h3 class="text-2xl text-esqGold font-black text-center tracking-widest border-b border-gray-800 pb-2">'ESQ MODEL'</h3>
+                        <ol class="list-decimal pl-5 space-y-3 text-xs md:text-sm text-justify leading-relaxed text-gray-300">
+                            <li><strong class="text-esqGold">Kecerdasan Spiritual (SQ)</strong> berisi suara hati Ilahi (fitrah) bersumber dari percikan Asmaul Husna yang bersifat Universal. Seluruh gerakan ber-Thawaf mengelilingi titik Tuhan (God Spot) seperti gerakan alam semesta (Ihsan).</li>
+                            <li><strong class="text-blue-400">Kecerdasan Emosi (EQ)</strong> dibentuk oleh 6 prinsip yang bersumber dari nilai Rukun Iman.</li>
+                            <li><strong class="text-orange-400">Aktifitas fisik dan IQ</strong> dibimbing oleh 5 langkah bersumber pada nilai Rukun Islam.</li>
+                        </ol>
+                    </div>`
+            },
+            {
+                title: "Ketertutupan Hati (Belenggu)",
+                category: "Zero Mind Process",
+                html: `
+                    <div class="space-y-4 my-auto text-center">
+                        <h3 class="text-xl font-bold text-red-400 uppercase">BELENGGU & KETERTUTUPAN HATI</h3>
+                        <div class="glass-card p-6 rounded-xl border-l-4 border-red-600 text-left italic text-xs md:text-sm font-serif leading-relaxed text-gray-200 space-y-3">
+                            <p>"Kemudian setelah itu hatimu menjadi keras seperti batu, bahkan lebih keras lagi. Padahal di antara batu-batu itu sungguh ada yang mengalir sungai-sungai daripadanya..."</p>
+                            <p class="text-right font-sans font-bold text-esqGold not-italic text-xs">Q.S 2 Al-Baqarah: 74</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Q.S 2 Al-Baqarah: 74",
+                category: "Zero Mind Process",
+                html: `
+                    <div class="space-y-4 my-auto">
+                        <div class="glass-card p-6 rounded-xl border-l-4 border-red-600 text-justify text-xs md:text-sm italic font-serif leading-relaxed text-gray-200 space-y-3">
+                            <p class="font-sans font-bold text-xs not-italic text-gray-400 text-center uppercase">Dengan Nama Allah Yang Maha Pengasih Lagi Maha Penyayang</p>
+                            <p>Kemudian setelah itu hatimu menjadi keras seperti batu, bahkan lebih keras lagi. Padahal diantara batu-batu itu sungguh ada yang mengalir sungai-sungai daripadanya, dan diantaranya sungguh ada yang terbelah lalu keluar mata air daripadanya, dan diantaranya sunguh ada yang meluncur jatuh, karena takut kepada Allah. Dan Allah sekali-kali tidak lengah dari apa yang kamu kerjakan.</p>
+                            <p class="text-right font-sans font-bold text-esqGold not-italic text-xs">Q.S 2 Al-Baqarah: 74</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Langkah 1: Jernihkan Hati (ZMP)",
+                category: "Zero Mind Process",
+                html: `
+                    <div class="space-y-5 my-auto text-center">
+                        <h3 class="text-lg text-esqGold font-bold uppercase">Langkah 1: Jernihkan hati (ZMP) dari 7 belenggu</h3>
+                        
+                        <!-- Interactive Belenggu Cards -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs font-bold my-4">
+                            <div onclick="alert('Belenggu 1: Prasangka buruk menutup pandangan jernih.')" class="glass-card p-3 rounded border border-red-500/50 text-red-300 cursor-pointer hover:bg-red-900/30">1. Prasangka Negatif</div>
+                            <div onclick="alert('Belenggu 2: Prinsip hidup yang keliru membatasi kesadaran.')" class="glass-card p-3 rounded border border-red-500/50 text-red-300 cursor-pointer hover:bg-red-900/30">2. Prinsip Hidup</div>
+                            <div onclick="alert('Belenggu 3: Pengalaman traumatis/buruk masa lalu.')" class="glass-card p-3 rounded border border-red-500/50 text-red-300 cursor-pointer hover:bg-red-900/30">3. Pengalaman</div>
+                            <div onclick="alert('Belenggu 4: Kepentingan pribadi & prioritas egoistis.')" class="glass-card p-3 rounded border border-red-500/50 text-red-300 cursor-pointer hover:bg-red-900/30">4. Kepentingan</div>
+                            <div onclick="alert('Belenggu 5: Sudut pandang yang sempit.')" class="glass-card p-3 rounded border border-red-500/50 text-red-300 cursor-pointer hover:bg-red-900/30">5. Sudut Pandang</div>
+                            <div onclick="alert('Belenggu 6: Selalu membandingkan dengan ego.')" class="glass-card p-3 rounded border border-red-500/50 text-red-300 cursor-pointer hover:bg-red-900/30">6. Pembanding</div>
+                            <div onclick="alert('Belenggu 7: Pengaruh literatur & informasi salah.')" class="glass-card p-3 rounded border border-red-500/50 text-red-300 cursor-pointer hover:bg-red-900/30 col-span-2">7. Pengaruh Literatur</div>
+                        </div>
+
+                        <div class="text-center font-black text-2xl text-white tracking-widest border-t border-gray-800 pt-3 uppercase">ZERO <span class="text-esqGold">MIND PROCESS</span></div>
+                    </div>`
+            },
+            {
+                title: "RUMUS IHSAN / FORMULA ZMP",
+                category: "Zero Mind Process",
+                html: `
+                    <div class="space-y-6 my-auto text-center">
+                        <h3 class="text-2xl text-white font-bold uppercase tracking-widest">FORMULA ZMP</h3>
+                        <div class="flex justify-center items-center space-x-6 text-6xl font-black font-mono my-6">
+                            <span class="text-white">1</span>
+                            <span class="text-gray-600 text-4xl">/</span>
+                            <span class="text-esqGold">0</span>
+                            <span class="text-gray-600 text-4xl">=</span>
+                            <span class="text-blue-400 text-7xl font-serif">∞</span>
+                        </div>
+                        <div class="space-y-3 text-xs md:text-sm leading-relaxed text-gray-300">
+                            <p>Angka berapapun jika dibagi dengan nol maka akan mendekati tak terhingga.</p>
+                            <div class="font-bold text-white glass-card p-4 rounded-xl border border-esqGold">
+                                ∴ Jika kita ikhlas dan jernih (=0) maka kita akan mendekati yang Maha Tak Terhingga yaitu Allah.
+                            </div>
+                            <p class="text-esqGold font-bold">∴ bersihkan diri dari belenggu (Zero Mind Process)</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Makna Ihsan",
+                category: "Zero Mind Process",
+                html: `
+                    <div class="space-y-6 my-auto text-center">
+                        <i class="fas fa-quote-left text-4xl text-esqGold/50"></i>
+                        <p class="italic leading-loose text-base md:text-xl font-serif text-gray-200">
+                            "Apakah yang dimaksud dengan Ihsan ?"<br><br>Rosullulah menjawab, "Beribadah kepada Allah Azza wa Jalla <strong class="text-esqGold">seakan-akan engkau melihat-Nya</strong> dan seandainya engkau tidak dapat melihat-Nya, <strong class="text-esqGold">yakinlah bahwa Dia melihatmu</strong>”.
+                        </p>
+                        <span class="block text-xs font-mono text-gray-400 uppercase tracking-widest border-t border-gray-800 pt-3">Al-Hadist, H.R. Bukhari</span>
+                    </div>`
+            },
+            {
+                title: "TUJUH LANGKAH ZMP",
+                category: "Zero Mind Process",
+                html: `
+                    <div class="space-y-4 my-auto">
+                        <h3 class="text-xl text-esqGold font-bold text-center border-b border-gray-800 pb-2">TUJUH LANGKAH ZMP</h3>
+                        <ol class="list-decimal pl-5 space-y-2 text-xs md:text-sm text-gray-300 leading-relaxed">
+                            <li>Hindari prasangka buruk, upayakan berprasangka baik kepada orang lain.</li>
+                            <li><strong class="text-white">Berprinsiplah selalu kepada Allah</strong> Yang Maha Suci.</li>
+                            <li>Bebaskan diri dari pengalaman-pengalaman yang membelenggu pikiran, berpikirlah merdeka.</li>
+                            <li><strong class="text-esqGold">Dengar suara hati</strong>, peganglah prinsip "karena Allah" berpikirlah melingkar sebelum menentukan kepentingan dan prioritas.</li>
+                            <li>Lihatlah semua sudut pandang secara bijaksana berdasarkan suara-suara hati yang bersumber dari Asmaul Husna.</li>
+                            <li>Periksa pikiran kita terlebih dahulu sebelum menilai segala sesuatu.</li>
+                            <li>Ingatlah bahwa <strong class="text-white">semua ilmu pengetahuan bersumber dari Allah SWT</strong>.</li>
+                        </ol>
+                    </div>`
+            },
+            {
+                title: "HASIL DARI ZMP",
+                category: "Zero Mind Process",
+                html: `
+                    <div class="space-y-4 my-auto text-center">
+                        <h3 class="text-2xl text-esqGold font-black font-serif uppercase tracking-widest gold-text-glow">CAHAYA DI ATAS CAHAYA</h3>
+                        <div class="glass-card p-6 rounded-xl border border-esqGold/40 text-left italic text-xs md:text-sm font-serif leading-relaxed text-gray-200 space-y-3">
+                            <p>Allah adalah cahaya langit dan bumi. Perumpamaan cahaya-Nya adalah ibarat misykat. Dalam misykat itu ada pelita. Pelita itu di dalam kaca. Kaca itu laksana bintang berkilau. Dinyalakan dengan minyak pohon yang diberkati. Pohon zaitun yang bukan di timur atau di barat, yang minyaknya saja hampir-hampir menyala dengan sendirinya walaupun tiada api menyentuhnya.</p>
+                            <p class="text-lg text-esqGold font-bold text-center not-italic py-1">Cahaya di atas cahaya !</p>
+                            <p>Allah menuntun kepada cahaya-Nya, siapa saja yang Ia kehendaki. Dan Allah membuat perumpamaan bagi manusia. Sungguh Allah mengetahui segalanya.</p>
+                            <p class="text-right font-sans font-bold text-esqGold not-italic text-xs">Q.S 24 An Nur: 35</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Langkah 2: Suara Hati (33 Fitrah)",
+                category: "Mental Building",
+                html: `
+                    <div class="space-y-3 my-auto">
+                        <h3 class="text-lg md:text-xl text-esqGold font-bold text-center">Langkah 2: Dengarlah Suara Hati Ilahiah</h3>
+                        <p class="text-center text-xs text-gray-400 font-mono">33 Sifat Fitrah Manusia (Asmaul Husna)</p>
+                        
+                        <!-- Realtime Filter Bar -->
+                        <input id="fitrah-search" type="text" placeholder="Cari sifat fitrah (cth: Pengasih, Adil)..." oninput="filterFitrahGrid(this.value)" class="w-full bg-black text-xs text-esqGold p-2 rounded border border-gray-700 focus:outline-none focus:border-esqGold">
+
+                        <div id="fitrah-grid" class="grid grid-cols-2 md:grid-cols-3 gap-1.5 text-[11px] text-center text-gray-200 max-h-48 overflow-y-auto p-2 glass-card rounded-xl">
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Pengasih Sesama</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Menguasai diri</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Berhati Jernih</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Cintai Damai</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Kejujuran</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Kreatif</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Pemaaf</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Objektif</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Adil</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Mensyukuri</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Memiliki Skill</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Enerjik</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Selalu Menghargai</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Bersikap Mulia</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Sinergis</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Berhati Luas</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Ikhlas</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Kebenaran</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Komitmen</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Murah hati</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Konsisten</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Pembuka hati</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Mandiri</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Berpengetahuan</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Inovatif</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Empati</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Bersikap Terpuji</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Pemberi Manfaat</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Inspirator</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Estetis</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Pendelegasi</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Berilmu</div>
+                            <div class="fitrah-item bg-black p-2 rounded border border-gray-800">Sabar</div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 italic font-serif">"Bukankah Aku ini Tuhanmu? Mereka menjawab: Betul kami bersaksi." (QS 7 Al-A'Raaf: 172)</p>
+                    </div>`
+            },
+            {
+                title: "7 NILAI DASAR ESQ",
+                category: "Mental Building",
+                html: `
+                    <div class="space-y-4 my-auto">
+                        <h3 class="text-xl md:text-2xl text-esqGold font-black text-center uppercase tracking-widest">7 NILAI DASAR ESQ</h3>
+                        <div class="space-y-2 text-xs md:text-sm font-bold">
+                            <div class="glass-card p-3 rounded border-l-4 border-esqGold flex justify-between">
+                                <span class="text-white">1. JUJUR</span>
+                                <span class="text-gray-400 font-normal">pengabdian kepada AL MU'MIN</span>
+                            </div>
+                            <div class="glass-card p-3 rounded border-l-4 border-esqGold flex justify-between">
+                                <span class="text-white">2. TANGGUNG JAWAB</span>
+                                <span class="text-gray-400 font-normal">pengabdian kepada AL WAKIIL</span>
+                            </div>
+                            <div class="glass-card p-3 rounded border-l-4 border-esqGold flex justify-between">
+                                <span class="text-white">3. VISIONER</span>
+                                <span class="text-gray-400 font-normal">pengabdian kepada AL AKHIR</span>
+                            </div>
+                            <div class="glass-card p-3 rounded border-l-4 border-esqGold flex justify-between">
+                                <span class="text-white">4. DISIPLIN</span>
+                                <span class="text-gray-400 font-normal">pengabdian kepada AL MATIIN</span>
+                            </div>
+                            <div class="glass-card p-3 rounded border-l-4 border-esqGold flex justify-between">
+                                <span class="text-white">5. KERJASAMA</span>
+                                <span class="text-gray-400 font-normal">pengabdian kepada AL JAAMI</span>
+                            </div>
+                            <div class="glass-card p-3 rounded border-l-4 border-esqGold flex justify-between">
+                                <span class="text-white">6. ADIL</span>
+                                <span class="text-gray-400 font-normal">pengabdian kepada AL 'ADL</span>
+                            </div>
+                            <div class="glass-card p-3 rounded border-l-4 border-esqGold flex justify-between">
+                                <span class="text-white">7. PEDULI</span>
+                                <span class="text-gray-400 font-normal">pengabdian kepada AS SAMII' & AL BASHIR</span>
+                            </div>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Fitrah Allah (QS Ar Ruum 30:30)",
+                category: "Mental Building",
+                html: `
+                    <div class="space-y-6 my-auto text-center">
+                        <i class="fas fa-book-open text-4xl text-esqGold gold-glow"></i>
+                        <p class="italic leading-loose text-base md:text-lg text-gray-200 font-serif">
+                            "Maka hadapkanlah wajahmu dengan mantap kepada agama menurut fitrah Allah yang telah menciptakan fitrah itu pada manusia. Tiada dapat diubah (hukum-hukum) ciptaan Allah. Itulah agama yang benar, Tetapi kebanyakan manusia tiada mengetahui.”
+                        </p>
+                        <span class="block text-xs font-mono text-gray-400 uppercase tracking-widest border-t border-gray-800 pt-2">QS Ar Ruum 30:30</span>
+                    </div>`
+            },
+            {
+                title: "VISI & MISI ESQ",
+                category: "Mental Building",
+                html: `
+                    <div class="space-y-6 my-auto text-center">
+                        <h3 class="text-2xl text-white font-black uppercase tracking-widest border-b border-esqGold pb-2">VISI & MISI ESQ</h3>
+                        <div class="space-y-4 max-w-sm mx-auto">
+                            <div class="glass-card p-4 rounded-xl border border-esqGold">
+                                <span class="text-xs text-gray-400 uppercase font-mono block mb-1">1. Jangka Panjang:</span>
+                                <span class="text-esqGold font-serif font-bold text-xl">Meninggal Masuk Surga</span>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl border border-gray-700">
+                                <span class="text-xs text-gray-400 uppercase font-mono block mb-1">2. Jangka Menengah:</span>
+                                <span class="text-white font-serif font-bold text-lg">Indonesia Emas 2020</span>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl border border-gray-700">
+                                <span class="text-xs text-gray-400 uppercase font-mono block mb-1">3. Jangka Pendek:</span>
+                                <span class="text-gray-300 font-serif font-bold text-base">Ikuti Rukun Islam, Iman, Ihsan</span>
+                            </div>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "MEMBANGUN MENTAL (6 RUKUN IMAN)",
+                category: "Mental Building",
+                html: `
+                    <div class="space-y-6 my-auto text-center">
+                        <h3 class="text-lg text-white font-bold uppercase">MEMBANGUN MENTAL BERDASARKAN <span class="text-esqGold font-bold block mt-1">6 RUKUN IMAN</span></h3>
+                        
+                        <div class="grid grid-cols-3 gap-2 max-w-md mx-auto my-6 text-[10px] md:text-xs font-bold items-center">
+                            <div class="glass-card border border-blue-500/50 p-2.5 rounded-xl text-blue-300">6. WELL ORGANIZED</div>
+                            <div class="glass-card border-2 border-esqGold p-2.5 rounded-xl text-esqGold">1. STAR PRINCIPLE</div>
+                            <div class="glass-card border border-blue-500/50 p-2.5 rounded-xl text-blue-300">2. ANGEL PRINCIPLE</div>
+                            
+                            <div class="glass-card border border-blue-500/50 p-2.5 rounded-xl text-blue-300">5. VISION PRINCIPLE</div>
+                            <div class="bg-white text-black p-3 rounded-full font-black text-xs h-16 w-16 flex items-center justify-center mx-auto shadow-lg">GOD SPOT</div>
+                            <div class="glass-card border border-blue-500/50 p-2.5 rounded-xl text-blue-300">3. LEADERSHIP</div>
+                            
+                            <div class="col-start-2 glass-card border border-blue-500/50 p-2.5 rounded-xl text-blue-300">4. LEARNING PRINCIPLE</div>
+                        </div>
+                        
+                        <div class="text-xs text-gray-400 font-mono uppercase tracking-widest">MENTAL BUILDING MATRIX</div>
+                    </div>`
+            },
+            {
+                title: "Langkah 3: MENTAL BUILDING",
+                category: "Mental Building",
+                html: `
+                    <div class="space-y-4 my-auto">
+                        <h3 class="text-xl text-esqGold font-bold text-center">Langkah 3: MENTAL BUILDING</h3>
+                        <p class="text-xs text-center text-gray-300 glass-card p-2 rounded">Lindungi Suara Hati Spiritual (fitrah), dan bentuk mental dengan 6 prinsip</p>
+                        <ul class="space-y-2 text-xs md:text-sm text-gray-300">
+                            <li><strong class="text-esqGold">1. Star Principle:</strong> Orientasi hanya kepada Allah</li>
+                            <li><strong class="text-esqGold">2. Angel Principle:</strong> Loyalitas seperti Malaikat</li>
+                            <li><strong class="text-esqGold">3. Leadership Principle:</strong> Meneladani Kepemimpinan Rasullulah</li>
+                            <li><strong class="text-esqGold">4. Learning Principle:</strong> Manusia pembelajar yang berpedoman pada Al-Qur'an dan Sunnah</li>
+                            <li><strong class="text-esqGold">5. Vision Principle:</strong> Visi Jauh ke depan (dunia dan akhirat)</li>
+                            <li><strong class="text-esqGold">6. Well Organized:</strong> Bersinergi dan maksimal pada segala peran</li>
+                        </ul>
+                        <p class="text-xs italic text-gray-500 border-l-2 border-gray-600 pl-3">Hai orang beriman! Berimanlah kepada Allah dan Rasul-Nya... (Q.S 4 An-Nisa: 136)</p>
+                    </div>`
+            },
+            {
+                title: "OUTPUT 6 RUKUN IMAN",
+                category: "Mental Building",
+                html: `
+                    <div class="space-y-4 my-auto">
+                        <h3 class="text-lg text-white font-bold text-center uppercase border-b border-esqGold pb-2">OUTPUT MEMBANGUN MENTAL MELALUI <span class="text-esqGold">6 RUKUN IMAN</span></h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+                            <div class="glass-card p-3 rounded-lg"><strong class="text-esqGold block">IMAN KEPADA ALLAH:</strong> Rasa Aman, Kepercayaan Diri, Integritas, Kebijaksanaan, Motivasi</div>
+                            <div class="glass-card p-3 rounded-lg"><strong class="text-esqGold block">IMAN KEPADA MALAIKAT:</strong> Loyalitas, Komitmen, Kebiasaan Memberi & Mengawal</div>
+                            <div class="glass-card p-3 rounded-lg"><strong class="text-esqGold block">IMAN KEPADA NABI & ROSUL:</strong> Pemimpin yang Dicintai & Dipercaya, Pembimbing</div>
+                            <div class="glass-card p-3 rounded-lg"><strong class="text-esqGold block">IMAN KEPADA AL QUR'AN:</strong> Kebiasaan membaca, Berpikir Kritis, Memiliki Pedoman</div>
+                            <div class="glass-card p-3 rounded-lg"><strong class="text-esqGold block">IMAN KEPADA HARI KEMUDIAN:</strong> Berorientasi Tujuan, Kendali Diri & Jaminan Masa Depan</div>
+                            <div class="glass-card p-3 rounded-lg"><strong class="text-esqGold block">IMAN KEPADA KETENTUAN ALLAH:</strong> Ketenangan Batiniah, Pemahaman Proses, Sinergi</div>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Q.S 2 Al-Baqarah 177",
+                category: "Mental Building",
+                html: `
+                    <div class="space-y-4 my-auto">
+                        <div class="glass-card p-6 rounded-xl border border-gray-700 text-xs md:text-sm italic font-serif leading-relaxed text-gray-200 space-y-3">
+                            <p class="font-sans font-bold text-xs not-italic text-gray-400 text-center uppercase">Dengan Nama Allah Yang Maha Pengasih Lagi Maha Penyayang</p>
+                            <p>Bukanlah menghadapkan wajahmu ke arah timur dan barat itu selalu kebajikan. Akan tetapi sesungguhnya kebajikan itu adalah beriman kepada Allah, Hari kemudian, Malaikat-malaikat, Kitab-kitab, Nabi-nabi dan memberikan harta yang dicintainya kepada kerabatnya, anak-anak yatim, orang-orang miskin, musafir (yang memerlukan pertolongan) dan orang-orang yang meminta-minta dan (memerdekakan) hamba sahaya, menegakan Shalat dan menunaikan Zakat, dan orang-orang yang menempati janjinya apabila ia berjanji, dan orang-orang yang sabar dalam kesempitan, penderitaan dan dalam peperangan. Mereka itulah orang-orang yang benar (imannya) dan mereka itulah orang-orang yang bertaqwa.</p>
+                            <p class="text-right font-sans font-bold text-esqGold not-italic text-xs">Q.S 2 Al-Baqarah : 177</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Langkah 4: PERSONAL & SOCIAL STRENGTH",
+                category: "Strengths",
+                html: `
+                    <div class="space-y-6 my-auto text-center">
+                        <h3 class="text-xl font-bold text-esqGold uppercase">Langkah 4: PERSONAL & SOCIAL STRENGTH</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-left max-w-lg mx-auto">
+                            <div class="glass-card p-4 rounded-xl border-l-4 border-blue-500 space-y-2">
+                                <h4 class="font-bold text-blue-400 uppercase">Personal Strength</h4>
+                                <p>1. Mission Statement (Syahadat)</p>
+                                <p>2. Character Building (Shalat)</p>
+                                <p>3. Self Controlling (Puasa)</p>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl border-l-4 border-emerald-500 space-y-2">
+                                <h4 class="font-bold text-emerald-400 uppercase">Social Strength</h4>
+                                <p>4. Strategic Collaboration (Zakat)</p>
+                                <p>5. Total Action (Haji)</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-3 rounded text-xs text-gray-300">
+                            MEMBANGUN KETANGGUHAN PRIBADI DAN SOSIAL DENGAN 5 LANGKAH FISIK BERDASARKAN RUKUN ISLAM
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Penjelasan Personal & Social Strength",
+                category: "Strengths",
+                html: `
+                    <div class="space-y-4 my-auto text-xs md:text-sm text-gray-300">
+                        <h3 class="text-xl text-white font-bold text-center uppercase border-b border-esqGold pb-2">PERSONAL & SOCIAL STRENGTH</h3>
+                        <div class="space-y-3">
+                            <div class="glass-card p-3.5 rounded-xl border-l-4 border-blue-500 space-y-1">
+                                <strong class="text-blue-400 uppercase block">Personal Strength</strong>
+                                <p><strong class="text-white">1. Mission Statement:</strong> Tetapkan misi kehidupan sebagai rahmatan lil a'lamiin melalui syahadat.</p>
+                                <p><strong class="text-white">2. Character Building:</strong> Bangun karakter agung melalui shalat.</p>
+                                <p><strong class="text-white">3. Self Controlling:</strong> Mampu mengendalikan diri untuk memastikan semua aktifitas pada garis orbit (puasa).</p>
+                            </div>
+                            <div class="glass-card p-3.5 rounded-xl border-l-4 border-emerald-500 space-y-1">
+                                <strong class="text-emerald-400 uppercase block">Social Strength</strong>
+                                <p><strong class="text-white">4. Strategic Collaboration:</strong> Ciptakan kolaborasi, keluarkan (zakatkan) semua potensi fitrah, bangun melalui zakat.</p>
+                                <p><strong class="text-white">5. Total Action:</strong> Aplikasi total secara fisik sebagai wakil Allah di muka bumi melalui hikmah haji.</p>
+                            </div>
+                        </div>
+                        <p class="italic text-xs text-gray-500 text-center">Shibghoh Allah ("Celupan" Allah). Siapakah yang lebih baik shibghohnya dari pada Allah? (Q.S 2 Al-Baqarah : 138)</p>
+                    </div>`
+            },
+            {
+                title: "DASAR ESQ (AL-FATIHAH)",
+                category: "Strengths",
+                html: `
+                    <div class="space-y-4 my-auto">
+                        <h3 class="text-xl text-esqGold font-bold text-center uppercase tracking-widest">DASAR ESQ</h3>
+                        <p class="text-center text-white font-serif italic border-b border-gray-800 pb-2">Sang Ibunda Al-Qur'an Al-Fatihah</p>
+                        <ol class="list-decimal pl-5 space-y-2 text-xs md:text-sm text-gray-300">
+                            <li>Intisari Al-Qur'an Al Karim</li>
+                            <li>Pembisik kebenaran yang abadi</li>
+                            <li>Pembuka bagi keberkahan dan kebaikan</li>
+                            <li>Penyembuh hati & pikiran yang tidak sehat</li>
+                            <li>Pedoman kecerdasan hati & akhlak manusia</li>
+                            <li>Bekal maha penting meraih cita-cita dan harapan</li>
+                            <li>Rasa syukur dari segala hasil dan pencapaian</li>
+                        </ol>
+                        <div class="glass-card p-3 rounded-xl border border-esqGold text-center">
+                            <p class="text-esqGold font-bold">AutoPilot / Bushido-nya Muslimin & Muslimat</p>
+                            <p class="text-xs italic text-gray-400 font-serif">"Dan telah kami berikan kepada mu As Sab'an minal Matsany (tujuh ayat Al-Fatihah)..." (Q.S Al Hijr: 87)</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "JAWABAN ALLAH (HADIST QUDSI)",
+                category: "Strengths",
+                html: `
+                    <div class="space-y-4 my-auto">
+                        <h3 class="text-xl text-esqGold font-bold text-center uppercase border-b border-gray-800 pb-2">JAWABAN ALLAH</h3>
+                        <div class="text-xs md:text-sm leading-relaxed space-y-3 glass-card p-5 rounded-xl font-serif">
+                            <p><span class="text-gray-400 block">Seorang hamba berkata: "Segala puji bagi Allah Tuhan semesta alam".</span><strong class="text-esqGold block">Allah menjawab: "Hamba-Ku telah memuji-Ku".</strong></p>
+                            <p><span class="text-gray-400 block">Sang hamba berkata: "Maha Pengasih lagi Maha Penyayang".</span><strong class="text-esqGold block">Allah menjawab: "Hambaku telah menyanjung-Ku".</strong></p>
+                            <p><span class="text-gray-400 block">Sang hamba berkata: "Raja yang menguasai hari pembalasan".</span><strong class="text-esqGold block">Allah menjawab: "Hamba-Ku telah memuliakan-Ku".</strong></p>
+                            <p><span class="text-gray-400 block">Sang hamba berkata: "Hanya kepada Engkaulah kami menyembah dan hanya kepada Engkaulah kami mohon pertolongan".</span><strong class="text-esqGold block">Allah menjawab: "Ayat ini antara Aku dan hamba-Ku setengah-setengah dan hamba-Ku berhak atas apa yang diminta".</strong></p>
+                        </div>
+                        <p class="text-center text-gray-500 font-bold uppercase text-xs">Hadist Qudsi</p>
+                    </div>`
+            },
+            {
+                title: "Hijab Terangkat",
+                category: "Strengths",
+                html: `
+                    <div class="space-y-6 my-auto text-center">
+                        <i class="fas fa-eye text-4xl text-esqGold gold-glow"></i>
+                        <p class="italic leading-loose text-base md:text-xl font-serif text-gray-200">
+                            “Hatiku telah melihat Tuhanku karena hijab (tirai) telah terangkat oleh taqwa. Barang siapa yang telah terangkat hijab (tirai) antara dirinya dan Allah, maka menjadi jelaslah di dalam hatinya akan gambaran kerajaan bumi dan kerajaan langit".
+                        </p>
+                        <span class="block text-xs font-mono text-esqGold uppercase tracking-widest border-t border-gray-800 pt-3">SAYYIDINA UMAR BIN KHATTAB RA</span>
+                    </div>`
+            },
+            {
+                title: "PROSES ESQ MODEL",
+                category: "Aplikasi",
+                html: `
+                    <div class="space-y-4 my-auto text-center">
+                        <h3 class="text-xl text-esqGold font-bold uppercase tracking-widest">PROSES ESQ</h3>
+                        <div class="flex flex-col items-center space-y-2 text-xs font-bold max-w-sm mx-auto">
+                            <div class="w-full bg-white text-black p-3 rounded-xl shadow-lg">GOD SPOT (Suara Hati / Ihsan)</div>
+                            <i class="fas fa-arrow-down text-esqGold"></i>
+                            <div class="w-full bg-gray-800 text-gray-200 p-3 rounded-xl border border-gray-600">ZERO MIND PROCESS (Penjernihan Emosi)</div>
+                            <i class="fas fa-arrow-down text-esqGold"></i>
+                            <div class="w-full glass-card border border-blue-500 p-3 rounded-xl text-blue-300">1. Membangun Mental (Rukun Iman)</div>
+                            <i class="fas fa-arrow-down text-esqGold"></i>
+                            <div class="w-full glass-card border border-emerald-500 p-3 rounded-xl text-emerald-300">2. Ketangguhan Pribadi & Sosial (Rukun Islam)</div>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "THE ESQ WAY 165 FORMULA",
+                category: "Aplikasi",
+                html: `
+                    <div class="space-y-4 my-auto">
+                        <h3 class="text-2xl text-white font-black text-center tracking-widest border-b border-gray-800 pb-2">THE ESQ WAY <span class="text-esqGold">165</span></h3>
+                        <div class="space-y-4 text-xs md:text-sm glass-card p-5 rounded-xl border border-esqGold/30">
+                            <div><strong class="text-esqGold text-base block">1 (Satu) Hati:</strong><span class="text-gray-300">Allah melihat setiap langkahku</span></div>
+                            <div class="border-t border-gray-800 pt-3"><strong class="text-esqGold text-base block">6 (Enam) Prinsip:</strong>
+                                <ol class="list-decimal pl-5 space-y-1 text-gray-300 mt-1">
+                                    <li>Allah adalah Tuhanku</li>
+                                    <li>Malaikat mencatat perbuatanku</li>
+                                    <li>Nabi dan Rosul teladanku</li>
+                                    <li>Kitab Suci Pedomanku</li>
+                                    <li>Hari Kemudian Cita-citaku</li>
+                                    <li>Ikhlas dan Tawakal Sikapku</li>
+                                </ol>
+                            </div>
+                            <div class="border-t border-gray-800 pt-3"><strong class="text-esqGold text-base block">5 (Lima) Langkah:</strong>
+                                <ol class="list-decimal pl-5 space-y-1 text-gray-300 mt-1">
+                                    <li>Pengabdian kepada Allah syahadatku</li>
+                                    <li>Sholat karakterku</li>
+                                    <li>Puasa bentengku</li>
+                                    <li>Zakat keluarkan potensiku</li>
+                                    <li>Haji derap langkahku</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "MEMELIHARA ESQ",
+                category: "Aplikasi",
+                html: `
+                    <div class="space-y-4 my-auto">
+                        <h3 class="text-xl text-esqGold font-bold text-center uppercase tracking-widest border-b border-gray-800 pb-2">MEMELIHARA ESQ</h3>
+                        <ol class="list-decimal pl-5 space-y-3 text-xs md:text-sm text-gray-300">
+                            <li>Jernihkan hati (ZMP) dengan Istigfar, Wudhu & Ihram</li>
+                            <li>Hidupkan cahaya hati (God Spot) dengan Dzikir Asma'ul Husna setiap hari / rutin</li>
+                            <li>Bangun mental (Mental Building) dengan Tasbih, Tahmid, Tahlil dan Takbir setiap selesai sholat.</li>
+                            <li>Bangun ketangguhan Pribadi (Personal Strength) dengan Syahadat, Shalat dan Puasa</li>
+                            <li>Bangun ketangguhan Sosial (Social Strength) dengan Zakat dan Haji</li>
+                            <li>Baca Al Qur'an dan artinya setiap pagi setelah sholat shubuh</li>
+                            <li class="glass-card p-2 rounded border-l-4 border-esqGold">Peliharalah dan tingkatkan silaturahmi serta saling mendoakan sesama manusia.</li>
+                        </ol>
+                    </div>`
+            },
+            {
+                title: "Masalah & Tantangan (Flowchart Presisi)",
+                category: "Aplikasi",
+                html: `
+                    <div class="space-y-4 my-auto text-center">
+                        <h3 class="text-xl text-white font-bold uppercase border-b border-gray-800 pb-2">Masalah & Tantangan</h3>
+                        
+                        <!-- Precise SVG Flowchart Diagram (Zero Overlap) -->
+                        <div class="w-full flex justify-center overflow-x-auto my-2">
+                            <svg viewBox="0 0 500 420" class="w-full max-w-lg h-auto">
+                                <!-- Top Node -->
+                                <rect x="150" y="10" width="200" height="36" rx="8" fill="#991b1b" stroke="#f87171" stroke-width="2"/>
+                                <text x="250" y="33" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle">Masalah & Tantangan</text>
+                                
+                                <line x1="250" y1="46" x2="250" y2="70" stroke="#9ca3af" stroke-width="2"/>
+                                
+                                <rect x="175" y="70" width="150" height="30" rx="6" fill="#c2410c" stroke="#fb923c" stroke-width="2"/>
+                                <text x="250" y="90" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">Radar Hati</text>
+
+                                <!-- Fork Lines -->
+                                <line x1="250" y1="100" x2="125" y2="130" stroke="#9ca3af" stroke-width="2"/>
+                                <line x1="250" y1="100" x2="375" y2="130" stroke="#9ca3af" stroke-width="2"/>
+
+                                <!-- Left Branch (Materialisme) -->
+                                <g transform="translate(25, 130)">
+                                    <rect x="0" y="0" width="200" height="210" rx="10" fill="#450a0a" stroke="#ef4444" stroke-width="1.5"/>
+                                    <text x="100" y="25" fill="#fca5a5" font-size="11" font-weight="bold" text-anchor="middle">Orientasi Materialisme</text>
+                                    <text x="100" y="45" fill="#ef4444" font-size="10" text-anchor="middle">~ EQ ~ Emosi Tak Terkendali</text>
+                                    <text x="100" y="65" fill="#cbd5e1" font-size="9" text-anchor="middle">(Marah, Sedih, Kesal, Takut)</text>
+                                    
+                                    <text x="100" y="95" fill="#ef4444" font-size="10" text-anchor="middle">~ SQ ~ God Spot Terbelenggu</text>
+                                    <text x="100" y="115" fill="#cbd5e1" font-size="9" text-anchor="middle">Suara Hati Spiritual Tertutup</text>
+
+                                    <text x="100" y="145" fill="#ef4444" font-size="10" text-anchor="middle">~ IQ ~ Logika Tak Normal</text>
+                                    
+                                    <rect x="15" y="165" width="170" height="30" rx="5" fill="#7f1d1d" stroke="#f87171" stroke-width="1"/>
+                                    <text x="100" y="184" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">IQ, EQ, SQ Terpisah</text>
+                                </g>
+
+                                <!-- Right Branch (Tauhid Spiritualisme) -->
+                                <g transform="translate(275, 130)">
+                                    <rect x="0" y="0" width="200" height="210" rx="10" fill="#064e3b" stroke="#10b981" stroke-width="1.5"/>
+                                    <text x="100" y="25" fill="#6ee7b7" font-size="11" font-weight="bold" text-anchor="middle">Orientasi Tauhid</text>
+                                    <text x="100" y="45" fill="#34d399" font-size="10" text-anchor="middle">~ DIMENSI EMOSI ~</text>
+                                    <text x="100" y="65" fill="#cbd5e1" font-size="9" text-anchor="middle">Emosi Terkendali & Tenang</text>
+                                    
+                                    <text x="100" y="95" fill="#34d399" font-size="10" text-anchor="middle">~ DIMENSI SPIRITUAL ~</text>
+                                    <text x="100" y="115" fill="#cbd5e1" font-size="9" text-anchor="middle">God Spot & Suara Hati Aktif</text>
+
+                                    <text x="100" y="145" fill="#34d399" font-size="10" text-anchor="middle">~ DIMENSI FISIK ~ Logika Normal</text>
+                                    
+                                    <rect x="15" y="165" width="170" height="30" rx="5" fill="#1e3a8a" stroke="#60a5fa" stroke-width="1"/>
+                                    <text x="100" y="184" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">IQ, EQ, SQ Terintegrasi</text>
+                                </g>
+
+                                <!-- 10-Point Star Meta Intelligence Node -->
+                                <polygon points="250,350 260,370 282,365 270,382 285,398 263,395 250,415 237,395 215,398 230,382 218,365 240,370" fill="#d4af37" stroke="#fff" stroke-width="2"/>
+                                <text x="250" y="387" fill="#000" font-size="9" font-weight="900" text-anchor="middle">META KECERDASAN</text>
+                            </svg>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Sampaikan Walau Satu Ayat",
+                category: "Aplikasi",
+                html: `
+                    <div class="space-y-6 my-auto text-center">
+                        <h3 class="text-3xl text-white font-black uppercase">Sampaikan walaupun satu ayat</h3>
+                        <p class="text-esqGold text-sm font-bold tracking-widest">(Al-Hadist)</p>
+                        <p class="leading-loose text-gray-300 text-sm md:text-base px-4 glass-card p-6 rounded-xl border-l-4 border-esqGold font-serif">
+                            Diharapkan penyebar luasan konsep pembangunan kecerdasan emosi dan spiritual yang berpegang teguh pada nilai-nilai luhur Rukun Iman, Rukun Islam dan Ihsan yang terstruktur dalam format ESQ Model dapat cepat tersosialisasikan ke seluruh masyarakat.
+                        </p>
+                    </div>`
+            },
+            {
+                title: "Kurma di Tangan",
+                category: "Aplikasi",
+                html: `
+                    <div class="space-y-8 my-auto text-center font-serif">
+                        <div class="space-y-2">
+                            <p class="italic leading-relaxed text-base md:text-lg text-gray-200">
+                                "Jika engkau memiliki sebiji kurma di tanganmu maka tanamlah, Meskipun besok akan kiamat, semoga engkau mendapat pahala"
+                            </p>
+                            <p class="text-esqGold font-sans font-bold text-xs uppercase">(Al-Hadist)</p>
+                        </div>
+                        <div class="w-24 h-px bg-gray-800 mx-auto"></div>
+                        <div class="space-y-2">
+                            <p class="italic leading-relaxed text-base md:text-lg text-gray-200">
+                                "Jikalau sekiranya penduduk negeri beriman dan bertakwa, pastilah Kami akan melimpahkan kepada mereka berkah dari langit dan bumi"
+                            </p>
+                            <p class="text-esqGold font-sans font-bold text-xs uppercase">(Q.S 7 Al-A'raaf: 96)</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "ESQ MENYEBAR KE MANCANEGARA",
+                category: "Aplikasi",
+                html: `
+                    <div class="space-y-4 my-auto text-center">
+                        <h3 class="text-2xl text-white font-black uppercase">ESQ MENYEBAR KE <span class="text-esqGold">MANCANEGARA</span></h3>
+                        <div class="glass-card p-4 rounded-xl border border-gray-800 text-xs text-gray-400 font-mono leading-relaxed">
+                            <p class="text-white font-bold mb-1">Peta Persebaran:</p>
+                            <p>BANDA ACEH - MEDAN - PAKAN BARU - PADANG - JAMBI - BENGKULU - PALEMBANG - LAMPUNG - DKI JAKARTA - BANDUNG - SEMARANG - YOGYAKARTA - SURABAYA - DENPASAR - MATARAM - PONTIANAK - PALANGKA RAYA - BANJARMASIN - BALIKPAPAN - PALI - MANADO - KENDARI - UJUNG PANDANG - AMBON - KUPANG - JAYAPURA</p>
+                            <p class="mt-2 text-esqGold font-bold">Malaysia, Brunei, Belanda.</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl border border-esqGold/40 text-xs md:text-sm italic font-serif leading-relaxed text-gray-200">
+                            "Apabila telah datang pertolongan Allah dan Kemenangan; dan kamu lihat manusia masuk (Diin) Allah dengan berbondong-bondong, Maka bertasbihlah dengan memuji Tuhan Mu dan mohonlah ampun kepada-Nya..." (Q.S An Nashr : 1-3)
+                        </div>
+                    </div>`
+            },
+            {
+                title: "THE ESQ WAY 165 (Penutup)",
+                category: "Aplikasi",
+                html: `
+                    <div class="flex flex-col items-center justify-center min-h-[50vh] text-center space-y-4 my-auto">
+                        <h1 class="text-5xl md:text-7xl font-black text-white tracking-widest animate-pulse">THE ESQ WAY</h1>
+                        <h2 class="text-7xl md:text-9xl font-serif font-black text-esqGold gold-text-glow">165</h2>
+                        <p class="text-xs text-gray-400 font-mono tracking-widest uppercase">Pantang Gelap Sebelum Terang</p>
+                    </div>`
+            },
+            {
+                title: "Sumber Materi",
+                category: "Aplikasi",
+                html: `
+                    <div class="space-y-4 my-auto text-xs md:text-sm text-gray-300">
+                        <h3 class="text-xl text-esqGold font-bold uppercase border-b border-gray-800 pb-2">Materi dari buku ini bersumber dari :</h3>
+                        <ol class="list-decimal pl-5 space-y-3 font-serif">
+                            <li>Rahasia Sukses Membangun Kecerdasan Emosi dan Spiritual (ESQ), Ary Ginanjar Agustian, 2001.</li>
+                            <li>Rahasia Sukses Membangkitkan ESQ Power, Sebuah Inner Journey Melalui Al-Ihsan, Ary Ginanjar Agustian, 2003.</li>
+                            <li>Buku Saku ESQ</li>
+                            <li>Buku Pegangan Alumni ESQ / BPMIGAS</li>
+                        </ol>
+                    </div>`
+            }
+        ];
+
+        /* --------------------------------------------------
+           CORE ENGINE & NAVIGATION
+           -------------------------------------------------- */
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedSlide = localStorage.getItem('esq_last_slide');
+            if (savedSlide !== null) {
+                currentSlideIndex = parseInt(savedSlide, 10);
+            }
+            renderSlide(currentSlideIndex);
+            registerServiceWorker();
+            setupPWAInstallPrompt();
+            setupTouchAndKeyboardListeners();
+        });
+
+        function renderSlide(index) {
+            if (index < 0 || index >= slidesData.length) return;
+            currentSlideIndex = index;
+            localStorage.setItem('esq_last_slide', currentSlideIndex);
+
+            slideStage.classList.remove('slide-fade-enter');
+            void slideStage.offsetWidth;
+            slideStage.classList.add('slide-fade-enter');
+
+            slideStage.innerHTML = slidesData[currentSlideIndex].html;
+            slideInputNum.value = currentSlideIndex + 1;
+            currentSlideTitleHead.innerText = slidesData[currentSlideIndex].title;
+            
+            const progressPct = ((currentSlideIndex + 1) / slidesData.length) * 100;
+            topProgressBar.style.width = `${progressPct}%`;
+
+            btnPrev.disabled = currentSlideIndex === 0;
+            btnNext.disabled = currentSlideIndex === slidesData.length - 1;
+
+            updateBookmarkButtonUI();
+
+            if (isTTSPlaying) {
+                window.speechSynthesis.cancel();
+                isTTSPlaying = false;
+                iconTTS.classList.replace('fa-pause', 'fa-volume-high');
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < slidesData.length - 1) {
+                renderSlide(currentSlideIndex + 1);
+                mainScrollViewport.scrollTop = 0;
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                renderSlide(currentSlideIndex - 1);
+                mainScrollViewport.scrollTop = 0;
+            }
+        }
+
+        function jumpToSlideInput(val) {
+            let num = parseInt(val, 10) - 1;
+            if (isNaN(num)) num = 0;
+            if (num < 0) num = 0;
+            if (num >= slidesData.length) num = slidesData.length - 1;
+            renderSlide(num);
+        }
+
+        function goToMainPage() {
+            pageLanding.classList.remove('active');
+            setTimeout(() => { pageMain.classList.add('active'); }, 200);
+        }
+
+        function goToLandingPage() {
+            pageMain.classList.remove('active');
+            setTimeout(() => { pageLanding.classList.add('active'); }, 200);
+        }
+
+        /* Font Size Zoom Controller */
+        function adjustFontSize(delta) {
+            fontScale = Math.min(Math.max(0.75, fontScale + delta), 1.6);
+            document.documentElement.style.setProperty('--font-scale', fontScale);
+        }
+
+        function resetFontSize() {
+            fontScale = 1.0;
+            document.documentElement.style.setProperty('--font-scale', fontScale);
+        }
+
+        /* Interactive Orbit Controls (Slide 14) */
+        function toggleOrbitAnimation() {
+            orbitPlayState = orbitPlayState === 'running' ? 'paused' : 'running';
+            document.documentElement.style.setProperty('--orbit-play-state', orbitPlayState);
+        }
+
+        function changeOrbitSpeed() {
+            orbitSpeedMultiplier = orbitSpeedMultiplier === 1 ? 2 : (orbitSpeedMultiplier === 2 ? 0.5 : 1);
+            document.getElementById('speed-indicator').innerText = orbitSpeedMultiplier;
+            const newSpeed = 8 / orbitSpeedMultiplier;
+            document.documentElement.style.setProperty('--speed', `${newSpeed}s`);
+        }
+
+        /* 33 Fitrah Live Filter */
+        function filterFitrahGrid(query) {
+            const items = document.querySelectorAll('.fitrah-item');
+            const q = query.toLowerCase();
+            items.forEach(item => {
+                if (item.innerText.toLowerCase().includes(q)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        /* Ambient Sound Synth (432Hz) */
+        function toggleAmbientSound() {
+            if (!isAudioPlaying) {
+                try {
+                    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    if (audioCtx.state === 'suspended') audioCtx.resume();
+
+                    ambientOsc1 = audioCtx.createOscillator();
+                    ambientOsc2 = audioCtx.createOscillator();
+                    ambientGain = audioCtx.createGain();
+
+                    ambientOsc1.type = 'sine';
+                    ambientOsc1.frequency.setValueAtTime(216, audioCtx.currentTime);
+                    ambientOsc2.type = 'sine';
+                    ambientOsc2.frequency.setValueAtTime(432, audioCtx.currentTime);
+
+                    ambientGain.gain.setValueAtTime(0.01, audioCtx.currentTime);
+                    ambientGain.gain.exponentialRampToValueAtTime(0.1, audioCtx.currentTime + 2);
+
+                    ambientOsc1.connect(ambientGain);
+                    ambientOsc2.connect(ambientGain);
+                    ambientGain.connect(audioCtx.destination);
+
+                    ambientOsc1.start();
+                    ambientOsc2.start();
+
+                    isAudioPlaying = true;
+                    iconAudio.classList.replace('fa-music', 'fa-pause');
+                    btnAudio.classList.add('border-esqGold', 'text-esqGold');
+                } catch(e) {}
+            } else {
+                if (ambientGain && audioCtx) {
+                    ambientGain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1);
+                    setTimeout(() => {
+                        if (ambientOsc1) ambientOsc1.stop();
+                        if (ambientOsc2) ambientOsc2.stop();
+                        isAudioPlaying = false;
+                        iconAudio.classList.replace('fa-pause', 'fa-music');
+                        btnAudio.classList.remove('border-esqGold', 'text-esqGold');
+                    }, 1000);
+                }
+            }
+        }
+
+        /* Text to Speech Narator */
+        function toggleTTS() {
+            if (!('speechSynthesis' in window)) return;
+            if (isTTSPlaying) {
+                window.speechSynthesis.cancel();
+                isTTSPlaying = false;
+                iconTTS.classList.replace('fa-pause', 'fa-volume-high');
+                btnTTS.classList.remove('border-esqGold', 'text-esqGold');
+            } else {
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = slidesData[currentSlideIndex].html;
+                const textToRead = tempDiv.innerText || tempDiv.textContent;
+
+                const utterance = new SpeechSynthesisUtterance(textToRead);
+                utterance.lang = 'id-ID';
+                utterance.rate = 0.95;
+
+                utterance.onend = () => {
+                    isTTSPlaying = false;
+                    iconTTS.classList.replace('fa-pause', 'fa-volume-high');
+                    btnTTS.classList.remove('border-esqGold', 'text-esqGold');
+                };
+
+                window.speechSynthesis.speak(utterance);
+                isTTSPlaying = true;
+                iconTTS.classList.replace('fa-volume-high', 'fa-pause');
+                btnTTS.classList.add('border-esqGold', 'text-esqGold');
+            }
+        }
+
+        /* Bookmarks System */
+        function toggleBookmark() {
+            const index = bookmarks.indexOf(currentSlideIndex);
+            if (index > -1) bookmarks.splice(index, 1);
+            else bookmarks.push(currentSlideIndex);
+            localStorage.setItem('esq_bookmarks', JSON.stringify(bookmarks));
+            updateBookmarkButtonUI();
+        }
+
+        function updateBookmarkButtonUI() {
+            if (bookmarks.includes(currentSlideIndex)) {
+                iconBookmark.classList.replace('far', 'fas');
+                btnBookmark.classList.add('text-esqGold', 'border-esqGold');
+            } else {
+                iconBookmark.classList.replace('fas', 'far');
+                btnBookmark.classList.remove('text-esqGold', 'border-esqGold');
+            }
+        }
+
+        /* TOC Modal */
+        let isFilteringBookmarks = false;
+        function openTocModal() {
+            renderTocItems();
+            modalTocOverlay.classList.remove('hidden');
+            requestAnimationFrame(() => modalTocOverlay.classList.remove('opacity-0'));
+        }
+
+        function closeTocModal() {
+            modalTocOverlay.classList.add('opacity-0');
+            setTimeout(() => modalTocOverlay.classList.add('hidden'), 300);
+        }
+
+        function renderTocItems(filterQuery = '') {
+            let html = '';
+            slidesData.forEach((slide, idx) => {
+                const isBookmarked = bookmarks.includes(idx);
+                if (isFilteringBookmarks && !isBookmarked) return;
+
+                if (filterQuery) {
+                    const q = filterQuery.toLowerCase();
+                    if (!slide.title.toLowerCase().includes(q) && !slide.category.toLowerCase().includes(q)) return;
+                }
+
+                const isActive = idx === currentSlideIndex;
+                html += `
+                    <div onclick="jumpFromToc(${idx})" class="w-full p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${isActive ? 'bg-esqGold/20 border-esqGold text-white font-bold' : 'bg-black/40 border-gray-800 text-gray-300'}">
+                        <div class="flex items-center space-x-3 truncate">
+                            <span class="w-6 h-6 rounded-full font-mono text-[11px] flex items-center justify-center shrink-0 ${isActive ? 'bg-esqGold text-black font-extrabold' : 'bg-gray-800 text-gray-400'}">${idx + 1}</span>
+                            <div class="truncate">
+                                <p class="text-xs md:text-sm truncate">${slide.title}</p>
+                                <span class="text-[10px] text-gray-500 uppercase tracking-widest font-mono">${slide.category}</span>
+                            </div>
+                        </div>
+                        ${isBookmarked ? '<i class="fas fa-bookmark text-esqGold text-xs shrink-0 ml-2"></i>' : ''}
+                    </div>`;
+            });
+            tocListContainer.innerHTML = html || `<p class="text-center text-xs text-gray-500 py-6">Slide tidak ditemukan.</p>`;
+        }
+
+        function filterTocList(val) { renderTocItems(val); }
+        function toggleTocFilterBookmarks() {
+            isFilteringBookmarks = !isFilteringBookmarks;
+            document.getElementById('btn-filter-bm').classList.toggle('bg-esqGold');
+            document.getElementById('btn-filter-bm').classList.toggle('text-black');
+            renderTocItems(document.getElementById('toc-search-input').value);
+        }
+        function jumpFromToc(idx) { closeTocModal(); setTimeout(() => renderSlide(idx), 200); }
+
+        /* Keyboard & Touch Gesture Handlers */
+        function setupTouchAndKeyboardListeners() {
+            document.addEventListener('keydown', (e) => {
+                if (!modalTocOverlay.classList.contains('hidden')) {
+                    if (e.key === 'Escape') closeTocModal();
+                    return;
+                }
+                if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
+                if (e.key === 'ArrowLeft') prevSlide();
+                if (e.key === 'Home') renderSlide(0);
+                if (e.key === 'End') renderSlide(slidesData.length - 1);
+            });
+
+            let startX = 0, startY = 0;
+            mainScrollViewport.addEventListener('touchstart', (e) => {
+                startX = e.changedTouches[0].screenX;
+                startY = e.changedTouches[0].screenY;
+            }, { passive: true });
+
+            mainScrollViewport.addEventListener('touchend', (e) => {
+                const diffX = e.changedTouches[0].screenX - startX;
+                const diffY = e.changedTouches[0].screenY - startY;
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 60) {
+                    if (diffX < 0) nextSlide();
+                    else prevSlide();
+                }
+            }, { passive: true });
+        }
+
+        /* PWA Service Worker & Manifest Installation */
+        function registerServiceWorker() {
+            if ('serviceWorker' in navigator) {
+                const swCode = `
+                    self.addEventListener('install', (e) => self.skipWaiting());
+                    self.addEventListener('activate', (e) => self.clients.claim());
+                    self.addEventListener('fetch', (e) => e.respondWith(fetch(e.request).catch(() => caches.match(e.request))));
+                `;
+                const blob = new Blob([swCode], { type: 'text/javascript' });
+                navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(() => {});
+            }
+
+            const manifestObj = {
+                name: "Modern Spiritual - The ESQ Way 165",
+                short_name: "ESQ 165",
+                start_url: "./",
+                display: "standalone",
+                background_color: "#050505",
+                theme_color: "#050505",
+                icons: [{ src: "logo.png", sizes: "192x192 512x512", type: "image/png" }]
+            };
+            const link = document.createElement('link');
+            link.rel = 'manifest';
+            link.href = URL.createObjectURL(new Blob([JSON.stringify(manifestObj)], { type: 'application/json' }));
+            document.head.appendChild(link);
+        }
+
+        function setupPWAInstallPrompt() {
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPWAInstallPrompt = e;
+                document.getElementById('pwa-install-btn')?.classList.remove('hidden');
+            });
+        }
+
+        function triggerPWAInstall() {
+            if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+                document.getElementById('modal-ios-install').classList.remove('hidden');
+                return;
+            }
+            if (deferredPWAInstallPrompt) {
+                deferredPWAInstallPrompt.prompt();
+                deferredPWAInstallPrompt.userChoice.then((choice) => {
+                    if (choice.outcome === 'accepted') document.getElementById('pwa-install-btn')?.classList.add('hidden');
+                    deferredPWAInstallPrompt = null;
+                });
+            }
+        }
+    </script>
+</body>
+</html>
